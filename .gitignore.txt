@@ -1,0 +1,8 @@
+logs/
+checkpoints/
+results/
+*.pth
+*.pt
+*.h5
+*.log
+__pycache__/

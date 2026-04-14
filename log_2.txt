@@ -1,0 +1,216 @@
+
+(base) C:\Users\hanee>conda activate eanet
+
+(eanet) C:\Users\hanee>cd project
+
+(eanet) C:\Users\hanee\Project>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 263D-E2E5
+
+ Directory of C:\Users\hanee\Project
+
+14-04-2026  21:45    <DIR>          .
+14-04-2026  21:45    <DIR>          ..
+14-04-2026  21:50    <DIR>          facial-emotion-recognition
+               0 File(s)              0 bytes
+               3 Dir(s)  414,473,891,840 bytes free
+
+(eanet) C:\Users\hanee\Project>cd facial-emotion-recognition
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c "from PIL import Image; img = Image.open('data/FER2013_SR/train/angry/PrivateTest_88305.png'); print(img.size)"
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\PIL\Image.py", line 3247, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'data/FER2013_SR/train/angry/PrivateTest_88305.png'
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c "from PIL import Image; img = Image.open('data/FER2013_SR/train/angry/Training_3908.png'); print(img.size)"
+(192, 192)
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 16 --lr 0.001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+
+Epoch 1/20  LR=0.001000
+    [train] Acc=14.28%  Prec=14.54%  Rec=14.41%  F1=10.87%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 710.3s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 2/20  LR=0.001000
+    [train] Acc=14.64%  Prec=14.57%  Rec=14.61%  F1=7.15%
+    [val]   Acc=1.56%  Prec=14.51%  Rec=14.30%  F1=0.47%
+  time: 305.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 3/20  LR=0.001000
+    [train] Acc=14.74%  Prec=14.66%  Rec=14.65%  F1=6.67%
+    [val]   Acc=1.56%  Prec=7.36%  Rec=14.30%  F1=0.47%
+  time: 214.1s
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 4/20  LR=0.001000
+    [train] Acc=15.33%  Prec=17.03%  Rec=15.10%  F1=6.89%
+    [val]   Acc=1.59%  Prec=8.79%  Rec=14.34%  F1=0.54%
+  time: 181.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 5/20  LR=0.001000
+    [train] Acc=15.14%  Prec=15.74%  Rec=15.10%  F1=6.51%
+    [val]   Acc=1.62%  Prec=9.15%  Rec=14.37%  F1=0.61%
+  time: 161.5s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+  [ckpt] Saved → checkpoints\fer_epoch005.pth
+
+Epoch 6/20  LR=0.001000
+    [train] Acc=15.48%  Prec=16.04%  Rec=15.24%  F1=6.62%
+    [val]   Acc=1.66%  Prec=7.84%  Rec=14.42%  F1=0.71%
+  time: 155.9s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 7/20  LR=0.001000
+    [train] Acc=15.59%  Prec=17.27%  Rec=15.51%  F1=6.81%
+    [val]   Acc=1.99%  Prec=8.39%  Rec=14.84%  F1=1.47%
+  time: 153.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 8/20  LR=0.001000
+    [train] Acc=15.37%  Prec=17.20%  Rec=15.41%  F1=6.51%
+    [val]   Acc=2.18%  Prec=9.15%  Rec=15.06%  F1=1.86%
+  time: 153.1s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 9/20  LR=0.001000
+    [train] Acc=15.95%  Prec=18.50%  Rec=15.77%  F1=7.00%
+    [val]   Acc=2.32%  Prec=7.00%  Rec=15.23%  F1=2.10%
+  time: 201.1s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 10/20  LR=0.001000
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 254, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 207, in main
+    train_m = train_one_epoch(model, train_loader, criterion,
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 63, in train_one_epoch
+    for imgs, labels in tqdm(loader, desc="  train", leave=False, unit="batch"):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\hanee\Project\facial-emotion-recognition\data\dataset_loader.py", line 41, in __getitem__
+    if self.transform: img = self.transform(img)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\preprocessing\transforms.py", line 99, in transform
+    return aug(image=np_img)["image"]
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\core\composition.py", line 213, in __call__
+    data = t(**data)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\core\transforms_interface.py", line 119, in __call__
+    return self.apply_with_params(params, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\core\transforms_interface.py", line 132, in apply_with_params
+    res[key] = target_function(arg, **dict(params, **target_dependencies))
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\augmentations\geometric\resize.py", line 56, in apply
+    return F.scale(img, scale, interpolation)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\augmentations\utils.py", line 122, in wrapped_function
+    result = func(img, *args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\augmentations\geometric\functional.py", line 419, in scale
+    return resize(img, new_height, new_width, interpolation)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\augmentations\utils.py", line 122, in wrapped_function
+    result = func(img, *args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\augmentations\geometric\functional.py", line 412, in resize
+    return resize_fn(img)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\albumentations\augmentations\utils.py", line 208, in __process_fn
+    img = process_fn(img, **kwargs)
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 16 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+
+Epoch 1/20  LR=0.000100
+    [train] Acc=13.94%  Prec=13.97%  Rec=13.94%  F1=13.49%
+    [val]   Acc=11.26%  Prec=13.82%  Rec=15.07%  F1=9.87%
+  time: 161.6s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 2/20  LR=0.000100
+    [train] Acc=14.09%  Prec=14.07%  Rec=14.07%  F1=13.58%
+    [val]   Acc=2.94%  Prec=16.32%  Rec=14.29%  F1=3.02%
+  time: 203.2s
+
+Epoch 3/20  LR=0.000100
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 254, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 207, in main
+    train_m = train_one_epoch(model, train_loader, criterion,
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 70, in train_one_epoch
+    logits = model(imgs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\models\ea_net.py", line 87, in forward
+    feat_inc = self.inception(x)   # (B, 512, 6, 6)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\models\backbones.py", line 94, in forward
+    x = self.stem(x)          # (B, 2048, ~4, ~4) for 192 input
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\container.py", line 217, in forward
+    input = module(input)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\inception.py", line 363, in forward
+    outputs = self._forward(x)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\inception.py", line 348, in _forward
+    branch3x3dbl = self.branch3x3dbl_1(x)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\inception.py", line 406, in forward
+    x = self.bn(x)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\batchnorm.py", line 175, in forward
+    return F.batch_norm(
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\functional.py", line 2482, in batch_norm
+    return torch.batch_norm(
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 16 --lr 0.001 --opt sgd --num_workers 0
+usage: train.py [-h] --dataset {fer,kdef} [--data_root DATA_ROOT] [--freeze_backbone] [--resume RESUME] [--epochs EPOCHS] [--batch_size BATCH_SIZE]
+                [--lr LR] [--num_workers NUM_WORKERS] [--no_amp] [--tag TAG]
+train.py: error: unrecognized arguments: --opt sgd
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>

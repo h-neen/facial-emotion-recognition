@@ -1,0 +1,1109 @@
+(base) C:\Users\hanee>conda create -n eanet python=3.10 -y
+
+CondaToSNonInteractiveError: Terms of Service have not been accepted for the following channels. Please accept or remove them before proceeding:
+    - https://repo.anaconda.com/pkgs/main
+    - https://repo.anaconda.com/pkgs/r
+    - https://repo.anaconda.com/pkgs/msys2
+
+To accept these channels' Terms of Service, run the following commands:
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/msys2
+
+For information on safely removing channels from your conda configuration,
+please see the official documentation:
+
+    https://www.anaconda.com/docs/tools/working-with-conda/channels
+
+
+(base) C:\Users\hanee>  conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+accepted Terms of Service for https://repo.anaconda.com/pkgs/main
+
+(base) C:\Users\hanee>    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+accepted Terms of Service for https://repo.anaconda.com/pkgs/r
+
+(base) C:\Users\hanee>    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/msys2
+accepted Terms of Service for https://repo.anaconda.com/pkgs/msys2
+
+(base) C:\Users\hanee>conda create -n eanet python=3.10 -y
+3 channel Terms of Service accepted
+Retrieving notices: done
+Channels:
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.1.1
+    latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: C:\Users\hanee\miniconda3\envs\eanet
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2026.3.19  |       haa95532_0         126 KB
+    libexpat-2.7.5             |       hd7fb8db_0         120 KB
+    openssl-3.5.6              |       hbb43b14_0         8.9 MB
+    packaging-26.0             |  py310haa95532_0         166 KB
+    pip-26.0.1                 |     pyhc872135_1         1.1 MB
+    python-3.10.20             |       h1044e36_0        15.5 MB
+    setuptools-82.0.1          |  py310haa95532_0         1.2 MB
+    sqlite-3.51.2              |       hee5a0db_0         917 KB
+    tzdata-2026a               |       he532380_0         117 KB
+    wheel-0.46.3               |  py310haa95532_0          78 KB
+    ------------------------------------------------------------
+                                           Total:        28.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  bzip2              pkgs/main/win-64::bzip2-1.0.8-h2bbff1b_6
+  ca-certificates    pkgs/main/win-64::ca-certificates-2026.3.19-haa95532_0
+  libexpat           pkgs/main/win-64::libexpat-2.7.5-hd7fb8db_0
+  libffi             pkgs/main/win-64::libffi-3.4.4-hd77b12b_1
+  libzlib            pkgs/main/win-64::libzlib-1.3.1-h02ab6af_0
+  openssl            pkgs/main/win-64::openssl-3.5.6-hbb43b14_0
+  packaging          pkgs/main/win-64::packaging-26.0-py310haa95532_0
+  pip                pkgs/main/noarch::pip-26.0.1-pyhc872135_1
+  python             pkgs/main/win-64::python-3.10.20-h1044e36_0
+  setuptools         pkgs/main/win-64::setuptools-82.0.1-py310haa95532_0
+  sqlite             pkgs/main/win-64::sqlite-3.51.2-hee5a0db_0
+  tk                 pkgs/main/win-64::tk-8.6.15-hf199647_0
+  tzdata             pkgs/main/noarch::tzdata-2026a-he532380_0
+  ucrt               pkgs/main/win-64::ucrt-10.0.22621.0-haa95532_0
+  vc                 pkgs/main/win-64::vc-14.3-h2df5915_10
+  vc14_runtime       pkgs/main/win-64::vc14_runtime-14.44.35208-h4927774_10
+  vs2015_runtime     pkgs/main/win-64::vs2015_runtime-14.44.35208-ha6b5a95_10
+  wheel              pkgs/main/win-64::wheel-0.46.3-py310haa95532_0
+  xz                 pkgs/main/win-64::xz-5.8.2-h53af0af_0
+  zlib               pkgs/main/win-64::zlib-1.3.1-h02ab6af_0
+
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate eanet
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+
+(base) C:\Users\hanee>conda activate eanet
+
+(eanet) C:\Users\hanee>pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 \
+ERROR: Directory '\\' is not installable. Neither 'setup.py' nor 'pyproject.toml' found.
+
+(eanet) C:\Users\hanee>pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0
+Collecting torch==2.2.0
+  Downloading torch-2.2.0-cp310-cp310-win_amd64.whl.metadata (26 kB)
+Collecting torchvision==0.17.0
+  Downloading torchvision-0.17.0-cp310-cp310-win_amd64.whl.metadata (6.6 kB)
+Collecting torchaudio==2.2.0
+  Downloading torchaudio-2.2.0-cp310-cp310-win_amd64.whl.metadata (6.4 kB)
+Collecting filelock (from torch==2.2.0)
+  Downloading filelock-3.25.2-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.8.0 (from torch==2.2.0)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting sympy (from torch==2.2.0)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx (from torch==2.2.0)
+  Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting jinja2 (from torch==2.2.0)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch==2.2.0)
+  Downloading fsspec-2026.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting numpy (from torchvision==0.17.0)
+  Downloading numpy-2.2.6-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Collecting requests (from torchvision==0.17.0)
+  Using cached requests-2.33.1-py3-none-any.whl.metadata (4.8 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.17.0)
+  Downloading pillow-12.2.0-cp310-cp310-win_amd64.whl.metadata (9.0 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.2.0)
+  Downloading markupsafe-3.0.3-cp310-cp310-win_amd64.whl.metadata (2.8 kB)
+Collecting charset_normalizer<4,>=2 (from requests->torchvision==0.17.0)
+  Downloading charset_normalizer-3.4.7-cp310-cp310-win_amd64.whl.metadata (41 kB)
+Collecting idna<4,>=2.5 (from requests->torchvision==0.17.0)
+  Using cached idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+Collecting urllib3<3,>=1.26 (from requests->torchvision==0.17.0)
+  Using cached urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+Collecting certifi>=2023.5.7 (from requests->torchvision==0.17.0)
+  Using cached certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->torch==2.2.0)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Downloading torch-2.2.0-cp310-cp310-win_amd64.whl (198.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.6/198.6 MB 4.9 MB/s  0:00:56
+Downloading torchvision-0.17.0-cp310-cp310-win_amd64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 4.8 MB/s  0:00:00
+Downloading torchaudio-2.2.0-cp310-cp310-win_amd64.whl (2.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 3.7 MB/s  0:00:00
+Downloading pillow-12.2.0-cp310-cp310-win_amd64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 1.8 MB/s  0:00:03
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading filelock-3.25.2-py3-none-any.whl (26 kB)
+Downloading fsspec-2026.3.0-py3-none-any.whl (202 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp310-cp310-win_amd64.whl (15 kB)
+Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 1.7 MB/s  0:00:00
+Downloading numpy-2.2.6-cp310-cp310-win_amd64.whl (12.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.9/12.9 MB 1.8 MB/s  0:00:07
+Using cached requests-2.33.1-py3-none-any.whl (64 kB)
+Downloading charset_normalizer-3.4.7-cp310-cp310-win_amd64.whl (159 kB)
+Using cached idna-3.11-py3-none-any.whl (71 kB)
+Using cached urllib3-2.6.3-py3-none-any.whl (131 kB)
+Using cached certifi-2026.2.25-py3-none-any.whl (153 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 1.1 MB/s  0:00:05
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 2.5 MB/s  0:00:00
+Installing collected packages: mpmath, urllib3, typing-extensions, sympy, pillow, numpy, networkx, MarkupSafe, idna, fsspec, filelock, charset_normalizer, certifi, requests, jinja2, torch, torchvision, torchaudio
+Successfully installed MarkupSafe-3.0.3 certifi-2026.2.25 charset_normalizer-3.4.7 filelock-3.25.2 fsspec-2026.3.0 idna-3.11 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 numpy-2.2.6 pillow-12.2.0 requests-2.33.1 sympy-1.14.0 torch-2.2.0 torchaudio-2.2.0 torchvision-0.17.0 typing-extensions-4.15.0 urllib3-2.6.3
+
+(eanet) C:\Users\hanee>--index-url https://download.pytorch.org/whl/cu121
+'--index-url' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee>python -c "import torch; print(torch.cuda.get_device_name(0))"
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\__init__.py", line 1471, in <module>
+    from .functional import *  # noqa: F403
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\functional.py", line 9, in <module>
+    import torch.nn.functional as F
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\__init__.py", line 1, in <module>
+    from .modules import *  # noqa: F403
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\__init__.py", line 35, in <module>
+    from .transformer import TransformerEncoder, TransformerDecoder, \
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\transformer.py", line 20, in <module>
+    device: torch.device = torch.device(torch._C._get_default_device()),  # torch.device('cpu'),
+C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\transformer.py:20: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ..\torch\csrc\utils\tensor_numpy.cpp:84.)
+  device: torch.device = torch.device(torch._C._get_default_device()),  # torch.device('cpu'),
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\__init__.py", line 423, in get_device_name
+    return get_device_properties(device).name
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\__init__.py", line 453, in get_device_properties
+    _lazy_init()  # will define _get_device_properties
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\__init__.py", line 293, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+(eanet) C:\Users\hanee>pip install "numpy<2"
+Collecting numpy<2
+  Downloading numpy-1.26.4-cp310-cp310-win_amd64.whl.metadata (61 kB)
+Downloading numpy-1.26.4-cp310-cp310-win_amd64.whl (15.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.8/15.8 MB 6.7 MB/s  0:00:02
+Installing collected packages: numpy
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.2.6
+    Uninstalling numpy-2.2.6:
+      Successfully uninstalled numpy-2.2.6
+Successfully installed numpy-1.26.4
+
+(eanet) C:\Users\hanee>pip install --force-reinstall torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu121
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Collecting torch==2.2.0
+  Downloading https://download-r2.pytorch.org/whl/cu121/torch-2.2.0%2Bcu121-cp310-cp310-win_amd64.whl (2454.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 GB 4.9 MB/s  0:08:26
+Collecting torchvision==0.17.0
+  Downloading https://download-r2.pytorch.org/whl/cu121/torchvision-0.17.0%2Bcu121-cp310-cp310-win_amd64.whl (5.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.7/5.7 MB 836.5 kB/s  0:00:07
+Collecting torchaudio==2.2.0
+  Downloading https://download-r2.pytorch.org/whl/cu121/torchaudio-2.2.0%2Bcu121-cp310-cp310-win_amd64.whl (4.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 MB 623.1 kB/s  0:00:07
+Collecting filelock (from torch==2.2.0)
+  Using cached filelock-3.25.2-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.8.0 (from torch==2.2.0)
+  Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting sympy (from torch==2.2.0)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx (from torch==2.2.0)
+  Using cached networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting jinja2 (from torch==2.2.0)
+  Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch==2.2.0)
+  Downloading fsspec-2026.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting numpy (from torchvision==0.17.0)
+  Using cached numpy-2.2.6-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Collecting requests (from torchvision==0.17.0)
+  Downloading https://download.pytorch.org/whl/requests-2.28.1-py3-none-any.whl (62 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.17.0)
+  Downloading pillow-12.1.1-cp310-cp310-win_amd64.whl.metadata (9.0 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.2.0)
+  Downloading https://download.pytorch.org/whl/markupsafe-3.0.3-cp310-cp310-win_amd64.whl.metadata (2.8 kB)
+Collecting charset-normalizer<3,>=2 (from requests->torchvision==0.17.0)
+  Downloading https://download.pytorch.org/whl/charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Collecting idna<4,>=2.5 (from requests->torchvision==0.17.0)
+  Downloading https://download.pytorch.org/whl/idna-3.4-py3-none-any.whl (61 kB)
+Collecting urllib3<1.27,>=1.21.1 (from requests->torchvision==0.17.0)
+  Downloading https://download.pytorch.org/whl/urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
+Collecting certifi>=2017.4.17 (from requests->torchvision==0.17.0)
+  Downloading https://download.pytorch.org/whl/certifi-2022.12.7-py3-none-any.whl (155 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->torch==2.2.0)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Downloading pillow-12.1.1-cp310-cp310-win_amd64.whl (7.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 7.5 MB/s  0:00:01
+Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Using cached filelock-3.25.2-py3-none-any.whl (26 kB)
+Downloading fsspec-2026.2.0-py3-none-any.whl (202 kB)
+Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading https://download.pytorch.org/whl/markupsafe-3.0.3-cp310-cp310-win_amd64.whl (15 kB)
+Using cached networkx-3.4.2-py3-none-any.whl (1.7 MB)
+Using cached numpy-2.2.6-cp310-cp310-win_amd64.whl (12.9 MB)
+Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Installing collected packages: mpmath, urllib3, typing-extensions, sympy, pillow, numpy, networkx, MarkupSafe, idna, fsspec, filelock, charset-normalizer, certifi, requests, jinja2, torch, torchvision, torchaudio
+  Attempting uninstall: mpmath
+    Found existing installation: mpmath 1.3.0
+    Uninstalling mpmath-1.3.0:
+      Successfully uninstalled mpmath-1.3.0
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 2.6.3
+    Uninstalling urllib3-2.6.3:
+      Successfully uninstalled urllib3-2.6.3
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.15.0
+    Uninstalling typing_extensions-4.15.0:
+      Successfully uninstalled typing_extensions-4.15.0
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.14.0
+    Uninstalling sympy-1.14.0:
+      Successfully uninstalled sympy-1.14.0
+  Attempting uninstall: pillow
+    Found existing installation: pillow 12.2.0
+    Uninstalling pillow-12.2.0:
+      Successfully uninstalled pillow-12.2.0
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.26.4
+    Uninstalling numpy-1.26.4:
+      Successfully uninstalled numpy-1.26.4
+  Attempting uninstall: networkx
+    Found existing installation: networkx 3.4.2
+    Uninstalling networkx-3.4.2:
+      Successfully uninstalled networkx-3.4.2
+  Attempting uninstall: MarkupSafe
+    Found existing installation: MarkupSafe 3.0.3
+    Uninstalling MarkupSafe-3.0.3:
+      Successfully uninstalled MarkupSafe-3.0.3
+  Attempting uninstall: idna
+    Found existing installation: idna 3.11
+    Uninstalling idna-3.11:
+      Successfully uninstalled idna-3.11
+  Attempting uninstall: fsspec
+    Found existing installation: fsspec 2026.3.0
+    Uninstalling fsspec-2026.3.0:
+      Successfully uninstalled fsspec-2026.3.0
+  Attempting uninstall: filelock
+    Found existing installation: filelock 3.25.2
+    Uninstalling filelock-3.25.2:
+      Successfully uninstalled filelock-3.25.2
+  Attempting uninstall: charset-normalizer
+    Found existing installation: charset-normalizer 3.4.7
+    Uninstalling charset-normalizer-3.4.7:
+      Successfully uninstalled charset-normalizer-3.4.7
+  Attempting uninstall: certifi
+    Found existing installation: certifi 2026.2.25
+    Uninstalling certifi-2026.2.25:
+      Successfully uninstalled certifi-2026.2.25
+  Attempting uninstall: requests
+    Found existing installation: requests 2.33.1
+    Uninstalling requests-2.33.1:
+      Successfully uninstalled requests-2.33.1
+  Attempting uninstall: jinja2
+    Found existing installation: Jinja2 3.1.6
+    Uninstalling Jinja2-3.1.6:
+      Successfully uninstalled Jinja2-3.1.6
+  Attempting uninstall: torch
+    Found existing installation: torch 2.2.0
+    Uninstalling torch-2.2.0:
+      Successfully uninstalled torch-2.2.0
+  Attempting uninstall: torchvision
+    Found existing installation: torchvision 0.17.0
+    Uninstalling torchvision-0.17.0:
+      Successfully uninstalled torchvision-0.17.0
+  Attempting uninstall: torchaudio
+    Found existing installation: torchaudio 2.2.0
+    Uninstalling torchaudio-2.2.0:
+      Successfully uninstalled torchaudio-2.2.0
+Successfully installed MarkupSafe-3.0.3 certifi-2022.12.7 charset-normalizer-2.1.1 filelock-3.25.2 fsspec-2026.2.0 idna-3.4 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 numpy-2.2.6 pillow-12.1.1 requests-2.28.1 sympy-1.14.0 torch-2.2.0+cu121 torchaudio-2.2.0+cu121 torchvision-0.17.0+cu121 typing-extensions-4.15.0 urllib3-1.26.13
+
+(eanet) C:\Users\hanee>python -c "import torch; print(torch.cuda.get_device_name(0))"
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\__init__.py", line 1471, in <module>
+    from .functional import *  # noqa: F403
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\functional.py", line 9, in <module>
+    import torch.nn.functional as F
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\__init__.py", line 1, in <module>
+    from .modules import *  # noqa: F403
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\__init__.py", line 35, in <module>
+    from .transformer import TransformerEncoder, TransformerDecoder, \
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\transformer.py", line 20, in <module>
+    device: torch.device = torch.device(torch._C._get_default_device()),  # torch.device('cpu'),
+C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\transformer.py:20: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ..\torch\csrc\utils\tensor_numpy.cpp:84.)
+  device: torch.device = torch.device(torch._C._get_default_device()),  # torch.device('cpu'),
+NVIDIA GeForce RTX 4050 Laptop GPU
+
+(eanet) C:\Users\hanee>pip install "numpy<2"
+Collecting numpy<2
+  Using cached numpy-1.26.4-cp310-cp310-win_amd64.whl.metadata (61 kB)
+Using cached numpy-1.26.4-cp310-cp310-win_amd64.whl (15.8 MB)
+Installing collected packages: numpy
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.2.6
+    Uninstalling numpy-2.2.6:
+      Successfully uninstalled numpy-2.2.6
+Successfully installed numpy-1.26.4
+
+(eanet) C:\Users\hanee>C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition
+'C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee>cd C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python data/verify_datasets.py --fer data/FER2013 --kdef data/KDEF
+python: can't open file 'C:\\Users\\hanee\\OneDrive\\Desktop\\facial-emotion-recognition\\data\\verify_datasets.py': [Errno 2] No such file or directory
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python data/verify_datasets.py --fer data/FER2013 --kdef data/KDEF
+
+[FER2013] Root: data\FER2013
+  [FER train] angry=3995  disgust=436  fear=4097  happy=7215  neutral=4965  sad=4830  surprise=3171
+  [FAIL] Missing split folder: data\FER2013\validation
+
+[KDEF] Root: data\KDEF
+  [KDEF] angry=700  disgust=700  fear=700  happy=700  neutral=700  sad=699  surprise=699
+
+[FAIL] Fix the issues above before preprocessing.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python data/verify_datasets.py --fer data/FER2013 --kdef data/KDEF
+
+[FER2013] Root: data\FER2013
+  [FER train] angry=3995  disgust=436  fear=4097  happy=7215  neutral=4965  sad=4830  surprise=3171
+  [FER validation] angry=948  disgust=111  fear=1024  happy=1774  neutral=1233  sad=1247  surprise=831
+
+[KDEF] Root: data\KDEF
+  [KDEF] angry=700  disgust=700  fear=700  happy=700  neutral=700  sad=699  surprise=699
+
+[OK] All dataset checks passed. Safe to run preprocessing.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>cd..
+
+(eanet) C:\Users\hanee\OneDrive\Desktop>cd facial-emotion-recognition>
+The syntax of the command is incorrect.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop>cd C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>pip install -r requirements.txt
+Requirement already satisfied: torch==2.2.0 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from -r requirements.txt (line 1)) (2.2.0+cu121)
+Requirement already satisfied: torchvision==0.17.0 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from -r requirements.txt (line 2)) (0.17.0+cu121)
+Collecting opencv-contrib-python==4.9.0.80 (from -r requirements.txt (line 3))
+  Downloading opencv_contrib_python-4.9.0.80-cp37-abi3-win_amd64.whl.metadata (20 kB)
+Requirement already satisfied: numpy==1.26.4 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from -r requirements.txt (line 4)) (1.26.4)
+Collecting pandas==2.2.1 (from -r requirements.txt (line 5))
+  Downloading pandas-2.2.1-cp310-cp310-win_amd64.whl.metadata (19 kB)
+Collecting Pillow==10.2.0 (from -r requirements.txt (line 6))
+  Downloading pillow-10.2.0-cp310-cp310-win_amd64.whl.metadata (9.9 kB)
+Collecting scikit-learn==1.4.1.post1 (from -r requirements.txt (line 7))
+  Downloading scikit_learn-1.4.1.post1-cp310-cp310-win_amd64.whl.metadata (11 kB)
+Collecting matplotlib==3.8.3 (from -r requirements.txt (line 8))
+  Downloading matplotlib-3.8.3-cp310-cp310-win_amd64.whl.metadata (5.9 kB)
+Collecting seaborn==0.13.2 (from -r requirements.txt (line 9))
+  Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting tensorboard==2.16.2 (from -r requirements.txt (line 10))
+  Downloading tensorboard-2.16.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting tqdm==4.66.2 (from -r requirements.txt (line 11))
+  Downloading tqdm-4.66.2-py3-none-any.whl.metadata (57 kB)
+Collecting grad-cam==1.5.0 (from -r requirements.txt (line 12))
+  Downloading grad-cam-1.5.0.tar.gz (7.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.8/7.8 MB 5.8 MB/s  0:00:01
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting albumentations==1.4.0 (from -r requirements.txt (line 13))
+  Downloading albumentations-1.4.0-py3-none-any.whl.metadata (35 kB)
+Requirement already satisfied: filelock in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from torch==2.2.0->-r requirements.txt (line 1)) (3.25.2)
+Requirement already satisfied: typing-extensions>=4.8.0 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from torch==2.2.0->-r requirements.txt (line 1)) (4.15.0)
+Requirement already satisfied: sympy in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from torch==2.2.0->-r requirements.txt (line 1)) (1.14.0)
+Requirement already satisfied: networkx in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from torch==2.2.0->-r requirements.txt (line 1)) (3.4.2)
+Requirement already satisfied: jinja2 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from torch==2.2.0->-r requirements.txt (line 1)) (3.1.6)
+Requirement already satisfied: fsspec in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from torch==2.2.0->-r requirements.txt (line 1)) (2026.2.0)
+Requirement already satisfied: requests in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from torchvision==0.17.0->-r requirements.txt (line 2)) (2.28.1)
+Collecting python-dateutil>=2.8.2 (from pandas==2.2.1->-r requirements.txt (line 5))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas==2.2.1->-r requirements.txt (line 5))
+  Downloading pytz-2026.1.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.2.1->-r requirements.txt (line 5))
+  Using cached tzdata-2026.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting scipy>=1.6.0 (from scikit-learn==1.4.1.post1->-r requirements.txt (line 7))
+  Downloading scipy-1.15.3-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Collecting joblib>=1.2.0 (from scikit-learn==1.4.1.post1->-r requirements.txt (line 7))
+  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting threadpoolctl>=2.0.0 (from scikit-learn==1.4.1.post1->-r requirements.txt (line 7))
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting contourpy>=1.0.1 (from matplotlib==3.8.3->-r requirements.txt (line 8))
+  Downloading contourpy-1.3.2-cp310-cp310-win_amd64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib==3.8.3->-r requirements.txt (line 8))
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib==3.8.3->-r requirements.txt (line 8))
+  Downloading fonttools-4.62.1-cp310-cp310-win_amd64.whl.metadata (119 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib==3.8.3->-r requirements.txt (line 8))
+  Downloading kiwisolver-1.5.0-cp310-cp310-win_amd64.whl.metadata (5.2 kB)
+Requirement already satisfied: packaging>=20.0 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from matplotlib==3.8.3->-r requirements.txt (line 8)) (26.0)
+Collecting pyparsing>=2.3.1 (from matplotlib==3.8.3->-r requirements.txt (line 8))
+  Downloading pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting absl-py>=0.4 (from tensorboard==2.16.2->-r requirements.txt (line 10))
+  Downloading absl_py-2.4.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting grpcio>=1.48.2 (from tensorboard==2.16.2->-r requirements.txt (line 10))
+  Downloading grpcio-1.80.0-cp310-cp310-win_amd64.whl.metadata (3.9 kB)
+Collecting markdown>=2.6.8 (from tensorboard==2.16.2->-r requirements.txt (line 10))
+  Downloading markdown-3.10.2-py3-none-any.whl.metadata (5.1 kB)
+Collecting protobuf!=4.24.0,>=3.19.6 (from tensorboard==2.16.2->-r requirements.txt (line 10))
+  Downloading protobuf-7.34.1-cp310-abi3-win_amd64.whl.metadata (595 bytes)
+Requirement already satisfied: setuptools>=41.0.0 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from tensorboard==2.16.2->-r requirements.txt (line 10)) (82.0.1)
+Collecting six>1.9 (from tensorboard==2.16.2->-r requirements.txt (line 10))
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard==2.16.2->-r requirements.txt (line 10))
+  Downloading tensorboard_data_server-0.7.2-py3-none-any.whl.metadata (1.1 kB)
+Collecting werkzeug>=1.0.1 (from tensorboard==2.16.2->-r requirements.txt (line 10))
+  Downloading werkzeug-3.1.8-py3-none-any.whl.metadata (4.0 kB)
+Collecting colorama (from tqdm==4.66.2->-r requirements.txt (line 11))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting ttach (from grad-cam==1.5.0->-r requirements.txt (line 12))
+  Downloading ttach-0.0.3-py3-none-any.whl.metadata (5.2 kB)
+Collecting opencv-python (from grad-cam==1.5.0->-r requirements.txt (line 12))
+  Downloading opencv_python-4.13.0.92-cp37-abi3-win_amd64.whl.metadata (20 kB)
+Collecting scikit-image>=0.21.0 (from albumentations==1.4.0->-r requirements.txt (line 13))
+  Downloading scikit_image-0.25.2-cp310-cp310-win_amd64.whl.metadata (14 kB)
+Collecting PyYAML (from albumentations==1.4.0->-r requirements.txt (line 13))
+  Downloading pyyaml-6.0.3-cp310-cp310-win_amd64.whl.metadata (2.4 kB)
+Collecting qudida>=0.0.4 (from albumentations==1.4.0->-r requirements.txt (line 13))
+  Downloading qudida-0.0.4-py3-none-any.whl.metadata (1.5 kB)
+INFO: pip is looking at multiple versions of opencv-python to determine which version is compatible with other requirements. This could take a while.
+Collecting opencv-python (from grad-cam==1.5.0->-r requirements.txt (line 12))
+  Downloading opencv_python-4.13.0.90-cp37-abi3-win_amd64.whl.metadata (20 kB)
+  Downloading opencv_python-4.12.0.88-cp37-abi3-win_amd64.whl.metadata (19 kB)
+  Downloading opencv_python-4.11.0.86-cp37-abi3-win_amd64.whl.metadata (20 kB)
+Collecting opencv-python-headless>=4.0.1 (from qudida>=0.0.4->albumentations==1.4.0->-r requirements.txt (line 13))
+  Downloading opencv_python_headless-4.13.0.92-cp37-abi3-win_amd64.whl.metadata (20 kB)
+INFO: pip is looking at multiple versions of opencv-python-headless to determine which version is compatible with other requirements. This could take a while.
+  Downloading opencv_python_headless-4.13.0.90-cp37-abi3-win_amd64.whl.metadata (20 kB)
+  Downloading opencv_python_headless-4.12.0.88-cp37-abi3-win_amd64.whl.metadata (20 kB)
+  Downloading opencv_python_headless-4.11.0.86-cp37-abi3-win_amd64.whl.metadata (20 kB)
+Collecting imageio!=2.35.0,>=2.33 (from scikit-image>=0.21.0->albumentations==1.4.0->-r requirements.txt (line 13))
+  Downloading imageio-2.37.3-py3-none-any.whl.metadata (9.7 kB)
+Collecting tifffile>=2022.8.12 (from scikit-image>=0.21.0->albumentations==1.4.0->-r requirements.txt (line 13))
+  Downloading tifffile-2025.5.10-py3-none-any.whl.metadata (31 kB)
+Collecting lazy-loader>=0.4 (from scikit-image>=0.21.0->albumentations==1.4.0->-r requirements.txt (line 13))
+  Downloading lazy_loader-0.5-py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: markupsafe>=2.1.1 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from werkzeug>=1.0.1->tensorboard==2.16.2->-r requirements.txt (line 10)) (3.0.3)
+Requirement already satisfied: charset-normalizer<3,>=2 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from requests->torchvision==0.17.0->-r requirements.txt (line 2)) (2.1.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from requests->torchvision==0.17.0->-r requirements.txt (line 2)) (3.4)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from requests->torchvision==0.17.0->-r requirements.txt (line 2)) (1.26.13)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from requests->torchvision==0.17.0->-r requirements.txt (line 2)) (2022.12.7)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in c:\users\hanee\miniconda3\envs\eanet\lib\site-packages (from sympy->torch==2.2.0->-r requirements.txt (line 1)) (1.3.0)
+Downloading opencv_contrib_python-4.9.0.80-cp37-abi3-win_amd64.whl (45.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.3/45.3 MB 5.3 MB/s  0:00:08
+Downloading pandas-2.2.1-cp310-cp310-win_amd64.whl (11.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.6/11.6 MB 6.5 MB/s  0:00:01
+Downloading pillow-10.2.0-cp310-cp310-win_amd64.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 5.8 MB/s  0:00:00
+Downloading scikit_learn-1.4.1.post1-cp310-cp310-win_amd64.whl (10.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.6/10.6 MB 6.0 MB/s  0:00:01
+Downloading matplotlib-3.8.3-cp310-cp310-win_amd64.whl (7.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.6/7.6 MB 6.1 MB/s  0:00:01
+Downloading seaborn-0.13.2-py3-none-any.whl (294 kB)
+Downloading tensorboard-2.16.2-py3-none-any.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 6.1 MB/s  0:00:00
+Downloading tqdm-4.66.2-py3-none-any.whl (78 kB)
+Downloading albumentations-1.4.0-py3-none-any.whl (123 kB)
+Downloading tensorboard_data_server-0.7.2-py3-none-any.whl (2.4 kB)
+Downloading absl_py-2.4.0-py3-none-any.whl (135 kB)
+Downloading contourpy-1.3.2-cp310-cp310-win_amd64.whl (221 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.62.1-cp310-cp310-win_amd64.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 6.9 MB/s  0:00:00
+Downloading grpcio-1.80.0-cp310-cp310-win_amd64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 6.3 MB/s  0:00:00
+Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Downloading kiwisolver-1.5.0-cp310-cp310-win_amd64.whl (73 kB)
+Downloading markdown-3.10.2-py3-none-any.whl (108 kB)
+Downloading opencv_python-4.11.0.86-cp37-abi3-win_amd64.whl (39.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.5/39.5 MB 6.1 MB/s  0:00:06
+Downloading protobuf-7.34.1-cp310-abi3-win_amd64.whl (437 kB)
+Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.1.post1-py2.py3-none-any.whl (510 kB)
+Downloading qudida-0.0.4-py3-none-any.whl (3.5 kB)
+Downloading opencv_python_headless-4.11.0.86-cp37-abi3-win_amd64.whl (39.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.4/39.4 MB 6.3 MB/s  0:00:06
+Downloading scikit_image-0.25.2-cp310-cp310-win_amd64.whl (12.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 6.7 MB/s  0:00:01
+Downloading imageio-2.37.3-py3-none-any.whl (317 kB)
+Downloading lazy_loader-0.5-py3-none-any.whl (8.0 kB)
+Downloading scipy-1.15.3-cp310-cp310-win_amd64.whl (41.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.3/41.3 MB 5.8 MB/s  0:00:07
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading tifffile-2025.5.10-py3-none-any.whl (226 kB)
+Using cached tzdata-2026.1-py2.py3-none-any.whl (348 kB)
+Downloading werkzeug-3.1.8-py3-none-any.whl (226 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading pyyaml-6.0.3-cp310-cp310-win_amd64.whl (158 kB)
+Downloading ttach-0.0.3-py3-none-any.whl (9.8 kB)
+Building wheels for collected packages: grad-cam
+  Building wheel for grad-cam (pyproject.toml) ... done
+  Created wheel for grad-cam: filename=grad_cam-1.5.0-py3-none-any.whl size=38223 sha256=ba9639128808e87ff1c220b02f7c03f66e9d881bde1717516826e272b027d426
+  Stored in directory: c:\users\hanee\appdata\local\pip\cache\wheels\5b\e5\3d\8548241d5cffe53ad1476c566a61ad9bf09cc61a9430f09726
+Successfully built grad-cam
+Installing collected packages: pytz, werkzeug, tzdata, ttach, tifffile, threadpoolctl, tensorboard-data-server, six, scipy, PyYAML, pyparsing, protobuf, Pillow, opencv-python-headless, opencv-python, opencv-contrib-python, markdown, lazy-loader, kiwisolver, joblib, grpcio, fonttools, cycler, contourpy, colorama, absl-py, tqdm, tensorboard, scikit-learn, python-dateutil, imageio, scikit-image, qudida, pandas, matplotlib, seaborn, grad-cam, albumentations
+  Attempting uninstall: Pillow
+    Found existing installation: pillow 12.1.1
+    Uninstalling pillow-12.1.1:
+      Successfully uninstalled pillow-12.1.1
+Successfully installed Pillow-10.2.0 PyYAML-6.0.3 absl-py-2.4.0 albumentations-1.4.0 colorama-0.4.6 contourpy-1.3.2 cycler-0.12.1 fonttools-4.62.1 grad-cam-1.5.0 grpcio-1.80.0 imageio-2.37.3 joblib-1.5.3 kiwisolver-1.5.0 lazy-loader-0.5 markdown-3.10.2 matplotlib-3.8.3 opencv-contrib-python-4.9.0.80 opencv-python-4.11.0.86 opencv-python-headless-4.11.0.86 pandas-2.2.1 protobuf-7.34.1 pyparsing-3.3.2 python-dateutil-2.9.0.post0 pytz-2026.1.post1 qudida-0.0.4 scikit-image-0.25.2 scikit-learn-1.4.1.post1 scipy-1.15.3 seaborn-0.13.2 six-1.17.0 tensorboard-2.16.2 tensorboard-data-server-0.7.2 threadpoolctl-3.6.0 tifffile-2025.5.10 tqdm-4.66.2 ttach-0.0.3 tzdata-2026.1 werkzeug-3.1.8
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python -c "import urllib.request, os; os.makedirs('preprocessing', exist_ok=True); urllib.request.urlretrieve('https://raw.githubusercontent.com/fannymonori/TF-LapSRN/master/export/LapSRN_x4.pb', 'preprocessing/LapSRN_x4.pb'); print('Downloaded.')"
+Downloaded.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python preprocessing/super_resolution.py \
+usage: super_resolution.py [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR [--model_path MODEL_PATH] [--scale SCALE]
+super_resolution.py: error: the following arguments are required: --input_dir, --output_dir
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--input_dir data/FER2013/train \
+'--input_dir' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--output_dir data/FER2013_SR/train \
+'--output_dir' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--model_path preprocessing/LapSRN_x4.pb \
+'--model_path' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--scale 4
+'--scale' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition># Step 3: Run SR on FER2013 validation set
+'#' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python preprocessing/super_resolution.py \
+usage: super_resolution.py [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR [--model_path MODEL_PATH] [--scale SCALE]
+super_resolution.py: error: the following arguments are required: --input_dir, --output_dir
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--input_dir data/FER2013/validation \
+'--input_dir' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--output_dir data/FER2013_SR/validation \
+'--output_dir' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--model_path preprocessing/LapSRN_x4.pb \
+'--model_path' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--scale 4
+'--scale' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python preprocessing/super_resolution.py \
+usage: super_resolution.py [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR [--model_path MODEL_PATH] [--scale SCALE]
+super_resolution.py: error: the following arguments are required: --input_dir, --output_dir
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--input_dir data/FER2013/train \
+'--input_dir' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--output_dir data/FER2013_SR/train \
+'--output_dir' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--model_path preprocessing/LapSRN_x4.pb \
+'--model_path' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>--scale 4
+'--scale' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python preprocessing/super_resolution.py --input_dir data/FER2013/train --output_dir data/FER2013_SR/train --model_path preprocessing/LapSRN_x4.pb --scale 4
+[SR] Loaded LapSRN x4 from preprocessing/LapSRN_x4.pb
+[SR] Processing 28,709 images from data\FER2013\train
+train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▊                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████████████████████████████████▉                                       | 17train:  62%|████████████████████████████████████train: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 28709/28709 [27:27<00:00, 17.43img/s]
+[SR] Done. Processed=28,709  Skipped=0  Errors=0
+
+[SR] All images saved to: data\FER2013_SR\train
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python preprocessing/super_resolution.py --input_dir data/FER2013/validation --output_dir data/FER2013_SR/validation --model_path preprocessing/LapSRN_x4.pb --scale 4
+[SR] Loaded LapSRN x4 from preprocessing/LapSRN_x4.pb
+[SR] Processing 7,168 images from data\FER2013\validation
+validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 7168/7168 [08:20<00:00, 14.33img/s]
+[SR] Done. Processed=7,168  Skipped=0  Errors=0
+
+[SR] All images saved to: data\FER2013_SR\validation
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python preprocessing/augment_kdef.py --input_dir data/KDEF --output_dir data/KDEF_AUG --target_per_class 840
+  [angry] original=700  target=840
+  [angry] saved 840 images to data\KDEF_AUG\angry
+  [disgust] original=700  target=840
+  [disgust] saved 840 images to data\KDEF_AUG\disgust
+  [fear] original=700  target=840
+  [fear] saved 840 images to data\KDEF_AUG\fear
+  [happy] original=700  target=840
+  [happy] saved 840 images to data\KDEF_AUG\happy
+  [neutral] original=700  target=840
+  [neutral] saved 840 images to data\KDEF_AUG\neutral
+  [sad] original=699  target=840
+  [sad] saved 840 images to data\KDEF_AUG\sad
+  [surprise] original=699  target=840
+  [surprise] saved 840 images to data\KDEF_AUG\surprise
+
+[AUG] Complete. Output: data\KDEF_AUG
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 32 --lr 0.001
+Traceback (most recent call last):
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 35, in <module>
+    from models.ea_net import build_model
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\models\ea_net.py", line 24, in <module>
+    from models.backbones import EfficientBackbone, InceptionBackbone
+ImportError: cannot import name 'EfficientBackbone' from 'models.backbones' (unknown location)
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 32 --lr 0.001
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+Downloading: "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth" to C:\Users\hanee/.cache\torch\hub\checkpoints\efficientnet_b0_rwightman-7f5810bc.pth
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20.5M/20.5M [00:03<00:00, 5.85MB/s]
+Traceback (most recent call last):
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 254, in <module>
+    main()
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 154, in main
+    model = build_model(CFG, freeze_backbone=args.freeze_backbone).to(device)
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\models\ea_net.py", line 130, in build_model
+    model = EANet(
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\models\ea_net.py", line 43, in __init__
+    self.inception  = InceptionBackbone(
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\models\backbones.py", line 67, in __init__
+    base = models.inception_v3(weights=weights, aux_logits=False)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\_utils.py", line 142, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\_utils.py", line 228, in inner_wrapper
+    return builder(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\inception.py", line 466, in inception_v3
+    _ovewrite_named_param(kwargs, "aux_logits", True)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\_utils.py", line 238, in _ovewrite_named_param
+    raise ValueError(f"The parameter '{param}' expected value {new_value} but got {kwargs[param]} instead.")
+ValueError: The parameter 'aux_logits' expected value True but got False instead.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 32 --lr 0.001
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+Downloading: "https://download.pytorch.org/models/inception_v3_google-0cc3c7bd.pth" to C:\Users\hanee/.cache\torch\hub\checkpoints\inception_v3_google-0cc3c7bd.pth
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 104M/104M [00:17<00:00, 6.15MB/s]
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+
+Epoch 1/20  LR=0.001000
+Traceback (most recent call last):
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 254, in <module>
+    main()
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 207, in main
+    train_m = train_one_epoch(model, train_loader, criterion,
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 63, in train_one_epoch
+    for imgs, labels in tqdm(loader, desc="  train", leave=False, unit="batch"):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 277, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in collate
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in <listcomp>
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 121, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 174, in collate_tensor_fn
+    return torch.stack(batch, 0, out=out)
+RuntimeError: stack expects each tensor to be equal size, but got [3, 192, 192] at entry 0 and [3, 191, 191] at entry 10
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 32 --lr 0.001
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+
+Epoch 1/20  LR=0.001000
+Traceback (most recent call last):
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 254, in <module>
+    main()
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 207, in main
+    train_m = train_one_epoch(model, train_loader, criterion,
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 63, in train_one_epoch
+    for imgs, labels in tqdm(loader, desc="  train", leave=False, unit="batch"):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 277, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in collate
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in <listcomp>
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 121, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 174, in collate_tensor_fn
+    return torch.stack(batch, 0, out=out)
+RuntimeError: stack expects each tensor to be equal size, but got [3, 192, 192] at entry 0 and [3, 207, 207] at entry 2
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>Get-ChildItem -Path . -Include __pycache__ -Recurse | Remove-Item -Force -Recurse
+'Get-ChildItem' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 32 --lr 0.001
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+
+Epoch 1/20  LR=0.001000
+Traceback (most recent call last):
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 254, in <module>
+    main()
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 207, in main
+    train_m = train_one_epoch(model, train_loader, criterion,
+  File "C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\train.py", line 63, in train_one_epoch
+    for imgs, labels in tqdm(loader, desc="  train", leave=False, unit="batch"):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 277, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in collate
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in <listcomp>
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 121, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 174, in collate_tensor_fn
+    return torch.stack(batch, 0, out=out)
+RuntimeError: stack expects each tensor to be equal size, but got [3, 192, 192] at entry 0 and [3, 220, 220] at entry 1
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python -c "import torch; from data.dataset_loader import get_dataloader; from preprocessing.transforms import get_train_transforms; loader = get_dataloader('fer', 'data/FER2013_SR', get_train_transforms(192), batch_size=32); imgs, labels = next(iter(loader)); print(f'Batch shape: {imgs.shape}')"
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ImportError: cannot import name 'get_dataloader' from 'data.dataset_loader' (C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition\data\dataset_loader.py)
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python -c "import torch; from data.dataset_loader import get_dataloaders; tl, vl, tel = get_dataloaders('fer', 'data/FER2013_SR', batch_size=32); imgs, labels = next(iter(tl)); print(f'SUCCESS! Batch shape: {imgs.shape}')"
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 277, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in collate
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 144, in <listcomp>
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 121, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\collate.py", line 174, in collate_tensor_fn
+    return torch.stack(batch, 0, out=out)
+RuntimeError: stack expects each tensor to be equal size, but got [3, 192, 192] at entry 0 and [3, 187, 187] at entry 1
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python -c "import torch; from data.dataset_loader import get_dataloaders; tl, vl, tel = get_dataloaders('fer', 'data/FER2013_SR', batch_size=32); imgs, labels = next(iter(tl)); print(f'SUCCESS! Batch shape: {imgs.shape}')"
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+SUCCESS! Batch shape: torch.Size([32, 3, 192, 192])
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --epochs 20 --batch_size 32 --lr 0.001
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+
+Epoch 1/20  LR=0.001000
+    [train] Acc=14.26%  Prec=14.32%  Rec=14.43%  F1=10.43%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 545.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 2/20  LR=0.001000
+  train:  24%|████████████████████████▊                                                                               | 214/897 [01:36<03:05,  3.67batch  train:  24%|████████████████████████▉                                                                               | 215/897 [01:36<03:32,  3.21batch  train:  24%|█████████████████████████                                                                               | 216/897 [01:36<03:19,  3.42batch  train:  24%|█████████████████████████▏                                                                              | 217/897 [01:36<03:09,  3.59batch  train:  24%|█████████████████████████▎                                                                              | 218/897 [01:37<03:15,  3.47batch  train:  24%|█████████████████████████▍                                                                              | 219/897 [01:37<03:17,  3.44batch  train:  25%|█████████████████████████▌                                                                              | 220/897 [01:37<03:08,  3.59batch  train:  25%|█████████████████████████▌                                                                              | 221/897 [01:38<03:12,  3.51batch  train:  25%|█████████████████████████▋                                                                              | 222/897 [01:38<03:15,  3.45batch  train:  25%|█████████████████████████▊                                                                              | 223/897 [01:38<03:17,  3.41batch  train:  25%|█████████████████████████▉                                                                              | 224/897 [01:39<03:16,  3.42batch  train:  25%|██████████████████████████                                                                              | 225/897 [01:39<03:15,  3.44batch  train:  25%|██████████████████████████▏                                                                             | 226/897 [01:39<03:13,  3.48batch  train:  25%|██████████████████████████▎                                                                             | 227/897 [01:39<03:13,  3.46batch  train:  25%|██████████████████████████▍                                                                             | 228/897 [01:40<03:19,  3.36batch  train:  26%|██████████████████████████▌                                                                             | 229/897 [01:40<03:19,  3.36batch  train:  26%|██████████████████████████▋                                                                             | 230/897 [01:40<03:23,  3.28batch  train:  26%|██████████████████████████▊                                                                             | 231/897 [01:41<03:21,  3.30batch  train:  26%|██████████████████████████▉                                                                             | 232/897 [01:41<03:17,  3.37batch  train:  26%|███████████████████████████                                                                             | 233/897 [01:41<03:06,  3.56batch  train:  26%|███████████████████████████▏                                                                            | 234/897 [01:42<03:21,  3.29batch  train:  26%|███████████████████████████▏                                                                            | 235/897 [01:42<03:05,  3.57batch  train:  26%|███████████████████████████▎                                                                            | 236/897 [01:42<03:01,  3.65batch  train:  26%|███████████████████████████▍                                                                            | 237/897 [01:42<02:53,  3.80batch  train:  27%|███████████████████████████▌                                                                            | 238/897 [01:43<03:04,  3.58batch  train:  27%|███████████████████████████▋                                                                            | 239/897 [01:43<03:00,  3.65batch  train:  27%|███████████████████████████▊                                                                            | 240/897 [01:43<03:13,  3.40batch  train:  27%|███████████████████████████▉                                                                            | 241/897 [01:43<03:14,  3.37batch  train:  27%|████████████████████████████                                                                            | 242/897 [01:44<03:13,  3.39batch  train:  27%|████████████████████████████▏                                                                           | 243/897 [01:44<03:05,  3.53batch  train:  27%|████████████████████████████▎                                                                           | 244/897 [01:44<03:02,  3.58batch  train:  27%|████████████████████████████▍                                                                           | 245/897 [01:45<03:04,  3.53batch  train:  27%|████████████████████████████▌                                                                           | 246/897 [01:45<03:15,  3.33batch  train:  28%|████████████████████████████▋                                                                           | 247/897 [01:45<03:06,  3.48batch  train:  28%|████████████████████████████▊                                                                           | 248/897 [01:45<02:58,  3.65batch  train:  28%|████████████████████████████▊                                                                           | 249/897 [01:46<02:54,  3.71batch  train:  28%|████████████████████████████▉                                                                           | 250/897 [01:46<03:01,  3.56batch  train:  28%|█████████████████████████████                                                                           | 251/897 [01:46<03:17,  3.27batch  train:  28%|█████████████████████████████▏                                                                          | 252/897 [01:47<03:05,  3.47batch  train:  28%|█████████████████████████████▎                                                                          | 253/897 [01:47<03:06,  3.45batch  train:  28%|█████████████████████████████▍                                                                          | 254/897 [01:47<03:08,  3.41batch  train:  28%|█████████████████████████████▌                                                                          | 255/897 [01:47<03:04,  3.49batch  train:  29%|█████████████████████████████▋                                                                          | 256/897 [01:48<03:03,  3.49batch  train:  29%|█████████████████████████████▊                                                                          | 257/897 [01:48<02:51,  3.73batch  train:  29%|█████████████████████████████▉                                                                          | 258/897 [01:48<02:53,  3.68batch  train:  29%|██████████████████████████████                                                                          | 259/897 [01:48<02:46,  3.82batch  train:  29%|██████████████████████████████▏                                                                         | 260/897 [01:49<02:47,  3.79batch  train:  29%|██████████████████████████████▎                                                                         | 261/897 [01:49<02:48,  3.77batch  train:  29%|██████████████████████████████▍                                                                         | 262/897 [01:49<02:46,  3.81batch  train:  29%|██████████████████████████████▍                                                                         | 263/897 [01:50<02:50,  3.73batch  train:  29%|██████████████████████████████▌                                                                         | 264/897 [01:50<03:07,  3.38batch  train:  30%|██████████████████████████████▋                                                                         | 265/897 [01:50<03:00,  3.50batch  train:  30%|██████████████████████████████▊                                                                         | 266/897 [01:50<02:50,  3.69batch  train:  30%|██████████████████████████████▉                                                                         | 267/897 [01:51<02:46,  3.78batch  train:  30%|███████████████████████████████                                                                         | 268/897 [01:51<02:44,  3.83batch  train:  30%|███████████████████████████████▏                                                                        | 269/897 [01:51<02:37,  3.98batch  train:  30%|███████████████████████████████▎                                                                        | 270/897 [01:51<02:40,  3.91batch  train:  30%|███████████████████████████████▍                                                                        | 271/897 [01:52<02:59,  3.49batch  train:  30%|███████████████████████████████▌                                                                        | 272/897 [01:52<02:49,  3.69batch  train:  30%|███████████████████████████████▋                                                                        | 273/897 [01:52<02:59,  3.48batch  train:  31%|███████████████████████████████▊                                                                        | 274/897 [01:53<03:01,  3.43batch  train:  31%|███████████████████████████████▉                                                                        | 275/897 [01:53<03:01,  3.43batch  train:  31%|████████████████████████████████                                                                        | 276/897 [01:53<03:02,  3.41batch  train:  31%|████████████████████████████████                                                                        | 277/897 [01:54<03:08,  3.29batch  train:  31%|████████████████████████████████▏                                                                       | 278/897 [01:54<02:56,  3.51batch  train:  31%|████████████████████████████████▎                                                                       | 279/897 [01:54<02:48,  3.68batch  train:  31%|████████████████████████████████▍                                                                       | 280/897 [01:54<02:47,  3.68batch  train:  31%|████████████████████████████████▌                                                                       | 281/897 [01:55<02:45,  3.73batch  train:  31%|████████████████████████████████▋                                                                       | 282/897 [01:55<02:50,  3.60batch  train:  32%|████████████████████████████████▊                                                                       | 283/897 [01:55<02:39,  3.85batch  train:  32%|████████████████████████████████▉                                                                       | 284/897 [01:55<02:44,  3.72batch  train:  32%|█████████████████████████████████                                                                       | 285/897 [01:56<02:46,  3.69batch  train:  32%|█████████████████████████████████▏                                                                      | 286/897 [01:56<02:37,  3.87batch  train:  32%|█████████████████████████████████▎                                                                      | 287/897 [01:56<02:40,  3.81batch  train:  32%|█████████████████████████████████▍                                                                      | 288/897 [01:56<02:48,  3.62batch  train:  32%|█████████████████████████████████▌                                                                      | 289/897 [01:57<02:55,  3.47batch  train:  32%|█████████████████████████████████▌                                                                      | 290/897 [01:57<02:52,  3.51batch  train:  32%|█████████████████████████████████▋                                                                      | 291/897 [01:57<02:40,  3.79batch  train:  33%|█████████████████████████████████▊                                                                      | 292/897 [01:57<02:33,  3.94batch  train:  33%|█████████████████████████████████▉                                                                      | 293/897 [01:58<02:31,  3.97batch  train:  33%|██████████████████████████████████                                                                      | 294/897 [01:58<02:32,  3.96batch  train:  33%|██████████████████████████████████▏                                                                     | 295/897 [01:58<02:35,  3.88batch  train:  33%|██████████████████████████████████▎                                                                     | 296/897 [01:59<02:33,  3.92batch  train:  33%|██████████████████████████████████▍                                                                     | 297/897 [01:59<02:40,  3.74batch  train:  33%|██████████████████████████████████▌                                                                     | 298/897 [01:59<02:47,  3.57batch  train:  33%|██████████████████████████████████▋                                                                     | 299/897 [01:59<03:00,  3.32batch  train:  33%|██████████████████████████████████▊                                                                     | 300/897 [02:00<03:05,  3.23batch  train:  34%|██████████████████████████████████▉                                                                     | 301/897 [02:00<02:54,  3.41batch  train:  34%|███████████████████████████████████                                                                     | 302/897 [02:00<02:55,  3.39batch  train:  34%|███████████████████████████████████▏                                                                    | 303/897 [02:01<02:41,  3.67batch  train:  34%|███████████████████████████████████▏                                                                    | 304/897 [02:01<02:39,  3.72batch  train:  34%|███████████████████████████████████▎                                                                    | 305/897 [02:01<02:40,  3.68batch  train:  34%|███████████████████████████████████▍                                                                    | 306/897 [02:01<02:41,  3.65batch  train:  34%|███████████████████████████████████▌                                                                    | 307/897 [02:02<02:38,  3.73batch  train:  34%|███████████████████████████████████▋                                                                    | 308/897 [02:02<02:56,  3.33batch  train:  34%|███████████████████████████████████▊                                                                    | 309/897 [02:02<02:46,  3.54batch  train:  35%|███████████████████████████████████▉                                                                    | 310/897 [02:02<02:35,  3.77batch  train:  35%|████████████████████████████████████                                                                    | 311/897 [02:03<02:35,  3.76batch  train:  35%|████████████████████████████████████▏                                                                   | 312/897 [02:03<02:25,  4.02batch  train:  35%|████████████████████████████████████▎                                                                   | 313/897 [02:03<02:17,  4.25batch  train:  35%|████████████████████████████████████▍                                                                   | 314/897 [02:03<02:32,  3.82batch  train:  35%|████████████████████████████████████▌                                                                   | 315/897 [02:04<02:28,  3.93batch  train:  35%|████████████████████████████████████▋                                                                   | 316/897 [02:04<02:25,  3.99batch  train:  35%|████████████████████████████████████▊                                                                   | 317/897 [02:04<02:32,  3.81batch  train:  35%|████████████████████████████████████▊                                                                   | 318/897 [02:05<02:34,  3.74batch  train:  36%|████████████████████████████████████▉                                                                   | 319/897 [02:05<02:48,  3.43batch  train:  36%|█████████████████████████████████████                                                                   | 320/897 [02:05<02:44,  3.50batch  train:  36%|█████████████████████████████████████▏                                                                  | 321/897 [02:05<02:45,  3.49batch  train:  36%|█████████████████████████████████████▎                                                                  | 322/897 [02:06<02:40,  3.58batch  train:  36%|█████████████████████████████████████▍                                                                  | 323/897 [02:06<02:40,  3.58batch  train:  36%|█████████████████████████████████████▌                                                                  | 324/897 [02:06<02:40,  3.58batch  train:  36%|█████████████████████████████████████▋                                                                  | 325/897 [02:07<02:46,  3.43batch  train:  36%|█████████████████████████████████████▊                                                                  | 326/897 [02:07<02:48,  3.40batch  train:  36%|█████████████████████████████████████▉                                                                  | 327/897 [02:07<02:47,  3.40batch  train:  37%|██████████████████████████████████████                                                                  | 328/897 [02:07<02:38,  3.59batch  train:  37%|██████████████████████████████████████▏                                                                 | 329/897 [02:08<02:38,  3.59batch  train:  37%|██████████████████████████████████████▎                                                                 | 330/897 [02:08<02:47,  3.39batch  train:  37%|██████████████████████████████████████▍                                                                 | 331/897 [02:08<02:43,  3.46batch  train:  37%|██████████████████████████████████████▍                                                                 | 332/897 [02:09<03:28,  2.71batch  train:  37%|██████████████████████████████████████▌                                                                 | 333/897 [02:09<03:45,  2.50batch  train:  37%|██████████████████████████████████████▋                                                                 | 334/897 [02:10<04:36,  2.04batch  train:  37%|██████████████████████████████████████▊                                                                 | 335/897 [02:11<05:06,  1.83batch  train:  37%|██████████████████████████████████████▉                                                                 | 336/897 [02:11<05:18,  1.76batch  train:  38%|███████████████████████████████████████                                                                 | 337/897 [02:12<05:48,  1.60batch  train:  38%|███████████████████████████████████████▏                                                                | 338/897 [02:13<05:52,  1.59batch  train:  38%|███████████████████████████████████████▎                                                                | 339/897 [02:14<06:23,  1.46batch  train:  38%|███████████████████████████████████████▍                                                                | 340/897 [02:14<06:46,  1.37batch  train:  38%|███████████████████████████████████████▌                                                                | 341/897 [02:15<07:02,  1.31batch  train:  38%|███████████████████████████████████████▋                                                                | 342/897 [02:16<07:19,  1.26batch  train:  38%|███████████████████████████████████████▊                                                                | 343/897 [02:17<07:07,  1.30batch  train:  38%|███████████████████████████████████████▉                                                                | 344/897 [02:17<06:52,  1.34batch  train:  38%|████████████████████████████████████████                                                                | 345/897 [02:18<06:24,  1.44batch  train:  39%|████████████████████████████████████████                                                                | 346/897 [02:19<06:29,  1.41batch  train:  39%|████████████████████████████████████████▏                                                               | 347/897 [02:20<06:36,  1.39batch  train:  39%|████████████████████████████████████████▎                                                               | 348/897 [02:20<06:24,  1.43batch  train:  39%|████████████████████████████████████████▍                                                               | 349/897 [02:21<05:48,  1.57batch  train:  39%|████████████████████████████████████████▌                                                               | 350/897 [02:21<05:14,  1.74batch  train:  39%|████████████████████████████████████████▋                                                               | 351/897 [02:21<04:23,  2.07batch  train:  39%|████████████████████████████████████████▊                                                               | 352/897 [02:22<04:05,  2.22batch  train:  39%|████████████████████████████████████████▉                                                               | 353/897 [02:22<03:45,  2.41batch  train:  39%|█████████████████████████████████████████                                                               | 354/897 [02:23<04:20,  2.09batch  train:  40%|█████████████████████████████████████████▏                                                              | 355/897 [02:23<04:57,  1.82batch  train:  40%|█████████████████████████████████████████▎                                                              | 356/897 [02:24<05:34,  1.61batch  train:  40%|█████████████████████████████████████████▍                                                              | 357/897 [02:25<06:22,  1.41batch  train:  40%|█████████████████████████████████████████▌                                                              | 358/897 [02:26<06:45,  1.33batch  train:  40%|█████████████████████████████████████████▌                                                              | 359/897 [02:27<06:55,  1.30batch  train:  40%|█████████████████████████████████████████▋                                                              | 360/897 [02:28<06:55,  1.29batch  train:  40%|█████████████████████████████████████████▊                                                              | 361/897 [02:28<06:50,  1.31batch  train:  40%|█████████████████████████████████████████▉                                                              | 362/897 [02:29<06:42,  1.33batch  train:  40%|██████████████████████████████████████████                                                              | 363/897 [02:30<06:48,  1.31batch  train:  41%|██████████████████████████████████████████▏                                                             | 364/897 [02:31<07:06,  1.25batch  train:  41%|██████████████████████████████████████████▎                                                             | 365/897 [02:32<07:07,  1.24batch  train:  41%|██████████████████████████████████████████▍                                                             | 366/897 [02:32<06:50,  1.29batch  train:  41%|██████████████████████████████████████████▌                                                             | 367/897 [02:33<06:58,  1.27batch  train:  41%|██████████████████████████████████████████▋                                                             | 368/897 [02:34<07:17,  1.21batch  train:  41%|██████████████████████████████████████████▊                                                             | 369/897 [02:35<07:09,  1.23batch  train:  41%|██████████████████████████████████████████▉                                                             | 370/897 [02:36<07:00,  1.25batch  train:  41%|███████████████████████████████████████████                                                             | 371/897 [02:36<07:02,  1.25batch  train:  41%|███████████████████████████████████████████▏                                                            | 372/897 [02:37<07:10,  1.22batch  train:  42%|███████████████████████████████████████████▏                                                            | 373/897 [02:38<06:43,  1.30batch  train:  42%|███████████████████████████████████████████▎                                                            | 374/897 [02:39<06:23,  1.36batch  train:  42%|███████████████████████████████████████████▍                                                            | 375/897 [02:39<06:19,  1.38batch  train:  42%|███████████████████████████████████████████▌                                                            | 376/897 [02:40<06:15,  1.39batch  train:  42%|███████████████████████████████████████████▋                                                            | 377/897 [02:41<06:14,  1.39batch  train:  42%|███████████████████████████████████████████▊                                                            | 378/897 [02:41<06:22,  1.36batch  train:  42%|███████████████████████████████████████████▉                                                            | 379/897 [02:42<06:25,  1.34batch  train:  42%|████████████████████████████████████████████                                                            | 380/897 [02:43<06:30,  1.32batch  train:  42%|████████████████████████████████████████████▏                                                           | 381/897 [02:44<06:26,  1.34batch  train:  43%|████████████████████████████████████████████▎                                                           | 382/897 [02:44<06:18,  1.36batch  train:  43%|████████████████████████████████████████████▍                                                           | 383/897 [02:45<06:21,  1.35batch  train:  43%|████████████████████████████████████████████▌                                                           | 384/897 [02:46<06:39,  1.29batch  train:  43%|████████████████████████████████████████████▋                                                           | 385/897 [02:47<06:31,  1.31batch  train:  43%|████████████████████████████████████████████▊                                                           | 386/897 [02:47<06:22,  1.34batch  train:  43%|████████████████████████████████████████████▊                                                           | 387/897 [02:48<06:03,  1.40batch  train:  43%|████████████████████████████████████████████▉                                                           | 388/897 [02:49<06:08,  1.38batch  train:  43%|█████████████████████████████████████████████                                                           | 389/897 [02:50<05:59,  1.41batch  train:  43%|█████████████████████████████████████████████▏                                                          | 390/897 [02:50<06:22,  1.33batch  train:  44%|█████████████████████████████████████████████▎                                                          | 391/897 [02:51<06:08,  1.37batch  train:  44%|█████████████████████████████████████████████▍                                                          | 392/897 [02:52<06:10,  1.36batch  train:  44%|█████████████████████████████████████████████▌                                                          | 393/897 [02:53<06:18,  1.33batch  train:  44%|█████████████████████████████████████████████▋                                                          | 394/897 [02:53<06:21,  1.32batch  train:  44%|█████████████████████████████████████████████▊                                                          | 395/897 [02:54<06:24,  1.31batch  train:  44%|█████████████████████████████████████████████▉                                                          | 396/897 [02:55<06:23,  1.31batch  train:  44%|██████████████████████████████████████████████                                                          | 397/897 [02:56<06:16,  1.33batch  train:  44%|██████████████████████████████████████████████▏                                                         | 398/897 [02:56<06:14,  1.33batch  train:  44%|██████████████████████████████████████████████▎                                                         | 399/897 [02:57<06:09,  1.35batch  train:  45%|██████████████████████████████████████████████▍                                                         | 400/897 [02:58<06:19,  1.31batch  train:  45%|██████████████████████████████████████████████▍                                                         | 401/897 [02:59<05:54,  1.40batch  train:  45%|██████████████████████████████████████████████▌                                                         | 402/897 [02:59<05:41,  1.45batch  train:  45%|██████████████████████████████████████████████▋                                                         | 403/897 [03:00<05:38,  1.46batch  train:  45%|██████████████████████████████████████████████▊                                                         | 404/897 [03:00<05:28,  1.50batch  train:  45%|██████████████████████████████████████████████▉                                                         | 405/897 [03:01<05:31,  1.48batch  train:  45%|███████████████████████████████████████████████                                                         | 406/897 [03:02<05:29,  1.49batch  train:  45%|███████████████████████████████████████████████▏                                                        | 407/897 [03:02<04:59,  1.63batch  train:  45%|███████████████████████████████████████████████▎                                                        | 408/897 [03:03<04:57,  1.65batch  train:  46%|███████████████████████████████████████████████▍                                                        | 409/897 [03:04<05:08,  1.58batch  train:  46%|███████████████████████████████████████████████▌                                                        | 410/897 [03:04<04:58,  1.63batch  train:  46%|███████████████████████████████████████████████▋                                                        | 411/897 [03:05<05:00,  1.62batch  train:  46%|███████████████████████████████████████████████▊                                                        | 412/897 [03:05<04:57,  1.63batch  train:  46%|███████████████████████████████████████████████▉                                                        | 413/897 [03:06<04:37,  1.75batch  train:  46%|████████████████████████████████████████████████                                                        | 414/897 [03:06<03:49,  2.11batch  train:  46%|████████████████████████████████████████████████                                                        | 415/897 [03:06<03:20,  2.41batch  train:  46%|████████████████████████████████████████████████▏                                                       | 416/897 [03:07<02:52,  2.79batch  train:  46%|████████████████████████████████████████████████▎                                                       | 417/897 [03:07<02:29,  3.22batch  train:  47%|████████████████████████████████████████████████▍                                                       | 418/897 [03:07<02:20,  3.42batch  train:  47%|████████████████████████████████████████████████▌                                                       | 419/897 [03:07<02:21,  3.39batch  train:  47%|████████████████████████████████████████████████▋                                                       | 420/897 [03:08<02:17,  3.47batch  train:  47%|████████████████████████████████████████████████▊                                                       | 421/897 [03:08<02:08,  3.71batch  train:  47%|████████████████████████████████████████████████▉                                                       | 422/897 [03:08<02:09,  3.68batch  train:  47%|█████████████████████████████████████████████████                                                       | 423/897 [03:08<02:13,  3.55batch  train:  47%|█████████████████████████████████████████████████▏                                                      | 424/897 [03:09<02:06,  3.75batch  train:  47%|█████████████████████████████████████████████████▎                                                      | 425/897 [03:09<02:14,  3.51batch  train:  47%|█████████████████████████████████████████████████▍                                                      | 426/897 [03:09<02:22,  3.32batch  train:  48%|█████████████████████████████████████████████████▌                                                      | 427/897 [03:10<02:21,  3.33batch  train:  48%|█████████████████████████████████████████████████▌                                                      | 428/897 [03:10<02:20,  3.34batch  train:  48%|█████████████████████████████████████████████████▋                                                      | 429/897 [03:10<02:17,  3.41batch  train:  48%|█████████████████████████████████████████████████▊                                                      | 430/897 [03:10<02:15,  3.44batch  train:  48%|█████████████████████████████████████████████████▉                                                      | 431/897 [03:11<02:14,  3.47batch  train:  48%|██████████████████████████████████████████████████                                                      | 432/897 [03:11<02:21,  3.29batch  train:  48%|██████████████████████████████████████████████████▏                                                     | 433/897 [03:11<02:12,  3.51batch  train:  48%|██████████████████████████████████████████████████▎                                                     | 434/897 [03:12<02:28,  3.11batch  train:  48%|██████████████████████████████████████████████████▍                                                     | 435/897 [03:12<02:23,  3.21batch  train:  49%|██████████████████████████████████████████████████▌                                                     | 436/897 [03:12<02:21,  3.25batch  train:  49%|██████████████████████████████████████████████████▋                                                     | 437/897 [03:13<02:18,  3.32batch  train:  49%|██████████████████████████████████████████████████▊                                                     | 438/897 [03:13<02:10,  3.50batch  train:  49%|██████████████████████████████████████████████████▉                                                     | 439/897 [03:13<02:06,  3.63batch  train:  49%|███████████████████████████████████████████████████                                                     | 440/897 [03:13<02:14,  3.40batch  train:  49%|███████████████████████████████████████████████████▏                                                    | 441/897 [03:14<02:15,  3.38batch  train:  49%|███████████████████████████████████████████████████▏                                                    | 442/897 [03:14<02:18,  3.27batch  train:  49%|███████████████████████████████████████████████████▎                                                    | 443/897 [03:14<02:05,  3.61batch  train:  49%|███████████████████████████████████████████████████▍                                                    | 444/897 [03:15<01:58,  3.81batch  train:  50%|███████████████████████████████████████████████████▌                                                    | 445/897 [03:15<01:49,  4.12batch  train:  50%|███████████████████████████████████████████████████▋                                                    | 446/897 [03:15<01:50,  4.07batch  train:  50%|███████████████████████████████████████████████████▊                                                    | 447/897 [03:15<01:46,  4.22batch  train:  50%|███████████████████████████████████████████████████▉                                                    | 448/897 [03:15<01:52,  4.00batch  train:  50%|████████████████████████████████████████████████████                                                    | 449/897 [03:16<02:04,  3.61batch  train:  50%|████████████████████████████████████████████████████▏                                                   | 450/897 [03:16<01:55,  3.88batch  train:  50%|████████████████████████████████████████████████████▎                                                   | 451/897 [03:16<01:47,  4.14batch  train:  50%|████████████████████████████████████████████████████▍                                                   | 452/897 [03:17<01:53,  3.91batch  train:  51%|████████████████████████████████████████████████████▌                                                   | 453/897 [03:17<01:54,  3.87batch  train:  51%|████████████████████████████████████████████████████▋                                                   | 454/897 [03:17<01:54,  3.88batch  train:  51%|████████████████████████████████████████████████████▊                                                   | 455/897 [03:17<02:01,  3.64batch  train:  51%|████████████████████████████████████████████████████▊                                                   | 456/897 [03:18<01:59,  3.69batch  train:  51%|████████████████████████████████████████████████████▉                                                   | 457/897 [03:18<01:52,  3.91batch  train:  51%|█████████████████████████████████████████████████████                                                   | 458/897 [03:18<01:53,  3.85batch  train:  51%|█████████████████████████████████████████████████████▏                                                  | 459/897 [03:18<01:45,  4.17batch  train:  51%|█████████████████████████████████████████████████████▎                                                  | 460/897 [03:19<01:50,  3.95batch  train:  51%|█████████████████████████████████████████████████████▍                                                  | 461/897 [03:19<01:49,  3.97batch  train:  52%|█████████████████████████████████████████████████████▌                                                  | 462/897 [03:19<01:57,  3.70batch  train:  52%|█████████████████████████████████████████████████████▋                                                  | 463/897 [03:20<02:15,  3.21batch  train:  52%|█████████████████████████████████████████████████████▊                                                  | 464/897 [03:20<02:21,  3.06batch  train:  52%|█████████████████████████████████████████████████████▉                                                  | 465/897 [03:20<02:21,  3.06batch  train:  52%|██████████████████████████████████████████████████████                                                  | 466/897 [03:21<02:36,  2.75batch  train:  52%|██████████████████████████████████████████████████████▏                                                 | 467/897 [03:21<02:25,  2.95batch  train:  52%|██████████████████████████████████████████████████████▎                                                 | 468/897 [03:21<02:15,  3.18batch  train:  52%|██████████████████████████████████████████████████████▍                                                 | 469/897 [03:22<02:17,  3.11batch  train:  52%|██████████████████████████████████████████████████████▍                                                 | 470/897 [03:22<02:07,  3.34batch  train:  53%|██████████████████████████████████████████████████████▌                                                 | 471/897 [03:22<02:01,  3.50batch  train:  53%|██████████████████████████████████████████████████████▋                                                 | 472/897 [03:22<02:17,  3.10batch  train:  53%|██████████████████████████████████████████████████████▊                                                 | 473/897 [03:23<02:18,  3.05batch  train:  53%|██████████████████████████████████████████████████████▉                                                 | 474/897 [03:23<02:19,  3.03batch  train:  53%|███████████████████████████████████████████████████████                                                 | 475/897 [03:23<02:18,  3.05batch  train:  53%|███████████████████████████████████████████████████████▏                                                | 476/897 [03:24<02:12,  3.18batch  train:  53%|███████████████████████████████████████████████████████▎                                                | 477/897 [03:24<02:14,  3.12batch  train:  53%|███████████████████████████████████████████████████████▍                                                | 478/897 [03:24<02:01,  3.44batch  train:  53%|███████████████████████████████████████████████████████▌                                                | 479/897 [03:25<01:57,  3.55batch  train:  54%|███████████████████████████████████████████████████████▋                                                | 480/897 [03:25<01:57,  3.56batch  train:  54%|███████████████████████████████████████████████████████▊                                                | 481/897 [03:25<01:51,  3.72batch  train:  54%|███████████████████████████████████████████████████████▉                                                | 482/897 [03:25<01:53,  3.65batch  train:  54%|████████████████████████████████████████████████████████                                                | 483/897 [03:26<01:55,  3.60batch  train:  54%|████████████████████████████████████████████████████████                                                | 484/897 [03:26<01:56,  3.56batch  train:  54%|████████████████████████████████████████████████████████▏                                               | 485/897 [03:26<02:11,  3.13batch  train:  54%|████████████████████████████████████████████████████████▎                                               | 486/897 [03:27<02:41,  2.55batch  train:  54%|████████████████████████████████████████████████████████▍                                               | 487/897 [03:27<02:46,  2.47batch  train:  54%|████████████████████████████████████████████████████████▌                                               | 488/897 [03:28<02:44,  2.49batch  train:  55%|████████████████████████████████████████████████████████▋                                               | 489/897 [03:28<02:39,  2.56batch  train:  55%|████████████████████████████████████████████████████████▊                                               | 490/897 [03:29<02:50,  2.39batch  train:  55%|████████████████████████████████████████████████████████▉                                               | 491/897 [03:29<02:47,  2.43batch  train:  55%|█████████████████████████████████████████████████████████                                               | 492/897 [03:29<02:50,  2.38batch  train:  55%|█████████████████████████████████████████████████████████▏                                              | 493/897 [03:30<02:56,  2.29batch  train:  55%|█████████████████████████████████████████████████████████▎                                              | 494/897 [03:30<02:53,  2.32batch  train:  55%|█████████████████████████████████████████████████████████▍                                              | 495/897 [03:31<02:54,  2.30batch  train:  55%|█████████████████████████████████████████████████████████▌                                              | 496/897 [03:31<02:50,  2.35batch  train:  55%|█████████████████████████████████████████████████████████▌                                              | 497/897 [03:32<02:46,  2.40batch  train:  56%|█████████████████████████████████████████████████████████▋                                              | 498/897 [03:32<02:55,  2.27batch  train:  56%|█████████████████████████████████████████████████████████▊                                              | 499/897 [03:33<02:59,  2.21batch  train:  56%|█████████████████████████████████████████████████████████▉                                              | 500/897 [03:33<02:53,  2.29batch  train:  56%|██████████████████████████████████████████████████████████                                              | 501/897 [03:33<02:53,  2.29batch  train:  56%|██████████████████████████████████████████████████████████▏                                             | 502/897 [03:34<02:53,  2.28batch  train:  56%|██████████████████████████████████████████████████████████▎                                             | 503/897 [03:34<02:56,  2.23batch  train:  56%|██████████████████████████████████████████████████████████▍                                             | 504/897 [03:35<03:07,  2.10batch  train:  56%|██████████████████████████████████████████████████████████▌                                             | 505/897 [03:35<02:50,  2.30batch  train:  56%|██████████████████████████████████████████████████████████▋                                             | 506/897 [03:36<02:54,  2.25batch  train:  57%|██████████████████████████████████████████████████████████▊                                             | 507/897 [03:36<02:49,  2.30batch  train:  57%|██████████████████████████████████████████████████████████▉                                             | 508/897 [03:36<02:46,  2.34batch  train:  57%|███████████████████████████████████████████████████████████                                             | 509/897 [03:37<02:45,  2.35batch  train:  57%|███████████████████████████████████████████████████████████▏                                            | 510/897 [03:37<02:45,  2.34batch  train:  57%|███████████████████████████████████████████████████████████▏                                            | 511/897 [03:38<02:43,  2.37batch  train:  57%|███████████████████████████████████████████████████████████▎                                            | 512/897 [03:38<02:31,  2.54batch  train:  57%|███████████████████████████████████████████████████████████▍                                            | 513/897 [03:39<02:37,  2.43batch  train:  57%|███████████████████████████████████████████████████████████▌                                            | 514/897 [03:39<02:37,  2.43batch  train:  57%|███████████████████████████████████████████████████████████▋                                            | 515/897 [03:39<02:33,  2.49batch  train:  58%|███████████████████████████████████████████████████████████▊                                            | 516/897 [03:40<02:41,  2.36batch  train:  58%|███████████████████████████████████████████████████████████▉                                            | 517/897 [03:40<02:45,  2.29batch  train:  58%|████████████████████████████████████████████████████████████                                            | 518/897 [03:41<02:39,  2.37batch  train:  58%|████████████████████████████████████████████████████████████▏                                           | 519/897 [03:41<02:40,  2.36batch  train:  58%|████████████████████████████████████████████████████████████▎                                           | 520/897 [03:41<02:40,  2.34batch  train:  58%|████████████████████████████████████████████████████████████▍                                           | 521/897 [03:42<02:39,  2.36batch  train:  58%|████████████████████████████████████████████████████████████▌                                           | 522/897 [03:42<02:46,  2.26batch  train:  58%|████████████████████████████████████████████████████████████▋                                           | 523/897 [03:43<03:05,  2.01batch  train:  58%|████████████████████████████████████████████████████████████▊                                           | 524/897 [03:43<02:53,  2.14batch  train:  59%|████████████████████████████████████████████████████████████▊                                           | 525/897 [03:44<02:58,  2.09batch  train:  59%|████████████████████████████████████████████████████████████▉                                           | 526/897 [03:44<02:43,  2.27batch  train:  59%|█████████████████████████████████████████████████████████████                                           | 527/897 [03:45<02:44,  2.25batch  train:  59%|█████████████████████████████████████████████████████████████▏                                          | 528/897 [03:45<02:32,  2.42batch  train:  59%|█████████████████████████████████████████████████████████████▎                                          | 529/897 [03:45<02:32,  2.42batch  train:  59%|█████████████████████████████████████████████████████████████▍                                          | 530/897 [03:46<02:24,  2.53batch  train:  59%|█████████████████████████████████████████████████████████████▌                                          | 531/897 [03:46<02:32,  2.40batch  train:  59%|█████████████████████████████████████████████████████████████▋                                          | 532/897 [03:47<02:34,  2.36batch  train:  59%|█████████████████████████████████████████████████████████████▊                                          | 533/897 [03:47<02:34,  2.36batch  train:  60%|█████████████████████████████████████████████████████████████▉                                          | 534/897 [03:48<02:38,  2.28batch  train:  60%|██████████████████████████████████████████████████████████████                                          | 535/897 [03:48<02:41,  2.24batch  train:  60%|██████████████████████████████████████████████████████████████▏                                         | 536/897 [03:48<02:31,  2.38batch  train:  60%|██████████████████████████████████████████████████████████████▎                                         | 537/897 [03:49<02:23,  2.51batch  train:  60%|██████████████████████████████████████████████████████████████▍                                         | 538/897 [03:49<02:18,  2.59batch  train:  60%|██████████████████████████████████████████████████████████████▍                                         | 539/897 [03:50<02:14,  2.65batch  train:  60%|██████████████████████████████████████████████████████████████▌                                         | 540/897 [03:50<02:16,  2.61batch  train:  60%|██████████████████████████████████████████████████████████████▋                                         | 541/897 [03:50<02:09,  2.75batch  train:  60%|██████████████████████████████████████████████████████████████▊                                         | 542/897 [03:51<02:21,  2.52batch  train:  61%|██████████████████████████████████████████████████████████████▉                                         | 543/897 [03:51<02:21,  2.50batch  train:  61%|███████████████████████████████████████████████████████████████                                         | 544/897 [03:52<02:22,  2.47batch  train:  61%|███████████████████████████████████████████████████████████████▏                                        | 545/897 [03:52<02:24,  2.43batch  train:  61%|███████████████████████████████████████████████████████████████▎                                        | 546/897 [03:52<02:22,  2.47batch  train:  61%|███████████████████████████████████████████████████████████████▍                                        | 547/897 [03:53<02:22,  2.45batch  train:  61%|███████████████████████████████████████████████████████████████▌                                        | 548/897 [03:53<02:21,  2.46batch  train:  61%|███████████████████████████████████████████████████████████████▋                                        | 549/897 [03:54<02:19,  2.49batch  train:  61%|███████████████████████████████████████████████████████████████▊                                        | 550/897 [03:54<02:19,  2.48batch  train:  61%|███████████████████████████████████████████████████████████████▉                                        | 551/897 [03:54<02:21,  2.44batch  train:  62%|████████████████████████████████████████████████████████████████                                        | 552/897 [03:55<02:22,  2.42batch  train:  62%|████████████████████████████████████████████████████████████████                                        | 553/897 [03:55<02:48,  2.04batch  train:  62%|████████████████████████████████████████████████████████████████▏                                   train:  64%|██████████████████████████████████  train:  64%|██████████████████████████████████████████████████████████████████▍                                     |   train:  64%|██████████████████████████████████████████████████████████████████▌                                     |   train:  64%|██████████████████████████████████████████████████████████████████▋                                     |   train:  64%|██████████████████████████████████████████████████████████████████▊                                     |   train:  64%|██████████████████████████████████████████████████████████████████▉                                     |   train:  64%|███████████████████████████████████████████████████████████████████                                     |   train:  65%|███████████████████████████████████████████████████████████████████▏                                    |   train:  65%|███████████████████████████████████████████████████████████████████▏                                    |   train:  65%|███████████████████████████████████████████████████████████████████▎                                    |   train:  65%|███████████████████████████████████████████████████████████████████▍                                    |   train:  65%|███████████████████████████████████████████████████████████████████▌                                    |   train:  65%|███████████████████████████████████████████████████████████████████▋                                    |   train:  65%|███████████████████████████████████████████████████████████████████▊                                    |   train:  65%|███████████████████████████████████████████████████████████████████▉                                    |   train:  65%|████████████████████████████████████████████████████████████████████                                    |   train:  66%|████████████████████████████████████████████████████████████████████▏                                   |   train:  66%|████████████████████████████████████████████████████████████████████▎                                   |   train:  66%|████████████████████████████████████████████████████████████████████▍                                   |   train:  66%|████████████████████████████████████████████████████████████████████▌                                   |   train:  66%|████████████████████████████████████████████████████████████████████▋                                   |   train:  66%|████████████████████████████████████████████████████████████████████▊                                   |   train:  66%|████████████████████████████████████████████████████████████████████▊                                   |   train:  66%|████████████████████████████████████████████████████████████████████▉                                   |   train:  66%|█████████████████████████████████████████████████████████████████████                                   |   train:  67%|█████████████████████████████████████████████████████████████████████▏                                  |   train:  67%|█████████████████████████████████████████████████████████████████████▎                                  |   train:  67%|█████████████████████████████████████████████████████████████████████▍                                  |   train:  67%|█████████████████████████████████████████████████████████████████████▌                                  |   train:  67%|█████████████████████████████████████████████████████████████████████▋                                  |   train:  67%|█████████████████████████████████████████████████████████████████████▊                                  |   train:  67%|█████████████████████████████████████████████████████████████████████▉                                  |   train:  67%|██████████████████████████████████████████████████████████████████████                                  |   train:  67%|██████████████████████████████████████████████████████████████████████▏                                 |   train:  68%|██████████████████████████████████████████████████████████████████████▎                                 |   train:  68%|██████████████████████████████████████████████████████████████████████▍                                 |   train:  68%|██████████████████████████████████████████████████████████████████████▍                                 |   train:  68%|██████████████████████████████████████████████████████████████████████▌                                 |   train:  68%|██████████████████████████████████████████████████████████████████████▋                                 |   train:  68%|██████████████████████████████████████████████████████████████████████▊                                 |   train:  68%|██████████████████████████████████████████████████████████████████████▉                                 |   train:  68%|███████████████████████████████████████████████████████████████████████                                 |   train:  68%|███████████████████████████████████████████████████████████████████████▏                                |   train:  69%|███████████████████████████████████████████████████████████████████████▎                                |   train:  69%|███████████████████████████████████████████████████████████████████████▍                                |   train:  69%|███████████████████████████████████████████████████████████████████████▌                                |   train:  69%|███████████████████████████████████████████████████████████████████████▋                                |   train:  69%|███████████████████████████████████████████████████████████████████████▊                                |   train:  69%|███████████████████████████████████████████████████████████████████████▉                                |   train:  69%|████████████████████████████████████████████████████████████████████████                                |   train:  69%|████████████████████████████████████████████████████████████████████████                                |   train:  69%|████████████████████████████████████████████████████████████████████████▏                               |   train:  70%|██████████████████████████████████████████████████████████    [train] Acc=14.63%  Prec=14.66%  Rec=14.34%  F1=7.05%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 390.0s
+
+Epoch 3/20  LR=0.001000
+    [train] Acc=14.56%  Prec=14.91%  Rec=14.54%  F1=6.61%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 349.2s
+
+Epoch 4/20  LR=0.001000
+    [train] Acc=14.63%  Prec=14.36%  Rec=14.61%  F1=6.39%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 356.1s
+
+Epoch 5/20  LR=0.001000
+    [train] Acc=14.26%  Prec=15.33%  Rec=14.71%  F1=6.19%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 347.5s
+  [ckpt] Saved → checkpoints\fer_epoch005.pth
+
+Epoch 6/20  LR=0.001000
+    [train] Acc=15.03%  Prec=14.99%  Rec=14.66%  F1=6.02%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 324.3s
+
+Epoch 7/20  LR=0.001000
+    [train] Acc=14.81%  Prec=15.70%  Rec=14.84%  F1=5.91%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 345.3s
+
+Epoch 8/20  LR=0.001000
+    [train] Acc=14.98%  Prec=16.46%  Rec=14.82%  F1=5.82%
+    [val]   Acc=1.55%  Prec=0.22%  Rec=14.29%  F1=0.44%
+  time: 342.9s
+
+[EarlyStop] No improvement for 7 epochs. Stopping.
+
+[Done] Best val accuracy: 1.55%  Best F1: 0.44%
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --epochs 50 --batch_size 16 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+
+Epoch 1/50  LR=0.000100
+    [train] Acc=14.07%  Prec=14.11%  Rec=14.10%  F1=13.45%
+    [val]   Acc=11.57%  Prec=13.93%  Rec=13.70%  F1=9.66%
+  time: 505.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 2/50  LR=0.000100
+    [train] Acc=14.18%  Prec=14.00%  Rec=14.17%  F1=13.39%
+    [val]   Acc=9.63%  Prec=14.47%  Rec=13.74%  F1=8.37%
+  time: 408.1s
+
+Epoch 3/50  LR=0.000100
+    [train] Acc=14.18%  Prec=14.09%  Rec=14.20%  F1=13.35%
+    [val]   Acc=9.21%  Prec=16.30%  Rec=14.16%  F1=8.55%
+  time: 255.9s
+
+Epoch 4/50  LR=0.000100
+    [train] Acc=14.23%  Prec=14.21%  Rec=14.20%  F1=13.30%
+    [val]   Acc=6.29%  Prec=15.87%  Rec=14.13%  F1=6.46%
+  time: 255.7s
+
+Epoch 5/50  LR=0.000100
+    [train] Acc=14.09%  Prec=13.99%  Rec=14.02%  F1=12.95%
+    [val]   Acc=5.05%  Prec=16.09%  Rec=13.50%  F1=5.19%
+  time: 255.2s
+  [ckpt] Saved → checkpoints\fer_epoch005.pth
+
+Epoch 6/50  LR=0.000100
+    [train] Acc=14.27%  Prec=14.26%  Rec=14.25%  F1=13.02%
+    [val]   Acc=4.19%  Prec=15.38%  Rec=14.50%  F1=4.19%
+  time: 255.0s
+
+Epoch 7/50  LR=0.000100
+    [train] Acc=14.21%  Prec=14.27%  Rec=14.24%  F1=12.79%
+    [val]   Acc=2.85%  Prec=15.26%  Rec=14.55%  F1=2.49%
+  time: 255.3s
+
+Epoch 8/50  LR=0.000100
+    [train] Acc=14.57%  Prec=14.64%  Rec=14.56%  F1=12.93%
+    [val]   Acc=2.33%  Prec=11.17%  Rec=14.56%  F1=1.68%
+  time: 255.5s
+
+[EarlyStop] No improvement for 7 epochs. Stopping.
+
+[Done] Best val accuracy: 11.57%  Best F1: 9.66%
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --epochs 50 --batch_size 16 --lr 0.00001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+
+Epoch 1/50  LR=0.000010
+    [train] Acc=14.57%  Prec=14.30%  Rec=14.54%  F1=13.29%
+    [val]   Acc=20.54%  Prec=13.38%  Rec=14.06%  F1=7.20%
+  time: 426.4s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 2/50  LR=0.000010
+    [train] Acc=14.64%  Prec=14.53%  Rec=14.60%  F1=13.46%
+    [val]   Acc=20.86%  Prec=10.83%  Rec=14.35%  F1=7.52%
+  time: 356.2s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 3/50  LR=0.000010
+    [train] Acc=14.25%  Prec=14.03%  Rec=14.11%  F1=13.04%
+    [val]   Acc=20.77%  Prec=14.55%  Rec=14.93%  F1=7.68%
+  time: 254.8s
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 4/50  LR=0.000010
+    [train] Acc=14.27%  Prec=13.96%  Rec=14.25%  F1=12.98%
+    [val]   Acc=20.12%  Prec=12.18%  Rec=14.35%  F1=7.67%
+  time: 254.8s
+
+Epoch 5/50  LR=0.000010
+    [train] Acc=14.37%  Prec=14.09%  Rec=14.29%  F1=13.09%
+    [val]   Acc=20.23%  Prec=15.67%  Rec=14.49%  F1=7.61%
+  time: 254.8s
+  [ckpt] Saved → checkpoints\fer_epoch005.pth
+
+Epoch 6/50  LR=0.000010
+    [train] Acc=14.44%  Prec=14.29%  Rec=14.36%  F1=13.20%
+    [val]   Acc=20.20%  Prec=13.17%  Rec=14.07%  F1=7.69%
+  time: 280.8s
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 7/50  LR=0.000010
+    [train] Acc=13.91%  Prec=13.66%  Rec=13.88%  F1=12.66%
+    [val]   Acc=19.87%  Prec=16.78%  Rec=14.74%  F1=7.54%
+  time: 255.3s
+
+Epoch 8/50  LR=0.000010
+    [train] Acc=14.37%  Prec=14.28%  Rec=14.32%  F1=13.17%
+    [val]   Acc=20.21%  Prec=10.84%  Rec=14.44%  F1=7.51%
+  time: 256.4s
+
+Epoch 9/50  LR=0.000010
+    [train] Acc=14.18%  Prec=14.25%  Rec=14.23%  F1=13.08%
+    [val]   Acc=20.10%  Prec=11.14%  Rec=15.11%  F1=7.59%
+  time: 255.8s
+
+[EarlyStop] No improvement for 7 epochs. Stopping.
+
+[Done] Best val accuracy: 20.86%  Best F1: 7.69%
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 50 --batch_size 16 --lr 0.00005 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth  (epoch=2)
+[EANet] Backbones UNFROZEN — full end-to-end fine-tuning.
+
+Epoch 3/52  LR=0.000050
+    [train] Acc=14.22%  Prec=14.06%  Rec=14.17%  F1=12.99%
+    [val]   Acc=20.55%  Prec=10.81%  Rec=14.68%  F1=7.36%
+  time: 275.9s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 4/52  LR=0.000050
+    [train] Acc=14.25%  Prec=14.19%  Rec=14.23%  F1=13.04%
+    [val]   Acc=19.98%  Prec=11.03%  Rec=14.77%  F1=7.16%
+  time: 255.5s
+
+Epoch 5/52  LR=0.000050
+    [train] Acc=14.58%  Prec=14.45%  Rec=14.58%  F1=13.36%
+    [val]   Acc=18.35%  Prec=13.71%  Rec=14.75%  F1=7.27%
+  time: 255.1s
+  [ckpt] Saved → checkpoints\fer_epoch005.pth
+
+Epoch 6/52  LR=0.000050
+    [train] Acc=14.03%  Prec=14.08%  Rec=14.00%  F1=12.85%
+    [val]   Acc=18.72%  Prec=16.20%  Rec=15.44%  F1=7.39%
+  time: 254.5s
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 7/52  LR=0.000050
+    [train] Acc=14.16%  Prec=13.91%  Rec=14.18%  F1=12.86%
+    [val]   Acc=16.07%  Prec=13.08%  Rec=15.24%  F1=7.02%
+  time: 255.5s
+
+Epoch 8/52  LR=0.000050
+    [train] Acc=14.59%  Prec=14.42%  Rec=14.65%  F1=13.22%
+    [val]   Acc=14.83%  Prec=11.27%  Rec=14.29%  F1=6.93%
+  time: 255.7s
+
+Epoch 9/52  LR=0.000050
+    [train] Acc=14.25%  Prec=14.07%  Rec=14.26%  F1=12.83%
+    [val]   Acc=13.32%  Prec=16.64%  Rec=14.81%  F1=6.67%
+  time: 256.6s
+
+Epoch 10/52  LR=0.000050
+    [train] Acc=14.31%  Prec=14.22%  Rec=14.34%  F1=12.87%
+    [val]   Acc=12.00%  Prec=15.40%  Rec=15.31%  F1=6.37%
+  time: 256.1s
+  [ckpt] Saved → checkpoints\fer_epoch010.pth
+
+[EarlyStop] No improvement for 7 epochs. Stopping.
+
+[Done] Best val accuracy: 20.55%  Best F1: 7.39%
+
+(eanet) C:\Users\hanee\OneDrive\Desktop\facial-emotion-recognition>     

@@ -1,0 +1,13 @@
+torch==2.2.0
+torchvision==0.17.0
+opencv-contrib-python==4.9.0.80
+numpy==1.26.4
+pandas==2.2.1
+Pillow==10.2.0
+scikit-learn==1.4.1.post1
+matplotlib==3.8.3
+seaborn==0.13.2
+tensorboard==2.16.2
+tqdm==4.66.2
+grad-cam==1.5.0
+albumentations==1.4.0
