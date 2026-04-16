@@ -33,27 +33,27 @@ class Config:
     # ── Model ────────────────────────────────────────────────────────────────
     backbone_out_channels: int = 512   # projection dim after each backbone
     cam_reduction:         int = 16    # channel attention reduction ratio
-    dropout_rate:         float = 0.5
+    dropout_rate:         float = 0.2
 
     # ── Training — Stage 1 (frozen backbone) ────────────────────────────────
     stage1_epochs:     int   = 20
     stage1_lr:        float  = 1e-3
-    stage1_momentum:  float  = 0.09
+    stage1_momentum:  float  = 0.9
     stage1_weight_decay: float = 1e-4
 
     # ── Training — Stage 2 (full fine-tune) ──────────────────────────────────
     stage2_epochs:     int   = 30
-    stage2_lr:        float  = 1e-4
-    stage2_momentum:  float  = 0.09
+    stage2_lr:        float  = 5e-4
+    stage2_momentum:  float  = 0.9
     stage2_weight_decay: float = 1e-4
 
     # ── Training — Shared ────────────────────────────────────────────────────
-    batch_size:      int   = 32       # RTX 4050 6GB safe; reduce to 16 if OOM
+    batch_size:      int   = 48       # RTX 4050 6GB safe; reduce to 16 if OOM
     num_workers:     int   = 0        # Windows: keep at 0 to avoid spawn errors
     pin_memory:      bool  = True
     use_amp:         bool  = True     # FP16 mixed precision
     grad_clip:       float = 1.0      # max_norm for gradient clipping
-    early_stop_patience: int = 7
+    early_stop_patience: int = 20
     save_every_n_epochs: int = 5
 
     # ── LR Schedule (StepLR) ────────────────────────────────────────────────

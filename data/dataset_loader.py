@@ -102,7 +102,7 @@ def get_dataloaders(dataset: str, data_root=None,
 
     print(f"[DataLoader] {dataset.upper()}: train={len(tr_ds):,} val={len(val_ds):,} test={len(te_ds):,}")
 
-    counts = np.bincount(np.array(tr_ds.targets), minlength=CFG.num_classes).astype(float)
+    counts = np.bincount(np.array(tr_ds.targets, dtype=int), minlength=int(CFG.num_classes)).astype(float)
     cw = torch.tensor(counts.sum() / (CFG.num_classes * counts), dtype=torch.float32)
     sw = torch.tensor(1.0 / counts[np.array(tr_ds.targets)], dtype=torch.float32)
     sampler = WeightedRandomSampler(sw, len(sw), replacement=True)

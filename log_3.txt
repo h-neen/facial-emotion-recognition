@@ -1,0 +1,152 @@
+
+(base) C:\Users\hanee>conda activate eanet
+
+(eanet) C:\Users\hanee>cd project/facial-emotion-recognition
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --freeze_backbone --resume checkpoints/fer_best_val_acc.pth --epochs 20 --batch_size 16 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth  (epoch=10)
+
+Epoch 11/30  LR=0.000100
+    [train] Acc=18.19%  Prec=17.79%  Rec=18.19%  F1=17.93%
+    [val]   Acc=22.99%  Prec=22.77%  Rec=25.60%  F1=19.94%
+  time: 250.4s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 12/30  LR=0.000100
+    [train] Acc=18.84%  Prec=18.42%  Rec=18.87%  F1=18.57%
+    [val]   Acc=23.58%  Prec=22.78%  Rec=26.20%  F1=20.34%
+  time: 272.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 13/30  LR=0.000100
+    [train] Acc=19.24%  Prec=18.77%  Rec=19.23%  F1=18.94%
+    [val]   Acc=23.59%  Prec=22.95%  Rec=26.63%  F1=20.60%
+  time: 161.0s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_best_val_f1.pth
+
+Epoch 14/30  LR=0.000100
+    [train] Acc=19.45%  Prec=18.73%  Rec=19.35%  F1=18.93%
+    [val]   Acc=23.63%  Prec=23.06%  Rec=26.63%  F1=20.25%
+  time: 160.8s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 15/30  LR=0.000100
+    [train] Acc=19.88%  Prec=19.20%  Rec=19.88%  F1=19.36%
+    [val]   Acc=23.94%  Prec=22.86%  Rec=26.78%  F1=19.92%
+  time: 151.2s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+  [ckpt] Saved → checkpoints\fer_epoch015.pth
+
+Epoch 16/30  LR=0.000100
+    [train] Acc=20.11%  Prec=19.34%  Rec=20.11%  F1=19.54%
+    [val]   Acc=24.30%  Prec=23.17%  Rec=27.11%  F1=20.39%
+  time: 153.6s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 17/30  LR=0.000100
+    [train] Acc=20.80%  Prec=19.80%  Rec=20.71%  F1=20.06%
+    [val]   Acc=23.52%  Prec=23.14%  Rec=27.65%  F1=20.14%
+  time: 254.0s
+
+Epoch 18/30  LR=0.000100
+    [train] Acc=20.97%  Prec=19.75%  Rec=20.82%  F1=20.00%
+    [val]   Acc=22.49%  Prec=23.32%  Rec=28.58%  F1=19.62%
+  time: 150.3s
+
+Epoch 19/30  LR=0.000100
+    [train] Acc=21.61%  Prec=20.42%  Rec=21.62%  F1=20.69%
+    [val]   Acc=24.09%  Prec=24.28%  Rec=28.55%  F1=20.39%
+  time: 148.4s
+
+Epoch 20/30  LR=0.000100
+    [train] Acc=21.63%  Prec=20.40%  Rec=21.67%  F1=20.69%
+    [val]   Acc=23.93%  Prec=23.45%  Rec=28.53%  F1=20.05%
+  time: 148.4s
+  [ckpt] Saved → checkpoints\fer_epoch020.pth
+
+Epoch 21/30  LR=0.000100
+    [train] Acc=22.02%  Prec=20.78%  Rec=22.05%  F1=21.08%
+    [val]   Acc=23.58%  Prec=23.93%  Rec=29.28%  F1=19.87%
+  time: 150.2s
+
+Epoch 22/30  LR=0.000100
+    [train] Acc=22.56%  Prec=21.25%  Rec=22.55%  F1=21.57%
+    [val]   Acc=23.56%  Prec=23.40%  Rec=28.38%  F1=19.87%
+  time: 151.0s
+
+Epoch 23/30  LR=0.000100
+    [train] Acc=22.74%  Prec=21.26%  Rec=22.73%  F1=21.60%
+    [val]   Acc=23.70%  Prec=24.77%  Rec=29.71%  F1=20.12%
+  time: 150.2s
+
+[EarlyStop] No improvement for 7 epochs. Stopping.
+
+[Done] Best val accuracy: 24.30%  Best F1: 20.60%
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 30 --batch_size 16 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 266, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 148, in main
+    train_loader, val_loader, _ = get_dataloaders(
+  File "C:\Users\hanee\Project\facial-emotion-recognition\data\dataset_loader.py", line 105, in get_dataloaders
+    counts = np.bincount(np.array(tr_ds.targets), minlength=CFG.num_classes).astype(float)
+TypeError: 'float' object cannot be interpreted as an integer
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 30 --batch_size 16 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 266, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 155, in main
+    model = build_model(CFG, freeze_backbone=args.freeze_backbone).to(device)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\models\ea_net.py", line 130, in build_model
+    model = EANet(
+  File "C:\Users\hanee\Project\facial-emotion-recognition\models\ea_net.py", line 61, in __init__
+    nn.Linear(256, num_classes),
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\linear.py", line 98, in __init__
+    self.weight = Parameter(torch.empty((out_features, in_features), **factory_kwargs))
+TypeError: empty() received an invalid combination of arguments - got (tuple, dtype=NoneType, device=NoneType), but expected one of:
+ * (tuple of ints size, *, tuple of names names, torch.memory_format memory_format, torch.dtype dtype, torch.layout layout, torch.device device, bool pin_memory, bool requires_grad)
+ * (tuple of ints size, *, torch.memory_format memory_format, Tensor out, torch.dtype dtype, torch.layout layout, torch.device device, bool pin_memory, bool requires_grad)
+
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 30 --batch_size 16 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+        GPU: NVIDIA GeForce RTX 4050 Laptop GPU  VRAM: 6.4 GB
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 266, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 176, in main
+    ckpt = load_checkpoint(args.resume, model, optimizer, device)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 128, in load_checkpoint
+    optimizer.load_state_dict(ckpt["optimizer"])
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\_compile.py", line 24, in inner
+    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\_dynamo\eval_frame.py", line 489, in _fn
+    return fn(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\optim\optimizer.py", line 747, in load_state_dict
+    raise ValueError("loaded state dict contains a parameter group "
+ValueError: loaded state dict contains a parameter group that doesn't match the size of optimizer's group
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 30 --batch_size 16 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth (epoch=16)
+[EANet] Backbones UNFROZEN — full end-to-end fine-tuning.

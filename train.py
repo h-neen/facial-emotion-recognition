@@ -2,26 +2,13 @@
 train.py
 =========
 Main EA-Net training script.
-
-Stages:
-  Stage 1 (--freeze_backbone): backbone frozen, train attention + head
-  Stage 2 (resume from Stage 1): full fine-tuning at lower LR
-
-Usage:
-  # Stage 1
-  python train.py --dataset fer --data_root data/FER2013_SR \
-      --freeze_backbone --epochs 20 --batch_size 32 --lr 0.001
-
-  # Stage 2
-  python train.py --dataset fer --data_root data/FER2013_SR \
-      --resume checkpoints/fer_best_stage1.pth \
-      --epochs 30 --batch_size 32 --lr 0.0001
 """
 
 import argparse
 import sys
 import time
 from pathlib import Path
+import requests
 
 import torch
 import torch.nn as nn
@@ -35,7 +22,6 @@ from data.dataset_loader import get_dataloaders
 from models.ea_net import build_model
 
 
-# ────────────────────────────────────────────────────────────────────────────
 def parse_args():
     ap = argparse.ArgumentParser(description="Train EA-Net")
     ap.add_argument("--dataset",         required=True, choices=["fer", "kdef"])
@@ -52,10 +38,7 @@ def parse_args():
     return ap.parse_args()
 
 
-# ────────────────────────────────────────────────────────────────────────────
-def train_one_epoch(
-    model, loader, criterion, optimizer, scaler, device, use_amp
-) -> dict:
+def train_one_epoch(model, loader, criterion, optimizer, scaler, device, use_amp) -> dict:
     model.train()
     tracker = MetricsTracker()
     running_loss = 0.0
@@ -63,7 +46,6 @@ def train_one_epoch(
     for imgs, labels in tqdm(loader, desc="  train", leave=False, unit="batch"):
         imgs   = imgs.to(device, non_blocking=True)
         labels = labels.to(device, non_blocking=True)
-
         optimizer.zero_grad(set_to_none=True)
 
         with torch.cuda.amp.autocast(enabled=use_amp):
@@ -79,9 +61,8 @@ def train_one_epoch(
         running_loss += loss.item() * imgs.size(0)
         tracker.update(logits.detach(), labels.detach())
 
-    n = len(loader.dataset)
     metrics = tracker.compute()
-    metrics["loss"] = running_loss / n
+    metrics["loss"] = running_loss / len(loader.dataset)
     return metrics
 
 
@@ -100,13 +81,11 @@ def validate(model, loader, criterion, device, use_amp) -> dict:
         running_loss += loss.item() * imgs.size(0)
         tracker.update(logits, labels)
 
-    n = len(loader.dataset)
     metrics = tracker.compute()
-    metrics["loss"] = running_loss / n
+    metrics["loss"] = running_loss / len(loader.dataset)
     return metrics
 
 
-# ────────────────────────────────────────────────────────────────────────────
 def save_checkpoint(model, optimizer, epoch, metrics, path: Path, extra: dict = None):
     obj = {
         "epoch":     epoch,
@@ -114,8 +93,7 @@ def save_checkpoint(model, optimizer, epoch, metrics, path: Path, extra: dict = 
         "optimizer": optimizer.state_dict(),
         "metrics":   metrics,
     }
-    if extra:
-        obj.update(extra)
+    if extra: obj.update(extra)
     torch.save(obj, path)
     print(f"  [ckpt] Saved → {path}")
 
@@ -123,40 +101,33 @@ def save_checkpoint(model, optimizer, epoch, metrics, path: Path, extra: dict = 
 def load_checkpoint(path: Path, model, optimizer=None, device="cpu"):
     ckpt = torch.load(path, map_location=device)
     model.load_state_dict(ckpt["state"])
+    # Only load optimizer if it's provided and exists in checkpoint
     if optimizer and "optimizer" in ckpt:
-        optimizer.load_state_dict(ckpt["optimizer"])
-    print(f"[Resume] Loaded checkpoint from {path}  (epoch={ckpt.get('epoch', '?')})")
+        try:
+            optimizer.load_state_dict(ckpt["optimizer"])
+        except ValueError:
+            print("[Warning] Optimizer shape mismatch. Skipping optimizer state load.")
+    print(f"[Resume] Loaded checkpoint from {path} (epoch={ckpt.get('epoch', '?')})")
     return ckpt
 
 
-# ────────────────────────────────────────────────────────────────────────────
 def main():
     args = parse_args()
     CFG.make_dirs()
-
-    # ── Device ───────────────────────────────────────────────────────────
     device  = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     use_amp = CFG.use_amp and device.type == "cuda" and not args.no_amp
+
     print(f"[Train] device={device}  AMP={use_amp}  dataset={args.dataset}")
 
-    if device.type == "cuda":
-        print(f"        GPU: {torch.cuda.get_device_name(0)}  "
-              f"VRAM: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
-
-    # ── Data ─────────────────────────────────────────────────────────────
     train_loader, val_loader, _ = get_dataloaders(
         args.dataset, data_root=args.data_root,
         batch_size=args.batch_size, num_workers=args.num_workers,
     )
-    class_weights = train_loader.class_weights.to(device)  # type: ignore
 
-    # ── Model ────────────────────────────────────────────────────────────
     model = build_model(CFG, freeze_backbone=args.freeze_backbone).to(device)
+    criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
 
-    # ── Loss (class-weighted cross-entropy to handle FER imbalance) ──────
-    criterion = nn.CrossEntropyLoss(weight=class_weights)
-
-    # ── Optimizer ────────────────────────────────────────────────────────
+    # Initial Optimizer Setup
     optimizer = torch.optim.SGD(
         filter(lambda p: p.requires_grad, model.parameters()),
         lr=args.lr,
@@ -164,91 +135,73 @@ def main():
         weight_decay=CFG.stage1_weight_decay,
         nesterov=True,
     )
-    scheduler = torch.optim.lr_scheduler.StepLR(
-        optimizer, step_size=CFG.lr_step_size, gamma=CFG.lr_gamma
-    )
-    scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
-
-    # ── Resume ───────────────────────────────────────────────────────────
-    start_epoch  = 0
+    
+    start_epoch = 0
     if args.resume and args.resume.exists():
-        ckpt = load_checkpoint(args.resume, model, optimizer, device)
+        # CRITICAL CHANGE: Pass None for optimizer during Stage 2 resume to avoid group mismatch
+        opt_to_load = None if not args.freeze_backbone else optimizer
+        ckpt = load_checkpoint(args.resume, model, opt_to_load, device)
         start_epoch = ckpt.get("epoch", 0)
-        # Unfreeze backbones for Stage 2 if resuming
+
         if not args.freeze_backbone:
             model.unfreeze_backbones()
-            # Rebuild optimizer with updated params
-            optimizer = torch.optim.SGD(
-                model.parameters(),
-                lr=args.lr,
-                momentum=CFG.stage2_momentum,
-                weight_decay=CFG.stage2_weight_decay,
-                nesterov=True,
-            )
-            scheduler = torch.optim.lr_scheduler.StepLR(
-                optimizer, step_size=CFG.lr_step_size, gamma=CFG.lr_gamma
-            )
+            # Rebuild with Differential Learning Rates for Stage 2
+            backbone_params = list(model.efficient.parameters()) + list(model.inception.parameters())
+            head_params = list(model.cam.parameters()) + list(model.sam.parameters()) + list(model.classifier.parameters())
 
-    # ── TensorBoard ──────────────────────────────────────────────────────
-    run_name  = f"{args.dataset}_{'frozen' if args.freeze_backbone else 'full'}_{args.tag}"
-    writer    = SummaryWriter(log_dir=str(CFG.log_dir / run_name))
-    ckpt_pref = f"{args.dataset}_{args.tag}" if args.tag else args.dataset
+            optimizer = torch.optim.SGD([
+                {'params': backbone_params, 'lr': args.lr * 0.1},
+                {'params': head_params,     'lr': args.lr}
+            ], momentum=CFG.stage2_momentum, weight_decay=CFG.stage2_weight_decay, nesterov=True)
 
-    # ── Training loop ────────────────────────────────────────────────────
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(
+                optimizer, 
+                T_0=10,        # Restart the learning rate every 10 epochs
+                T_mult=1,      # Keep the restart interval constant
+                eta_min=1e-6   # Don't let the LR drop below this floor
+            )
+    scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+    writer = SummaryWriter(log_dir=str(CFG.log_dir / f"{args.dataset}_{'frozen' if args.freeze_backbone else 'full'}_{args.tag}"))
+
     best_val_acc = 0.0
     best_val_f1  = 0.0
     patience_ctr = 0
 
     for epoch in range(start_epoch + 1, start_epoch + args.epochs + 1):
         t0 = time.time()
-        print(f"\nEpoch {epoch}/{start_epoch + args.epochs}  "
-              f"LR={scheduler.get_last_lr()[0]:.6f}")
+        print(f"\nEpoch {epoch}/{start_epoch + args.epochs}  LR={scheduler.get_last_lr()[0]:.6f}")
 
-        train_m = train_one_epoch(model, train_loader, criterion,
-                                  optimizer, scaler, device, use_amp)
+        train_m = train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, use_amp)
         val_m   = validate(model, val_loader, criterion, device, use_amp)
-
         scheduler.step()
 
         print_metrics(train_m, prefix="  [train] ")
         print_metrics(val_m,   prefix="  [val]   ")
         print(f"  time: {time.time()-t0:.1f}s")
 
-        # ── Log to TensorBoard ──────────────────────────────────────────
-        for k, v in train_m.items():
-            writer.add_scalar(f"train/{k}", v, epoch)
-        for k, v in val_m.items():
-            writer.add_scalar(f"val/{k}",   v, epoch)
-        writer.add_scalar("lr", scheduler.get_last_lr()[0], epoch)
+        try:
+            # Constructing the exact terminal output format
+            msg = (
+                f"Epoch {epoch}/{start_epoch + args.epochs} | LR={scheduler.get_last_lr()[0]:.6f}\n"
+                f"[train] Acc={train_m['accuracy']:.2f}%  Prec={train_m['precision']:.2f}%  Rec={train_m['recall']:.2f}%  F1={train_m['f1']:.2f}%\n"
+                f"[val]   Acc={val_m['accuracy']:.2f}%  Prec={val_m['precision']:.2f}%  Rec={val_m['recall']:.2f}%  F1={val_m['f1']:.2f}%\n"
+                f"time: {time.time()-t0:.1f}s"
+            )
+            requests.post("https://ntfy.sh/fer_laptop", data=msg.encode('utf-8'))
+        except Exception:
+            pass  # Silently fail if wifi drops
 
-        # ── Checkpoint: best val accuracy ───────────────────────────────
         if val_m["accuracy"] > best_val_acc:
             best_val_acc = val_m["accuracy"]
-            save_checkpoint(model, optimizer, epoch, val_m,
-                            CFG.checkpoint_dir / f"{ckpt_pref}_best_val_acc.pth")
+            save_checkpoint(model, optimizer, epoch, val_m, CFG.checkpoint_dir / f"{args.dataset}_best_val_acc.pth")
             patience_ctr = 0
-        else:
-            patience_ctr += 1
+        else: patience_ctr += 1
 
-        # ── Checkpoint: best val F1 ─────────────────────────────────────
-        if val_m["f1"] > best_val_f1:
-            best_val_f1 = val_m["f1"]
-            save_checkpoint(model, optimizer, epoch, val_m,
-                            CFG.checkpoint_dir / f"{ckpt_pref}_best_val_f1.pth")
-
-        # ── Periodic checkpoint ─────────────────────────────────────────
-        if epoch % CFG.save_every_n_epochs == 0:
-            save_checkpoint(model, optimizer, epoch, val_m,
-                            CFG.checkpoint_dir / f"{ckpt_pref}_epoch{epoch:03d}.pth")
-
-        # ── Early stopping ──────────────────────────────────────────────
         if patience_ctr >= CFG.early_stop_patience:
-            print(f"\n[EarlyStop] No improvement for {CFG.early_stop_patience} epochs. Stopping.")
+            print(f"\n[EarlyStop] Stopping.")
             break
 
     writer.close()
-    print(f"\n[Done] Best val accuracy: {best_val_acc:.2f}%  Best F1: {best_val_f1:.2f}%")
-
 
 if __name__ == "__main__":
     main()
