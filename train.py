@@ -35,6 +35,14 @@ def parse_args():
     ap.add_argument("--no_amp",          action="store_true", help="Disable AMP")
     ap.add_argument("--tag",             type=str,   default="",
                     help="Optional run tag appended to checkpoint names")
+    
+    # --- NEW ARGUMENTS FOR RESEARCH OPTIMIZATION ---
+    ap.add_argument("--label_smoothing", type=float, default=0.1,
+                    help="Amount of label smoothing (default: 0.1)")
+    ap.add_argument("--weighted_loss",   action="store_true",
+                    help="Enable weighted loss to handle FER2013 class imbalance")
+    # -----------------------------------------------
+    
     return ap.parse_args()
 
 
@@ -101,7 +109,6 @@ def save_checkpoint(model, optimizer, epoch, metrics, path: Path, extra: dict = 
 def load_checkpoint(path: Path, model, optimizer=None, device="cpu"):
     ckpt = torch.load(path, map_location=device)
     model.load_state_dict(ckpt["state"])
-    # Only load optimizer if it's provided and exists in checkpoint
     if optimizer and "optimizer" in ckpt:
         try:
             optimizer.load_state_dict(ckpt["optimizer"])
@@ -125,7 +132,18 @@ def main():
     )
 
     model = build_model(CFG, freeze_backbone=args.freeze_backbone).to(device)
-    criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
+    
+    # --- UPDATED LOSS CRITERION ---
+    # FER2013 Class Order: [Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral]
+    if args.weighted_loss and args.dataset == "fer":
+        weights = torch.tensor([1.02, 12.6, 1.14, 0.81, 1.10, 1.12, 1.25]).to(device)
+        print("[Loss] Using Weighted CrossEntropy to penalize minority class errors.")
+    else:
+        weights = None
+
+    criterion = nn.CrossEntropyLoss(weight=weights, label_smoothing=args.label_smoothing)
+    print(f"[Loss] Label Smoothing set to {args.label_smoothing}")
+    # ------------------------------
 
     # Initial Optimizer Setup
     optimizer = torch.optim.SGD(
@@ -138,14 +156,12 @@ def main():
     
     start_epoch = 0
     if args.resume and args.resume.exists():
-        # CRITICAL CHANGE: Pass None for optimizer during Stage 2 resume to avoid group mismatch
         opt_to_load = None if not args.freeze_backbone else optimizer
         ckpt = load_checkpoint(args.resume, model, opt_to_load, device)
         start_epoch = ckpt.get("epoch", 0)
 
         if not args.freeze_backbone:
             model.unfreeze_backbones()
-            # Rebuild with Differential Learning Rates for Stage 2
             backbone_params = list(model.efficient.parameters()) + list(model.inception.parameters())
             head_params = list(model.cam.parameters()) + list(model.sam.parameters()) + list(model.classifier.parameters())
 
@@ -156,9 +172,9 @@ def main():
 
     scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(
                 optimizer, 
-                T_0=10,        # Restart the learning rate every 10 epochs
-                T_mult=1,      # Keep the restart interval constant
-                eta_min=1e-6   # Don't let the LR drop below this floor
+                T_0=10,
+                T_mult=1,
+                eta_min=1e-6
             )
     scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
     writer = SummaryWriter(log_dir=str(CFG.log_dir / f"{args.dataset}_{'frozen' if args.freeze_backbone else 'full'}_{args.tag}"))
@@ -180,7 +196,6 @@ def main():
         print(f"  time: {time.time()-t0:.1f}s")
 
         try:
-            # Constructing the exact terminal output format
             msg = (
                 f"Epoch {epoch}/{start_epoch + args.epochs} | LR={scheduler.get_last_lr()[0]:.6f}\n"
                 f"[train] Acc={train_m['accuracy']:.2f}%  Prec={train_m['precision']:.2f}%  Rec={train_m['recall']:.2f}%  F1={train_m['f1']:.2f}%\n"
@@ -189,7 +204,7 @@ def main():
             )
             requests.post("https://ntfy.sh/fer_laptop", data=msg.encode('utf-8'))
         except Exception:
-            pass  # Silently fail if wifi drops
+            pass
 
         if val_m["accuracy"] > best_val_acc:
             best_val_acc = val_m["accuracy"]

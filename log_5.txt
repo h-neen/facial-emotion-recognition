@@ -1,0 +1,1814 @@
+
+(base) C:\Users\hanee>cuda activate eanet
+'cuda' is not recognized as an internal or external command,
+operable program or batch file.
+
+(base) C:\Users\hanee>conda activate eanet
+
+(eanet) C:\Users\hanee>cd project/facila-emotion-recognition
+The system cannot find the path specified.
+
+(eanet) C:\Users\hanee>cd project
+
+(eanet) C:\Users\hanee\Project>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 263D-E2E5
+
+ Directory of C:\Users\hanee\Project
+
+14-04-2026  21:45    <DIR>          .
+15-04-2026  01:24    <DIR>          ..
+15-04-2026  21:35    <DIR>          facial-emotion-recognition
+               0 File(s)              0 bytes
+               3 Dir(s)  403,041,939,456 bytes free
+
+(eanet) C:\Users\hanee\Project>cd facial-emotion-recognition
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 50 --batch_size 48 --lr 0.001 --label_smoothing 0.1 --weighted_loss True
+usage: train.py [-h] --dataset {fer,kdef} [--data_root DATA_ROOT] [--freeze_backbone] [--resume RESUME]
+                [--epochs EPOCHS] [--batch_size BATCH_SIZE] [--lr LR] [--num_workers NUM_WORKERS] [--no_amp]
+                [--tag TAG]
+train.py: error: unrecognized arguments: --label_smoothing 0.1 --weighted_loss True
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 50 --batch_size 48 --lr 0.001 --label_smoothing 0.1 --weighted_loss
+[Train] device=cuda  AMP=True  dataset=fer
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 222, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 129, in main
+    train_loader, val_loader, _ = get_dataloaders(
+  File "C:\Users\hanee\Project\facial-emotion-recognition\data\dataset_loader.py", line 94, in get_dataloaders
+    tr_ds  = FERDataset(root, "train",      tr_tf)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\data\dataset_loader.py", line 31, in __init__
+    raise FileNotFoundError(f"Missing: {d}. Run verify_datasets.py first.")
+FileNotFoundError: Missing: data\FER2013_SR\train\angry. Run verify_datasets.py first.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 50 --batch_size 48 --lr 0.001 --label_smoothing 0.1 --weighted_loss
+[Train] device=cuda  AMP=True  dataset=fer
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Loss] Using Weighted CrossEntropy to penalize minority class errors.
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth (epoch=230)
+[EANet] Backbones UNFROZEN — full end-to-end fine-tuning.
+
+Epoch 231/280  LR=0.000100
+    [train] Acc=43.82%  Prec=45.65%  Rec=43.83%  F1=39.97%
+    [val]   Acc=39.37%  Prec=44.29%  Rec=44.89%  F1=34.83%
+  time: 936.2s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 232/280  LR=0.000098
+    [train] Acc=42.51%  Prec=46.81%  Rec=42.67%  F1=38.32%
+    [val]   Acc=38.98%  Prec=44.08%  Rec=44.52%  F1=34.60%
+  time: 514.1s
+
+Epoch 233/280  LR=0.000091
+    [train] Acc=43.11%  Prec=47.43%  Rec=43.00%  F1=38.85%
+    [val]   Acc=39.66%  Prec=43.77%  Rec=44.95%  F1=35.28%
+  time: 368.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 234/280  LR=0.000080
+    [train] Acc=43.39%  Prec=47.51%  Rec=43.05%  F1=39.01%
+    [val]   Acc=40.01%  Prec=43.47%  Rec=45.08%  F1=35.25%
+  time: 290.6s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 235/280  LR=0.000066
+    [train] Acc=42.66%  Prec=46.61%  Rec=42.61%  F1=38.32%
+    [val]   Acc=38.73%  Prec=43.99%  Rec=44.54%  F1=35.18%
+  time: 280.8s
+
+Epoch 236/280  LR=0.000051
+    [train] Acc=42.81%  Prec=46.49%  Rec=42.71%  F1=38.65%
+    [val]   Acc=39.41%  Prec=43.70%  Rec=45.05%  F1=34.90%
+  time: 252.7s
+
+Epoch 237/280  LR=0.000035
+    [train] Acc=43.10%  Prec=47.09%  Rec=43.15%  F1=39.02%
+    [val]   Acc=39.73%  Prec=44.47%  Rec=45.07%  F1=35.55%
+  time: 236.4s
+
+Epoch 238/280  LR=0.000021
+    [train] Acc=43.11%  Prec=47.51%  Rec=43.18%  F1=39.09%
+    [val]   Acc=40.68%  Prec=44.10%  Rec=45.88%  F1=36.35%
+  time: 235.2s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 239/280  LR=0.000010
+    [train] Acc=43.53%  Prec=47.34%  Rec=43.48%  F1=39.42%
+    [val]   Acc=40.14%  Prec=43.50%  Rec=45.25%  F1=35.67%
+  time: 226.3s
+
+Epoch 240/280  LR=0.000003
+    [train] Acc=44.04%  Prec=48.51%  Rec=44.17%  F1=40.13%
+    [val]   Acc=39.09%  Prec=44.04%  Rec=44.54%  F1=35.25%
+  time: 233.0s
+
+Epoch 241/280  LR=0.000100
+    [train] Acc=43.77%  Prec=47.44%  Rec=43.65%  F1=39.53%
+    [val]   Acc=40.60%  Prec=44.77%  Rec=45.67%  F1=36.57%
+  time: 228.7s
+
+Epoch 242/280  LR=0.000098
+    [train] Acc=43.99%  Prec=47.37%  Rec=44.03%  F1=39.94%
+    [val]   Acc=40.29%  Prec=43.79%  Rec=45.53%  F1=35.93%
+  time: 207.9s
+
+Epoch 243/280  LR=0.000091
+    [train] Acc=43.68%  Prec=46.74%  Rec=43.76%  F1=39.67%
+    [val]   Acc=40.95%  Prec=43.57%  Rec=45.87%  F1=36.54%
+  time: 207.9s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 244/280  LR=0.000080
+    [train] Acc=44.06%  Prec=46.61%  Rec=43.70%  F1=39.76%
+    [val]   Acc=40.21%  Prec=44.00%  Rec=45.48%  F1=36.02%
+  time: 208.0s
+
+Epoch 245/280  LR=0.000066
+    [train] Acc=44.32%  Prec=47.80%  Rec=44.17%  F1=40.32%
+    [val]   Acc=41.31%  Prec=43.98%  Rec=46.08%  F1=36.81%
+  time: 207.9s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 246/280  LR=0.000051
+    [train] Acc=43.50%  Prec=46.64%  Rec=43.92%  F1=39.84%
+    [val]   Acc=41.67%  Prec=44.31%  Rec=46.42%  F1=37.31%
+  time: 207.1s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 247/280  LR=0.000035
+    [train] Acc=44.57%  Prec=47.73%  Rec=44.52%  F1=40.63%
+    [val]   Acc=42.41%  Prec=44.21%  Rec=47.00%  F1=37.55%
+  time: 206.8s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 248/280  LR=0.000021
+    [train] Acc=44.25%  Prec=47.10%  Rec=44.48%  F1=40.42%
+    [val]   Acc=41.49%  Prec=43.85%  Rec=46.34%  F1=36.93%
+  time: 206.4s
+
+Epoch 249/280  LR=0.000010
+    [train] Acc=44.39%  Prec=47.39%  Rec=44.60%  F1=40.65%
+    [val]   Acc=41.09%  Prec=43.84%  Rec=46.08%  F1=36.76%
+  time: 207.1s
+
+Epoch 250/280  LR=0.000003
+    [train] Acc=44.52%  Prec=47.56%  Rec=44.44%  F1=40.64%
+    [val]   Acc=41.99%  Prec=43.82%  Rec=46.68%  F1=37.31%
+  time: 209.0s
+
+Epoch 251/280  LR=0.000100
+    [train] Acc=44.40%  Prec=47.32%  Rec=44.56%  F1=40.66%
+    [val]   Acc=41.80%  Prec=44.40%  Rec=46.24%  F1=37.51%
+  time: 208.1s
+
+Epoch 252/280  LR=0.000098
+    [train] Acc=44.86%  Prec=47.60%  Rec=44.97%  F1=41.02%
+    [val]   Acc=42.41%  Prec=43.69%  Rec=47.11%  F1=37.55%
+  time: 207.3s
+
+Epoch 253/280  LR=0.000091
+    [train] Acc=45.15%  Prec=47.68%  Rec=45.03%  F1=41.25%
+    [val]   Acc=42.03%  Prec=43.96%  Rec=46.67%  F1=37.42%
+  time: 208.2s
+
+Epoch 254/280  LR=0.000080
+    [train] Acc=45.40%  Prec=47.80%  Rec=45.34%  F1=41.52%
+    [val]   Acc=42.65%  Prec=43.95%  Rec=47.12%  F1=37.93%
+  time: 207.5s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 255/280  LR=0.000066
+    [train] Acc=45.52%  Prec=48.39%  Rec=45.47%  F1=41.80%
+    [val]   Acc=43.09%  Prec=44.48%  Rec=47.51%  F1=38.42%
+  time: 209.1s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 256/280  LR=0.000051
+    [train] Acc=45.32%  Prec=47.76%  Rec=45.35%  F1=41.47%
+    [val]   Acc=42.38%  Prec=44.48%  Rec=47.12%  F1=37.95%
+  time: 210.0s
+
+Epoch 257/280  LR=0.000035
+    [train] Acc=45.37%  Prec=47.82%  Rec=45.65%  F1=41.71%
+    [val]   Acc=44.18%  Prec=44.97%  Rec=48.27%  F1=39.33%
+  time: 208.5s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 258/280  LR=0.000021
+    [train] Acc=45.38%  Prec=47.79%  Rec=45.52%  F1=41.64%
+    [val]   Acc=43.16%  Prec=44.32%  Rec=47.79%  F1=38.61%
+  time: 209.5s
+
+Epoch 259/280  LR=0.000010
+    [train] Acc=45.83%  Prec=48.03%  Rec=45.71%  F1=42.10%
+    [val]   Acc=42.95%  Prec=44.35%  Rec=47.31%  F1=38.23%
+  time: 211.6s
+
+Epoch 260/280  LR=0.000003
+    [train] Acc=45.63%  Prec=47.90%  Rec=45.59%  F1=41.88%
+    [val]   Acc=42.75%  Prec=44.82%  Rec=47.29%  F1=38.30%
+  time: 210.6s
+
+Epoch 261/280  LR=0.000100
+    [train] Acc=45.71%  Prec=47.99%  Rec=45.55%  F1=41.93%
+    [val]   Acc=43.81%  Prec=44.39%  Rec=48.12%  F1=38.78%
+  time: 209.6s
+
+Epoch 262/280  LR=0.000098
+    [train] Acc=45.57%  Prec=47.54%  Rec=45.38%  F1=41.65%
+    [val]   Acc=42.86%  Prec=44.45%  Rec=47.50%  F1=38.51%
+  time: 208.9s
+
+Epoch 263/280  LR=0.000091
+    [train] Acc=46.09%  Prec=48.12%  Rec=46.15%  F1=42.33%
+    [val]   Acc=44.21%  Prec=44.56%  Rec=48.45%  F1=39.19%
+  time: 207.0s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 264/280  LR=0.000080
+    [train] Acc=46.22%  Prec=48.28%  Rec=46.16%  F1=42.41%
+    [val]   Acc=43.69%  Prec=44.43%  Rec=48.13%  F1=38.85%
+  time: 207.8s
+
+Epoch 265/280  LR=0.000066
+    [train] Acc=45.95%  Prec=47.90%  Rec=46.05%  F1=42.14%
+    [val]   Acc=44.28%  Prec=44.39%  Rec=48.53%  F1=39.14%
+  time: 208.1s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 266/280  LR=0.000051
+    [train] Acc=46.51%  Prec=48.28%  Rec=46.51%  F1=42.77%
+    [val]   Acc=44.84%  Prec=44.25%  Rec=48.93%  F1=39.42%
+  time: 208.5s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 267/280  LR=0.000035
+    [train] Acc=46.94%  Prec=49.14%  Rec=47.09%  F1=43.38%
+    [val]   Acc=44.59%  Prec=44.78%  Rec=48.93%  F1=39.60%
+  time: 208.8s
+
+Epoch 268/280  LR=0.000021
+    [train] Acc=46.91%  Prec=48.98%  Rec=46.98%  F1=43.41%
+    [val]   Acc=43.95%  Prec=44.08%  Rec=48.16%  F1=38.97%
+  time: 208.8s
+
+Epoch 269/280  LR=0.000010
+    [train] Acc=46.70%  Prec=48.15%  Rec=46.52%  F1=42.82%
+    [val]   Acc=44.07%  Prec=43.90%  Rec=48.44%  F1=39.14%
+  time: 206.2s
+
+Epoch 270/280  LR=0.000003
+    [train] Acc=46.97%  Prec=48.56%  Rec=46.95%  F1=43.31%
+    [val]   Acc=44.31%  Prec=45.02%  Rec=48.51%  F1=39.62%
+  time: 205.4s
+
+Epoch 271/280  LR=0.000100
+    [train] Acc=47.10%  Prec=48.91%  Rec=47.16%  F1=43.55%
+    [val]   Acc=45.23%  Prec=44.64%  Rec=49.44%  F1=40.09%
+  time: 406.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 272/280  LR=0.000098
+    [train] Acc=47.04%  Prec=48.43%  Rec=46.89%  F1=43.33%
+    [val]   Acc=45.09%  Prec=44.60%  Rec=49.04%  F1=39.85%
+  time: 417.2s
+
+Epoch 273/280  LR=0.000091
+    [train] Acc=47.40%  Prec=48.82%  Rec=47.17%  F1=43.54%
+    [val]   Acc=45.13%  Prec=44.75%  Rec=49.36%  F1=40.03%
+  time: 389.1s
+
+Epoch 274/280  LR=0.000080
+    [train] Acc=47.84%  Prec=49.53%  Rec=47.73%  F1=44.30%
+    [val]   Acc=45.09%  Prec=44.90%  Rec=49.23%  F1=40.20%
+  time: 343.0s
+
+Epoch 275/280  LR=0.000066
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 222, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 190, in main
+    train_m = train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, use_amp)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 54, in train_one_epoch
+    for imgs, labels in tqdm(loader, desc="  train", leave=False, unit="batch"):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\hanee\Project\facial-emotion-recognition\data\dataset_loader.py", line 40, in __getitem__
+    img = Image.open(path).convert("RGB")
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\PIL\Image.py", line 3242, in open
+    filename = str(fp.resolve())
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\pathlib.py", line 1077, in resolve
+    s = self._accessor.realpath(self, strict=strict)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\ntpath.py", line 657, in realpath
+    path = _getfinalpathname(path)
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c import torch; ck = torch.load('checkpoints/fer_best_val_acc.pth', map_location='cpu'); print(f'Epoch: {ck.get(\"epoch\")} | Acc: {ck.get(\"metrics\", {}).get(\"accuracy\")}%')
+'Acc:' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c "import torch; ck = torch.load('checkpoints/fer_best_val_acc.pth', map_location='cpu'); print(f'Epoch: {ck.get(\"epoch\")} | Acc: {ck.get(\"metrics\", {}).get(\"accuracy\")}%')"
+Epoch: 230 | Acc: 50.48828125%
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c "import torch; ck = torch.load('checkpoints/fer_best_val_acc.pth', map_location='cpu'); print(f'Epoch: {ck.get(\"epoch\")} | Acc: {ck.get(\"metrics\", {}).get(\"accuracy\")}%')"
+Epoch: 230 | Acc: 50.48828125%
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c "import torch; ck = torch.load('checkpoints/fer_best_val_acc.pth', map_location='cpu'); print(ck.keys())"
+dict_keys(['epoch', 'state', 'optimizer', 'metrics'])
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset fer --data_root data/FER2013_SR --resume checkpoints/fer_best_val_acc.pth --epochs 30 --batch_size 48 --lr 0.0008 --label_smoothing 0.1 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=fer
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth (epoch=230)
+[EANet] Backbones UNFROZEN — full end-to-end fine-tuning.
+
+Epoch 231/260  LR=0.000080
+    [train] Acc=51.57%  Prec=49.03%  Rec=51.50%  F1=49.63%
+    [val]   Acc=50.53%  Prec=44.30%  Rec=51.68%  F1=44.88%
+  time: 208.0s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 232/260  LR=0.000078
+    [train] Acc=51.87%  Prec=49.30%  Rec=51.79%  F1=49.89%
+    [val]   Acc=50.63%  Prec=44.71%  Rec=51.82%  F1=45.31%
+  time: 204.5s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 233/260  LR=0.000072
+    [train] Acc=52.37%  Prec=49.67%  Rec=52.03%  F1=50.19%
+    [val]   Acc=50.18%  Prec=44.20%  Rec=51.24%  F1=44.49%
+  time: 198.6s
+
+Epoch 234/260  LR=0.000064
+    [train] Acc=51.91%  Prec=49.30%  Rec=51.84%  F1=49.88%
+    [val]   Acc=50.59%  Prec=44.70%  Rec=51.59%  F1=45.08%
+  time: 197.2s
+
+Epoch 235/260  LR=0.000053
+    [train] Acc=52.24%  Prec=49.84%  Rec=52.19%  F1=50.30%
+    [val]   Acc=50.66%  Prec=44.60%  Rec=51.62%  F1=45.12%
+  time: 197.1s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 236/260  LR=0.000041
+    [train] Acc=52.19%  Prec=49.68%  Rec=51.93%  F1=50.16%
+    [val]   Acc=50.56%  Prec=44.40%  Rec=51.56%  F1=44.76%
+  time: 271.0s
+
+Epoch 237/260  LR=0.000028
+    [train] Acc=52.10%  Prec=49.65%  Rec=51.95%  F1=50.15%
+    [val]   Acc=50.40%  Prec=44.49%  Rec=51.64%  F1=44.97%
+  time: 349.2s
+
+Epoch 238/260  LR=0.000017
+    [train] Acc=51.86%  Prec=49.44%  Rec=51.93%  F1=49.95%
+    [val]   Acc=50.88%  Prec=44.64%  Rec=51.54%  F1=45.12%
+  time: 197.9s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 239/260  LR=0.000009
+    [train] Acc=52.28%  Prec=49.69%  Rec=52.07%  F1=50.23%
+    [val]   Acc=50.54%  Prec=44.47%  Rec=51.37%  F1=44.73%
+  time: 196.1s
+
+Epoch 240/260  LR=0.000003
+    [train] Acc=51.96%  Prec=49.48%  Rec=51.93%  F1=50.02%
+    [val]   Acc=50.52%  Prec=44.30%  Rec=51.63%  F1=44.71%
+  time: 195.6s
+
+Epoch 241/260  LR=0.000080
+    [train] Acc=52.45%  Prec=50.01%  Rec=52.45%  F1=50.60%
+    [val]   Acc=51.07%  Prec=45.04%  Rec=51.76%  F1=45.15%
+  time: 196.0s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 242/260  LR=0.000078
+    [train] Acc=52.18%  Prec=49.59%  Rec=52.10%  F1=50.14%
+    [val]   Acc=50.70%  Prec=44.86%  Rec=51.76%  F1=44.97%
+  time: 196.2s
+
+Epoch 243/260  LR=0.000072
+    [train] Acc=52.46%  Prec=49.83%  Rec=52.30%  F1=50.39%
+    [val]   Acc=51.19%  Prec=45.34%  Rec=52.00%  F1=45.54%
+  time: 195.8s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 244/260  LR=0.000064
+    [train] Acc=52.44%  Prec=50.16%  Rec=52.46%  F1=50.57%
+    [val]   Acc=50.89%  Prec=44.84%  Rec=51.87%  F1=45.41%
+  time: 196.4s
+
+Epoch 245/260  LR=0.000053
+    [train] Acc=52.86%  Prec=50.47%  Rec=52.68%  F1=50.99%
+    [val]   Acc=50.85%  Prec=44.99%  Rec=52.00%  F1=45.20%
+  time: 195.2s
+
+Epoch 246/260  LR=0.000041
+    [train] Acc=52.53%  Prec=49.95%  Rec=52.39%  F1=50.51%
+    [val]   Acc=50.98%  Prec=45.06%  Rec=52.16%  F1=45.28%
+  time: 196.5s
+
+Epoch 247/260  LR=0.000028
+    [train] Acc=53.01%  Prec=50.46%  Rec=52.87%  F1=51.01%
+    [val]   Acc=51.16%  Prec=45.10%  Rec=51.88%  F1=45.49%
+  time: 195.5s
+
+Epoch 248/260  LR=0.000017
+    [train] Acc=53.22%  Prec=50.85%  Rec=53.03%  F1=51.32%
+    [val]   Acc=51.19%  Prec=45.36%  Rec=52.10%  F1=45.83%
+  time: 196.3s
+
+Epoch 249/260  LR=0.000009
+    [train] Acc=52.63%  Prec=50.21%  Rec=52.59%  F1=50.73%
+    [val]   Acc=51.12%  Prec=44.81%  Rec=51.85%  F1=45.31%
+  time: 196.1s
+
+Epoch 250/260  LR=0.000003
+    [train] Acc=52.77%  Prec=50.27%  Rec=52.58%  F1=50.69%
+    [val]   Acc=51.46%  Prec=45.08%  Rec=52.05%  F1=45.53%
+  time: 196.1s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 251/260  LR=0.000080
+    [train] Acc=52.91%  Prec=50.53%  Rec=53.10%  F1=51.15%
+    [val]   Acc=51.46%  Prec=45.29%  Rec=52.19%  F1=46.21%
+  time: 195.9s
+
+Epoch 252/260  LR=0.000078
+    [train] Acc=53.08%  Prec=50.80%  Rec=52.96%  F1=51.25%
+    [val]   Acc=51.31%  Prec=45.30%  Rec=52.14%  F1=45.74%
+  time: 195.6s
+
+Epoch 253/260  LR=0.000072
+    [train] Acc=52.67%  Prec=50.56%  Rec=52.92%  F1=51.01%
+    [val]   Acc=51.37%  Prec=45.52%  Rec=52.25%  F1=45.83%
+  time: 195.7s
+
+Epoch 254/260  LR=0.000064
+    [train] Acc=53.32%  Prec=51.03%  Rec=53.38%  F1=51.57%
+    [val]   Acc=51.77%  Prec=45.57%  Rec=52.10%  F1=46.16%
+  time: 195.8s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 255/260  LR=0.000053
+    [train] Acc=53.19%  Prec=50.72%  Rec=53.18%  F1=51.36%
+    [val]   Acc=51.46%  Prec=45.59%  Rec=52.54%  F1=46.15%
+  time: 196.1s
+
+Epoch 256/260  LR=0.000041
+    [train] Acc=52.43%  Prec=50.29%  Rec=52.67%  F1=50.87%
+    [val]   Acc=51.27%  Prec=45.75%  Rec=52.06%  F1=46.11%
+  time: 195.7s
+
+Epoch 257/260  LR=0.000028
+    [train] Acc=53.07%  Prec=50.70%  Rec=53.21%  F1=51.32%
+    [val]   Acc=51.84%  Prec=45.99%  Rec=52.06%  F1=46.50%
+  time: 195.7s
+  [ckpt] Saved → checkpoints\fer_best_val_acc.pth
+
+Epoch 258/260  LR=0.000017
+    [train] Acc=52.58%  Prec=50.52%  Rec=52.74%  F1=51.01%
+    [val]   Acc=51.69%  Prec=45.74%  Rec=52.40%  F1=46.16%
+  time: 196.2s
+
+Epoch 259/260  LR=0.000009
+    [train] Acc=53.56%  Prec=51.22%  Rec=53.35%  F1=51.70%
+    [val]   Acc=51.77%  Prec=45.78%  Rec=52.59%  F1=46.31%
+  time: 196.3s
+
+Epoch 260/260  LR=0.000003
+    [train] Acc=53.27%  Prec=50.99%  Rec=53.30%  F1=51.49%
+    [val]   Acc=51.67%  Prec=45.94%  Rec=52.59%  F1=46.20%
+  time: 196.2s
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python utils/evaluate.py --checkpoint checkpoints/fer_best_val_acc.pth --dataset fer --data_root data/FER2013_SR
+[DataLoader] FER: train=28,709 val=7,168 test=7,168
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Eval] Loaded checkpoints\fer_best_val_acc.pth (Epoch: 257)
+  [Eval] Running dual inference (Standard + TTA) on 7168 images...
+
+── EA-Net Comparison Results ──────────────────────
+  Method      | Accuracy | Precision | Recall | F1-Score
+  ────────────|──────────|───────────|────────|─────────
+  Standard    | 51.84%  | 45.99%   | 52.06% | 46.50%
+  With TTA    | 52.93%  | 47.13%   | 53.52% | 47.61%
+  ────────────|──────────|───────────|────────|─────────
+  TTA Boost   | +1.09%
+────────────────────────────────────────────────────
+
+  [saved] results\confusion_matrix_fer_tta.png
+[Eval] All reports and matrices saved to results/
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG ^
+More?   --resume checkpoints/fer_best_val_acc.pth ^
+More?   --freeze_backbone --epochs 15 ^
+More?   --batch_size 32 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Loss] Label Smoothing set to 0.1
+[Warning] Optimizer shape mismatch. Skipping optimizer state load.
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth (epoch=257)
+
+Epoch 258/272  LR=0.000100
+  train:   5%|██████                                                                                                        | 7/128  train:   6%|██████▉                                                                                                       | 8/128  train:   7%|███████▋                                                                              train:   8%|████████▌                                                                                                   train:   9%|█████████▎                                                                                                  train:   9%|██████████▏                                                                                                 train:  10%|███████████                                                                                                 train:  11%|███████████▉                                                                                                train:  12%|████████████▊                                                                                               train:  12%|█████████████▋                                                                                              train:  13%|██████████████▍                                                                                             train:  14%|███████████████▎                                                                                            train:  15%|████████████████▏                                                                                           train:  16%|█████████████████                                                                                            | 20/128 [00:12<01:03,  1.69batch  train:  16%|█████████████████▉                                                                                           | 21/128 [00:13<01:03,  1.68batch  train:  17%|██████████████████▋                 train:  18%|███████████████████▌                                                                                        train:  19%|████████████████████▍                                                                                       train:  20%|█████████████████████▎                                                                                      train:  20%|██████████████████████▏                                                                                     train:  21%|██████████████████████▉                                                                                     train:  22%|███████████████████████▊                                                                                    train:  23%|████████████████████████▋                                                                                   train:  23%|█████████████████████████▌                                                                                  train:  24%|██████████████████████████▍                                             train:  25%|███████████████████████████▎                                                                                 | 32/128 [00:20<00:56,  1.71batch  train:  26%|████████████████████████████                                                                                 | 33/128 [00:20<00:58,  1.61batch  train:  27%|████████████████████████████▉                                                                                | 34/128 [00:21<00:55,  1.68batch  train:  27%|█████████████████████████████▊                                                                               | 35/128 [00:21<00:52,  1.76batch  train:  28%|██████████████████████████████▋                                                                              | 36/128 [00:22<00:52,  1.76batch  train:  29%|███████████████████████████████▌                                                                             | 37/128 [00:22<00:52,  1.74batch  train:  30%|████████████████████████████████▎                                                                            | 38/128 [00:23<00:52,  1.73batch  train:  30%|█████████████████████████████████▏                                                                           | 39/128 [00:23<00:48,  1.83batch  train:  31%|██████████████████████████████████                                                                           | 40/128 [00:24<00:47,  1.84batch  train:  32%|██████████████████████████████████▉                                                                          | 41/128 [00:25<00:47,  1.83batch  train:  33%|███████████████████████████████████▊                                                                         | 42/128 [00:25<00:47,  1.82batch  train:  34%|████████████████████████████████████▌                                                                        | 43/128 [00:26<00:47,  1.81batch  train:  34%|█████████████████████████████████████▍                                                                       | 44/128 [00:26<00:50,  1.66batch  train:  35%|██████████████████████████████████████▎                                                                      | 45/128 [00:27<00:48,  1.73batch  train:  36%|███████████████████████████████████████▏                                                                     | 46/128 [00:27<00:45,  1.82batch  train:  37%|████████████████████████████████████████                                                                     | 47/128 [00:28<00:42,  1.90batch  train:  38%|████████████████████████████████████████▉                                                                    | 48/128 [00:28<00:39,  2.00batch  train:  38%|█████████████████████████████████████████▋                                                                   | 49/128 [00:29<00:40,  1.96batch  train:  39%|██████████████████████████████████████████▌                                                                  | 50/128 [00:29<00:40,  1.90batch  train:  40%|███████████████████████████████████████████▍                                                                 | 51/128 [00:30<00:39,  1.96batch  train:  41%|██████████████████████  train:  41%|█████████████████████████████████████████████▏                          train:  42%|██████████████████████  train:  43%|██████████████████████████████████████████████▊                                                              | 55/128 [00:32<00:36,  2.00batch  train:  44%|███████████████████████████████████████████████▋    train:  48%|███████████████████████████████████████████████████▉                            train:  48%|████████████████████████████████████████████████████▊                                                        | 62/128 [00:35<00:33,  1.97batch  train:  49%|█████████████████████████████████████████████████████▋                          train:  53%|██████████████████████████████████████████████████  train:  54%|██████████████████████████████████████████████████████████▊                                   train:  62%|███████████████████████████████████████████████████████████████████▎                        train:  62%|████████████████████████████████████████████████████████████████████▏                                        | 80/128  train:  63%|████████████████████████████████████████████████████████████████████▉                                        | 81/128  train:  64%|█████████████████████████████████████████████████████████████████████▊                                       | 82/128  train:  65%|██████████████████████████████████████████████████████████████████████▋                                      | 83/128  train:  66%|███████████████████████████████████████████████████████████████████████▌                                     | 84/128  train:  66%|████████████████████████████████████████████████████████████████████████▍                                    | 85/128  train:  67%|█████████████████████████████████████████████████████████████████████████▏                                   | 86/12  train:  78%|████████████████████████████████████████████████████████████████████████████████████▍                       | 100/128   train:  79%|█████████████████████████████████████████████████████████████████████████████████████▏                      | 101/128  train:  80%|██████████████████████████████████████████████████████████████████████████████████████                      | 102/128  train:  80%|██████████████████████████████████████████████████████████████████████████████████████▉                     | 103/128  train:  81%|███████████████████████████████████████████████████████████████████████████████████████▊                    | 104/128  train:  82%|████████████████████████████████████████████████████████████████████████████████████████▌                   | 105/128  train:  83%|█████████████████████████████████████████████████████████████████████████████████████████▍                  | 106/128  train:  84%|██████████████████████████████████████████████████████████████████████████████████████████▎                 | 107/128  train:  84%|███████████████████████████████████████████████████████████████████████████████████████████▏                | 108/128  train:  85%|████████████████████████████████  train:  86%|████████████████████████████████████████████████████████████████████████████████████████████▊               | 110/128 [00:56<00:06  train:  87%|█████████████████████████████████████████████████████████████████████████████████████████████▋              | 111/128 [00:56<00:06  train:  88%|██████████████████████████████████████████████████████████████████████████████████████████████▌             | 112/128 [00:57<00:05  train:  88%|███████████████████████████████████████████████████████████████████████████████████████████████▎            | 113/128 [00:57<00:05  train:  89%|████████████████████████████████████████████████████████████████████████████████████████████████▏           | 114/128 [00:57<00:05  train:  90%|█████████████████████████████████████████████████████████████████████████████████████████████████           | 115/128 [00:58<00:04  val  :  61%|██████████████████████████████████████████████████████████████████▊                                           | 17/28 [00:10<00:06  val  :  64%|██████████████████████████████████████████████████████████████████████▋                                       | 18/28 [00:11<00:06  val  :  68%|██████████████████████████████████████████████████████████  val  :  71%|██████████████████████████████████████████████████████████████████████████████▌                             val  :  75%|██████████████████████████████████████████████████████████████████████████████████▌                         val  :  79%|██████████████████████████████████████████████████████████████████████████████████████▍                     val  :  82%|██████████████████████████████████████████████████████████████████████████████████████████▎                 val  :  86%|██████████████████████████████████████████████████████████████████████████████████████████████▎             val  :  89%|██████████████████████████████████████████████████████████████████████████████████████████████████▏         val  :  93%|██████████████████████████████████████████████████████████████████████████████████████████████████████▏     val  :  96%|██████████████████████████████████████████████████████████████████████████████████████████████████████████  val  : 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████                                                                                                                            [train] Acc=25.73%  Prec=25.83%  Rec=25.84%  F1=25.66%
+    [val]   Acc=26.19%  Prec=27.36%  Rec=26.19%  F1=26.28%
+  time: 80.5s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 259/272  LR=0.000098
+    [train] Acc=26.17%  Prec=25.74%  Rec=25.90%  F1=25.79%
+    [val]   Acc=26.76%  Prec=27.53%  Rec=26.76%  F1=26.74%
+  time: 38.7s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 260/272  LR=0.000091
+    [train] Acc=25.88%  Prec=25.42%  Rec=25.75%  F1=25.57%
+    [val]   Acc=27.55%  Prec=28.46%  Rec=27.55%  F1=27.34%
+  time: 42.5s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 261/272  LR=0.000080
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 222, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 190, in main
+    train_m = train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, use_amp)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 66, in train_one_epoch
+    scaler.step(optimizer)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 452, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 349, in _maybe_opt_step
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 349, in <genexpr>
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/fer_best_val_acc.pth --freeze_backbone --epochs 20 --batch_size 32 --lr 0.005 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Loss] Label Smoothing set to 0.1
+[Warning] Optimizer shape mismatch. Skipping optimizer state load.
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth (epoch=257)
+
+Epoch 258/277  LR=0.005000
+    [train] Acc=30.79%  Prec=28.33%  Rec=30.05%  F1=28.65%
+    [val]   Acc=38.32%  Prec=37.25%  Rec=38.32%  F1=35.89%
+  time: 20.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 259/277  LR=0.004878
+    [train] Acc=36.06%  Prec=33.67%  Rec=35.61%  F1=33.99%
+    [val]   Acc=40.93%  Prec=39.73%  Rec=40.93%  F1=37.38%
+  time: 34.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 260/277  LR=0.004523
+    [train] Acc=37.48%  Prec=36.06%  Rec=37.80%  F1=36.45%
+    [val]   Acc=43.76%  Prec=43.85%  Rec=43.76%  F1=43.13%
+  time: 23.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 261/277  LR=0.003970
+    [train] Acc=41.75%  Prec=40.25%  Rec=41.61%  F1=40.44%
+    [val]   Acc=46.03%  Prec=45.78%  Rec=46.03%  F1=43.90%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 262/277  LR=0.003273
+    [train] Acc=42.82%  Prec=41.82%  Rec=43.08%  F1=42.11%
+    [val]   Acc=46.03%  Prec=45.13%  Rec=46.03%  F1=44.27%
+  time: 17.9s
+
+Epoch 263/277  LR=0.002501
+    [train] Acc=45.31%  Prec=44.21%  Rec=45.15%  F1=44.25%
+    [val]   Acc=46.94%  Prec=45.34%  Rec=46.94%  F1=44.96%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 264/277  LR=0.001728
+    [train] Acc=46.36%  Prec=44.89%  Rec=45.89%  F1=44.74%
+    [val]   Acc=47.05%  Prec=46.12%  Rec=47.05%  F1=45.39%
+  time: 18.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 265/277  LR=0.001031
+    [train] Acc=45.87%  Prec=44.32%  Rec=45.57%  F1=44.34%
+    [val]   Acc=49.89%  Prec=48.28%  Rec=49.89%  F1=48.19%
+  time: 18.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 266/277  LR=0.000478
+    [train] Acc=46.53%  Prec=45.44%  Rec=46.66%  F1=45.54%
+    [val]   Acc=50.23%  Prec=48.87%  Rec=50.23%  F1=48.95%
+  time: 17.9s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 267/277  LR=0.000123
+    [train] Acc=46.36%  Prec=45.23%  Rec=46.61%  F1=45.43%
+    [val]   Acc=49.32%  Prec=47.97%  Rec=49.32%  F1=47.93%
+  time: 18.1s
+
+Epoch 268/277  LR=0.005000
+    [train] Acc=46.14%  Prec=44.68%  Rec=46.01%  F1=44.87%
+    [val]   Acc=50.68%  Prec=50.80%  Rec=50.68%  F1=50.02%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 269/277  LR=0.004878
+    [train] Acc=46.92%  Prec=46.20%  Rec=47.19%  F1=46.50%
+    [val]   Acc=51.36%  Prec=51.16%  Rec=51.36%  F1=48.40%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 270/277  LR=0.004523
+    [train] Acc=48.36%  Prec=47.55%  Rec=48.46%  F1=47.71%
+    [val]   Acc=51.13%  Prec=50.11%  Rec=51.13%  F1=49.82%
+  time: 18.0s
+
+Epoch 271/277  LR=0.003970
+    [train] Acc=50.44%  Prec=49.18%  Rec=50.18%  F1=49.29%
+    [val]   Acc=52.27%  Prec=51.58%  Rec=52.27%  F1=50.52%
+  time: 18.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 272/277  LR=0.003273
+    [train] Acc=50.29%  Prec=49.79%  Rec=50.40%  F1=49.66%
+    [val]   Acc=54.54%  Prec=54.18%  Rec=54.54%  F1=53.85%
+  time: 18.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 273/277  LR=0.002501
+    [train] Acc=51.78%  Prec=51.08%  Rec=51.92%  F1=51.24%
+    [val]   Acc=54.20%  Prec=53.43%  Rec=54.20%  F1=52.97%
+  time: 17.9s
+
+Epoch 274/277  LR=0.001728
+    [train] Acc=50.98%  Prec=50.51%  Rec=51.11%  F1=50.64%
+    [val]   Acc=54.20%  Prec=53.89%  Rec=54.20%  F1=53.65%
+  time: 18.1s
+
+Epoch 275/277  LR=0.001031
+    [train] Acc=51.73%  Prec=51.25%  Rec=51.75%  F1=51.27%
+    [val]   Acc=54.31%  Prec=53.66%  Rec=54.31%  F1=53.59%
+  time: 18.0s
+
+Epoch 276/277  LR=0.000478
+    [train] Acc=52.34%  Prec=51.64%  Rec=52.28%  F1=51.72%
+    [val]   Acc=54.65%  Prec=53.76%  Rec=54.65%  F1=53.50%
+  time: 18.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 277/277  LR=0.000123
+    [train] Acc=51.76%  Prec=51.19%  Rec=52.22%  F1=51.40%
+    [val]   Acc=57.37%  Prec=56.81%  Rec=57.37%  F1=56.72%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --epochs 50 --batch_size 48 --lr 0.0001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\kdef_best_val_acc.pth (epoch=277)
+[EANet] Backbones UNFROZEN — full end-to-end fine-tuning.
+
+Epoch 278/327  LR=0.000010
+    [train] Acc=52.79%  Prec=52.17%  Rec=52.74%  F1=52.26%
+    [val]   Acc=55.56%  Prec=54.80%  Rec=55.56%  F1=54.83%
+  time: 29.8s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 279/327  LR=0.000010
+    [train] Acc=53.01%  Prec=52.29%  Rec=52.80%  F1=52.38%
+    [val]   Acc=55.90%  Prec=55.14%  Rec=55.90%  F1=55.10%
+  time: 53.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 280/327  LR=0.000009
+    [train] Acc=54.53%  Prec=53.82%  Rec=54.15%  F1=53.80%
+    [val]   Acc=54.65%  Prec=53.77%  Rec=54.65%  F1=53.57%
+  time: 44.3s
+
+Epoch 281/327  LR=0.000008
+    [train] Acc=53.58%  Prec=52.94%  Rec=53.65%  F1=52.99%
+    [val]   Acc=55.10%  Prec=54.16%  Rec=55.10%  F1=54.00%
+  time: 28.5s
+
+Epoch 282/327  LR=0.000007
+    [train] Acc=54.00%  Prec=53.15%  Rec=53.99%  F1=53.34%
+    [val]   Acc=55.67%  Prec=54.60%  Rec=55.67%  F1=54.74%
+  time: 28.5s
+
+Epoch 283/327  LR=0.000005
+    [train] Acc=51.84%  Prec=51.15%  Rec=51.89%  F1=51.22%
+    [val]   Acc=55.90%  Prec=54.98%  Rec=55.90%  F1=55.08%
+  time: 28.3s
+
+Epoch 284/327  LR=0.000004
+    [train] Acc=51.79%  Prec=50.93%  Rec=51.78%  F1=51.12%
+    [val]   Acc=56.12%  Prec=55.26%  Rec=56.12%  F1=55.30%
+  time: 28.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 285/327  LR=0.000003
+    [train] Acc=53.46%  Prec=52.79%  Rec=53.35%  F1=52.87%
+    [val]   Acc=56.01%  Prec=55.06%  Rec=56.01%  F1=55.23%
+  time: 28.3s
+
+Epoch 286/327  LR=0.000002
+    [train] Acc=53.28%  Prec=52.49%  Rec=53.00%  F1=52.48%
+    [val]   Acc=55.67%  Prec=54.74%  Rec=55.67%  F1=54.76%
+  time: 28.5s
+
+Epoch 287/327  LR=0.000001
+    [train] Acc=52.97%  Prec=52.25%  Rec=53.28%  F1=52.53%
+    [val]   Acc=55.10%  Prec=54.14%  Rec=55.10%  F1=54.13%
+  time: 28.2s
+
+Epoch 288/327  LR=0.000010
+    [train] Acc=53.24%  Prec=52.62%  Rec=53.28%  F1=52.61%
+    [val]   Acc=56.12%  Prec=55.48%  Rec=56.12%  F1=55.41%
+  time: 28.2s
+
+Epoch 289/327  LR=0.000010
+    [train] Acc=52.87%  Prec=52.30%  Rec=52.89%  F1=52.23%
+    [val]   Acc=56.12%  Prec=55.27%  Rec=56.12%  F1=55.33%
+  time: 28.4s
+
+Epoch 290/327  LR=0.000009
+    [train] Acc=53.11%  Prec=52.47%  Rec=53.14%  F1=52.52%
+    [val]   Acc=56.01%  Prec=55.10%  Rec=56.01%  F1=55.20%
+  time: 28.4s
+
+Epoch 291/327  LR=0.000008
+    [train] Acc=52.60%  Prec=51.52%  Rec=52.47%  F1=51.74%
+    [val]   Acc=54.99%  Prec=54.04%  Rec=54.99%  F1=54.15%
+  time: 28.3s
+
+Epoch 292/327  LR=0.000007
+    [train] Acc=52.21%  Prec=51.59%  Rec=52.03%  F1=51.66%
+    [val]   Acc=55.67%  Prec=54.90%  Rec=55.67%  F1=54.92%
+  time: 28.5s
+
+Epoch 293/327  LR=0.000005
+    [train] Acc=53.36%  Prec=52.61%  Rec=53.26%  F1=52.68%
+    [val]   Acc=55.22%  Prec=54.15%  Rec=55.22%  F1=54.25%
+  time: 28.3s
+
+Epoch 294/327  LR=0.000004
+    [train] Acc=54.26%  Prec=53.56%  Rec=54.43%  F1=53.65%
+    [val]   Acc=54.76%  Prec=53.88%  Rec=54.76%  F1=53.93%
+  time: 28.2s
+
+Epoch 295/327  LR=0.000003
+    [train] Acc=51.32%  Prec=50.80%  Rec=51.67%  F1=50.94%
+    [val]   Acc=55.90%  Prec=55.04%  Rec=55.90%  F1=55.14%
+  time: 28.5s
+
+Epoch 296/327  LR=0.000002
+    [train] Acc=53.41%  Prec=52.38%  Rec=53.23%  F1=52.52%
+    [val]   Acc=56.01%  Prec=55.11%  Rec=56.01%  F1=55.19%
+  time: 28.7s
+
+Epoch 297/327  LR=0.000001
+    [train] Acc=51.81%  Prec=50.86%  Rec=51.90%  F1=51.02%
+    [val]   Acc=55.10%  Prec=54.16%  Rec=55.10%  F1=54.14%
+  time: 28.2s
+
+Epoch 298/327  LR=0.000010
+    [train] Acc=55.20%  Prec=54.45%  Rec=54.89%  F1=54.43%
+    [val]   Acc=55.33%  Prec=54.45%  Rec=55.33%  F1=54.53%
+  time: 34.0s
+
+Epoch 299/327  LR=0.000010
+    [train] Acc=54.93%  Prec=54.05%  Rec=54.61%  F1=54.13%
+    [val]   Acc=56.80%  Prec=56.20%  Rec=56.80%  F1=55.97%
+  time: 58.9s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 300/327  LR=0.000009
+    [train] Acc=54.41%  Prec=53.73%  Rec=54.36%  F1=53.81%
+    [val]   Acc=55.44%  Prec=54.57%  Rec=55.44%  F1=54.63%
+  time: 56.0s
+
+Epoch 301/327  LR=0.000008
+    [train] Acc=53.85%  Prec=53.23%  Rec=54.46%  F1=53.36%
+    [val]   Acc=56.01%  Prec=54.99%  Rec=56.01%  F1=54.87%
+  time: 28.3s
+
+Epoch 302/327  LR=0.000007
+    [train] Acc=53.90%  Prec=52.98%  Rec=53.74%  F1=53.13%
+    [val]   Acc=55.33%  Prec=54.43%  Rec=55.33%  F1=54.44%
+  time: 28.3s
+
+Epoch 303/327  LR=0.000005
+    [train] Acc=52.89%  Prec=52.08%  Rec=53.17%  F1=52.27%
+    [val]   Acc=55.22%  Prec=54.25%  Rec=55.22%  F1=54.32%
+  time: 28.4s
+
+Epoch 304/327  LR=0.000004
+    [train] Acc=53.36%  Prec=52.84%  Rec=53.77%  F1=52.89%
+    [val]   Acc=56.35%  Prec=55.84%  Rec=56.35%  F1=55.59%
+  time: 28.2s
+
+Epoch 305/327  LR=0.000003
+    [train] Acc=52.87%  Prec=52.23%  Rec=53.06%  F1=52.28%
+    [val]   Acc=55.33%  Prec=54.50%  Rec=55.33%  F1=54.61%
+  time: 28.5s
+
+Epoch 306/327  LR=0.000002
+    [train] Acc=54.56%  Prec=53.79%  Rec=54.37%  F1=53.81%
+    [val]   Acc=56.69%  Prec=55.82%  Rec=56.69%  F1=55.70%
+  time: 30.6s
+
+Epoch 307/327  LR=0.000001
+    [train] Acc=52.75%  Prec=52.26%  Rec=52.81%  F1=52.12%
+    [val]   Acc=56.01%  Prec=54.95%  Rec=56.01%  F1=54.99%
+  time: 32.3s
+
+Epoch 308/327  LR=0.000010
+    [train] Acc=53.55%  Prec=52.96%  Rec=53.83%  F1=53.03%
+    [val]   Acc=54.88%  Prec=53.89%  Rec=54.88%  F1=53.85%
+  time: 31.9s
+
+Epoch 309/327  LR=0.000010
+    [train] Acc=53.09%  Prec=52.38%  Rec=53.33%  F1=52.41%
+    [val]   Acc=55.44%  Prec=54.59%  Rec=55.44%  F1=54.72%
+  time: 29.6s
+
+Epoch 310/327  LR=0.000009
+    [train] Acc=52.50%  Prec=51.60%  Rec=52.74%  F1=51.79%
+    [val]   Acc=56.24%  Prec=55.28%  Rec=56.24%  F1=55.53%
+  time: 28.2s
+
+Epoch 311/327  LR=0.000008
+    [train] Acc=54.26%  Prec=53.55%  Rec=54.24%  F1=53.68%
+    [val]   Acc=56.35%  Prec=55.57%  Rec=56.35%  F1=55.43%
+  time: 28.1s
+
+Epoch 312/327  LR=0.000007
+    [train] Acc=52.82%  Prec=52.07%  Rec=52.63%  F1=52.16%
+    [val]   Acc=55.90%  Prec=55.00%  Rec=55.90%  F1=55.03%
+  time: 28.1s
+
+Epoch 313/327  LR=0.000005
+    [train] Acc=53.43%  Prec=52.82%  Rec=53.54%  F1=52.91%
+    [val]   Acc=55.10%  Prec=54.23%  Rec=55.10%  F1=54.28%
+  time: 28.4s
+
+Epoch 314/327  LR=0.000004
+    [train] Acc=53.28%  Prec=52.62%  Rec=53.54%  F1=52.73%
+    [val]   Acc=55.56%  Prec=54.45%  Rec=55.56%  F1=54.58%
+  time: 28.2s
+
+Epoch 315/327  LR=0.000003
+    [train] Acc=52.60%  Prec=51.86%  Rec=52.64%  F1=51.94%
+    [val]   Acc=55.56%  Prec=54.67%  Rec=55.56%  F1=54.45%
+  time: 28.2s
+
+Epoch 316/327  LR=0.000002
+    [train] Acc=55.44%  Prec=54.55%  Rec=55.32%  F1=54.67%
+    [val]   Acc=55.78%  Prec=54.92%  Rec=55.78%  F1=54.92%
+  time: 28.1s
+
+Epoch 317/327  LR=0.000001
+    [train] Acc=53.82%  Prec=53.21%  Rec=53.88%  F1=53.19%
+    [val]   Acc=55.44%  Prec=54.51%  Rec=55.44%  F1=54.60%
+  time: 28.2s
+
+Epoch 318/327  LR=0.000010
+    [train] Acc=52.43%  Prec=51.88%  Rec=52.47%  F1=51.97%
+    [val]   Acc=55.44%  Prec=54.74%  Rec=55.44%  F1=54.75%
+  time: 28.1s
+
+Epoch 319/327  LR=0.000010
+    [train] Acc=53.21%  Prec=52.51%  Rec=53.53%  F1=52.70%
+    [val]   Acc=55.56%  Prec=54.83%  Rec=55.56%  F1=54.89%
+  time: 28.2s
+
+[EarlyStop] Stopping.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c "
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>import torch, os
+'import' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>for f in os.listdir('checkpoints'):
+f was unexpected at this time.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>    if f.endswith('.pth'):
+The syntax of the command is incorrect.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>        ck = torch.load(f'checkpoints/{f}', map_location='cpu')
+'ck' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>        print(f'{f}: epoch={ck.get(\"epoch\")} acc={ck.get(\"metrics\",{}).get(\"accuracy\",\"?\")}')
+Unable to initialize device PRN
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>"python -c "import torch, os; [print(f\"{f}: epoch={ck.get('epoch')} acc={ck.get('metrics', {}).get('accuracy', '?')}%\") for f in os.listdir('checkpoints') if f.endswith('.pth') for ck in [torch.load(os.path.join('checkpoints', f), map_location='cpu')]]"
+'"python -c "import' is not recognized as an internal or external command,
+operable program or batch file.
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python -c "import torch, os; [print(f\"{f}: epoch={ck.get('epoch')} acc={ck.get('metrics', {}).get('accuracy', '?')}%\") for f in os.listdir('checkpoints') if f.endswith('.pth') for ck in [torch.load(os.path.join('checkpoints', f), map_location='cpu')]]"
+fer_best_val_acc.pth: epoch=257 acc=51.84151785714286%
+kdef_best_val_acc.pth: epoch=299 acc=56.80272108843537%
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG ^
+More?   --resume checkpoints/fer_best_val_acc.pth ^
+More?   --freeze_backbone --epochs 25 ^
+More?   --batch_size 32 --lr 0.005 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Loss] Label Smoothing set to 0.1
+[Warning] Optimizer shape mismatch. Skipping optimizer state load.
+[Resume] Loaded checkpoint from checkpoints\fer_best_val_acc.pth (epoch=257)
+
+Epoch 258/282  LR=0.005000
+    [train] Acc=29.83%  Prec=27.76%  Rec=29.56%  F1=28.10%
+    [val]   Acc=36.17%  Prec=37.06%  Rec=36.17%  F1=33.64%
+  time: 20.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 259/282  LR=0.004878
+    [train] Acc=35.08%  Prec=33.58%  Rec=35.06%  F1=33.57%
+    [val]   Acc=39.91%  Prec=38.98%  Rec=39.91%  F1=36.96%
+  time: 35.7s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 260/282  LR=0.004523
+    [train] Acc=40.67%  Prec=39.05%  Rec=40.44%  F1=38.80%
+    [val]   Acc=45.12%  Prec=42.89%  Rec=45.12%  F1=43.02%
+  time: 22.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 261/282  LR=0.003970
+    [train] Acc=41.60%  Prec=40.30%  Rec=41.92%  F1=40.60%
+    [val]   Acc=43.20%  Prec=43.05%  Rec=43.20%  F1=41.62%
+  time: 18.5s
+
+Epoch 262/282  LR=0.003273
+    [train] Acc=43.90%  Prec=42.41%  Rec=43.76%  F1=42.61%
+    [val]   Acc=46.26%  Prec=45.43%  Rec=46.26%  F1=44.47%
+  time: 18.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 263/282  LR=0.002501
+    [train] Acc=44.70%  Prec=43.17%  Rec=44.50%  F1=43.42%
+    [val]   Acc=46.83%  Prec=44.45%  Rec=46.83%  F1=43.99%
+  time: 18.5s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 264/282  LR=0.001728
+    [train] Acc=43.99%  Prec=42.81%  Rec=43.90%  F1=42.83%
+    [val]   Acc=47.85%  Prec=46.62%  Rec=47.85%  F1=45.87%
+  time: 18.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 265/282  LR=0.001031
+    [train] Acc=45.73%  Prec=44.46%  Rec=45.63%  F1=44.55%
+    [val]   Acc=47.96%  Prec=46.45%  Rec=47.96%  F1=46.66%
+  time: 24.7s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 266/282  LR=0.000478
+    [train] Acc=46.09%  Prec=45.19%  Rec=46.18%  F1=45.20%
+    [val]   Acc=48.87%  Prec=47.21%  Rec=48.87%  F1=47.22%
+  time: 43.9s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 267/282  LR=0.000123
+    [train] Acc=44.78%  Prec=43.86%  Rec=45.08%  F1=43.93%
+    [val]   Acc=46.94%  Prec=45.68%  Rec=46.94%  F1=45.73%
+  time: 18.4s
+
+Epoch 268/282  LR=0.005000
+    [train] Acc=46.34%  Prec=44.80%  Rec=45.90%  F1=44.59%
+    [val]   Acc=49.89%  Prec=49.36%  Rec=49.89%  F1=48.62%
+  time: 18.5s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 269/282  LR=0.004878
+    [train] Acc=47.14%  Prec=46.41%  Rec=47.26%  F1=46.48%
+    [val]   Acc=50.57%  Prec=49.59%  Rec=50.57%  F1=48.55%
+  time: 35.5s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 270/282  LR=0.004523
+    [train] Acc=49.10%  Prec=48.28%  Rec=49.02%  F1=48.26%
+    [val]   Acc=51.02%  Prec=51.72%  Rec=51.02%  F1=49.80%
+  time: 50.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 271/282  LR=0.003970
+    [train] Acc=51.25%  Prec=50.41%  Rec=50.98%  F1=50.24%
+    [val]   Acc=51.25%  Prec=50.56%  Rec=51.25%  F1=50.47%
+  time: 49.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 272/282  LR=0.003273
+    [train] Acc=50.81%  Prec=50.03%  Rec=50.64%  F1=49.93%
+    [val]   Acc=52.61%  Prec=52.11%  Rec=52.61%  F1=51.82%
+  time: 39.3s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 273/282  LR=0.002501
+    [train] Acc=51.54%  Prec=50.62%  Rec=51.42%  F1=50.70%
+    [val]   Acc=52.72%  Prec=52.22%  Rec=52.72%  F1=52.10%
+  time: 50.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 274/282  LR=0.001728
+    [train] Acc=52.03%  Prec=51.63%  Rec=52.22%  F1=51.73%
+    [val]   Acc=53.97%  Prec=52.91%  Rec=53.97%  F1=53.01%
+  time: 31.5s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 275/282  LR=0.001031
+    [train] Acc=52.71%  Prec=51.96%  Rec=52.58%  F1=52.00%
+    [val]   Acc=53.51%  Prec=52.21%  Rec=53.51%  F1=52.17%
+  time: 51.5s
+
+Epoch 276/282  LR=0.000478
+    [train] Acc=51.90%  Prec=51.26%  Rec=51.82%  F1=51.27%
+    [val]   Acc=54.08%  Prec=53.90%  Rec=54.08%  F1=53.33%
+  time: 46.3s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 277/282  LR=0.000123
+    [train] Acc=51.68%  Prec=51.15%  Rec=51.61%  F1=51.08%
+    [val]   Acc=53.74%  Prec=52.67%  Rec=53.74%  F1=52.75%
+  time: 47.9s
+
+Epoch 278/282  LR=0.005000
+    [train] Acc=52.88%  Prec=52.11%  Rec=52.53%  F1=51.97%
+    [val]   Acc=52.83%  Prec=52.49%  Rec=52.83%  F1=51.70%
+  time: 49.3s
+
+Epoch 279/282  LR=0.004878
+    [train] Acc=52.12%  Prec=51.57%  Rec=52.25%  F1=51.71%
+    [val]   Acc=54.08%  Prec=54.61%  Rec=54.08%  F1=53.63%
+  time: 36.6s
+
+Epoch 280/282  LR=0.004523
+    [train] Acc=54.52%  Prec=53.79%  Rec=54.17%  F1=53.73%
+    [val]   Acc=56.58%  Prec=55.82%  Rec=56.58%  F1=55.59%
+  time: 46.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 281/282  LR=0.003970
+    [train] Acc=54.59%  Prec=53.88%  Rec=54.27%  F1=53.77%
+    [val]   Acc=56.24%  Prec=55.99%  Rec=56.24%  F1=55.40%
+  time: 52.3s
+
+Epoch 282/282  LR=0.003273
+    [train] Acc=54.81%  Prec=54.44%  Rec=54.98%  F1=54.58%
+    [val]   Acc=56.58%  Prec=55.87%  Rec=56.58%  F1=55.72%
+  time: 26.9s
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --freeze_backbone --epochs 40 --batch_size 32 --lr 0.001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\kdef_best_val_acc.pth (epoch=280)
+
+Epoch 281/320  LR=0.005000
+    [train] Acc=54.49%  Prec=54.07%  Rec=54.59%  F1=53.99%
+    [val]   Acc=55.10%  Prec=55.07%  Rec=55.10%  F1=54.35%
+  time: 18.9s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 282/320  LR=0.004878
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 222, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 190, in main
+    train_m = train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, use_amp)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 60, in train_one_epoch
+    logits = model(imgs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\models\ea_net.py", line 87, in forward
+    feat_inc = self.inception(x)   # (B, 512, 6, 6)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\models\backbones.py", line 94, in forward
+    x = self.stem(x)          # (B, 2048, ~4, ~4) for 192 input
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\container.py", line 217, in forward
+    input = module(input)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\inception.py", line 285, in forward
+    outputs = self._forward(x)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\inception.py", line 266, in _forward
+    branch1x1 = self.branch1x1(x)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torchvision\models\inception.py", line 405, in forward
+    x = self.conv(x)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\conv.py", line 460, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\nn\modules\conv.py", line 456, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --freeze_backbone --epochs 15 --batch_size 32 --lr 0.005 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\kdef_best_val_acc.pth (epoch=280)
+
+Epoch 281/295  LR=0.005000
+    [train] Acc=55.10%  Prec=54.62%  Rec=55.24%  F1=54.71%
+    [val]   Acc=54.20%  Prec=53.44%  Rec=54.20%  F1=52.94%
+  time: 19.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 282/295  LR=0.004878
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 222, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 190, in main
+    train_m = train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, use_amp)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 66, in train_one_epoch
+    scaler.step(optimizer)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 452, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 349, in _maybe_opt_step
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 349, in <genexpr>
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --freeze_backbone --epochs 40 --batch_size 32 --lr 0.001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\kdef_best_val_acc.pth (epoch=281)
+
+Epoch 282/321  LR=0.005000
+    [train] Acc=54.59%  Prec=53.81%  Rec=54.28%  F1=53.82%
+    [val]   Acc=56.24%  Prec=55.48%  Rec=56.24%  F1=55.29%
+  time: 19.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 283/321  LR=0.004878
+    [train] Acc=52.64%  Prec=52.30%  Rec=52.93%  F1=52.48%
+    [val]   Acc=57.03%  Prec=57.26%  Rec=57.03%  F1=56.80%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 284/321  LR=0.004523
+    [train] Acc=54.20%  Prec=53.89%  Rec=54.24%  F1=53.93%
+    [val]   Acc=58.50%  Prec=57.77%  Rec=58.50%  F1=57.73%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 285/321  LR=0.003970
+    [train] Acc=55.40%  Prec=54.85%  Rec=55.50%  F1=55.00%
+    [val]   Acc=58.62%  Prec=58.64%  Rec=58.62%  F1=58.42%
+  time: 18.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 286/321  LR=0.003273
+    [train] Acc=58.13%  Prec=57.35%  Rec=57.72%  F1=57.40%
+    [val]   Acc=58.96%  Prec=58.37%  Rec=58.96%  F1=57.84%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 287/321  LR=0.002501
+    [train] Acc=56.52%  Prec=56.08%  Rec=56.57%  F1=56.08%
+    [val]   Acc=58.39%  Prec=58.61%  Rec=58.39%  F1=58.21%
+  time: 17.9s
+
+Epoch 288/321  LR=0.001728
+    [train] Acc=56.86%  Prec=56.38%  Rec=56.74%  F1=56.35%
+    [val]   Acc=58.50%  Prec=57.94%  Rec=58.50%  F1=58.05%
+  time: 18.1s
+
+Epoch 289/321  LR=0.001031
+    [train] Acc=57.57%  Prec=57.15%  Rec=57.91%  F1=57.33%
+    [val]   Acc=59.41%  Prec=58.96%  Rec=59.41%  F1=59.13%
+  time: 18.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 290/321  LR=0.000478
+    [train] Acc=57.59%  Prec=57.34%  Rec=57.69%  F1=57.39%
+    [val]   Acc=58.50%  Prec=57.82%  Rec=58.50%  F1=57.98%
+  time: 18.1s
+
+Epoch 291/321  LR=0.000123
+    [train] Acc=58.59%  Prec=58.15%  Rec=58.37%  F1=58.19%
+    [val]   Acc=59.41%  Prec=58.73%  Rec=59.41%  F1=58.82%
+  time: 18.1s
+
+Epoch 292/321  LR=0.005000
+    [train] Acc=57.62%  Prec=57.31%  Rec=57.68%  F1=57.43%
+    [val]   Acc=58.39%  Prec=57.91%  Rec=58.39%  F1=57.09%
+  time: 17.9s
+
+Epoch 293/321  LR=0.004878
+    [train] Acc=56.76%  Prec=56.04%  Rec=56.65%  F1=56.17%
+    [val]   Acc=61.45%  Prec=61.35%  Rec=61.45%  F1=61.27%
+  time: 17.9s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 294/321  LR=0.004523
+    [train] Acc=57.69%  Prec=57.68%  Rec=58.12%  F1=57.81%
+    [val]   Acc=57.60%  Prec=60.96%  Rec=57.60%  F1=57.56%
+  time: 18.2s
+
+Epoch 295/321  LR=0.003970
+    [train] Acc=58.62%  Prec=58.34%  Rec=58.62%  F1=58.40%
+    [val]   Acc=60.09%  Prec=60.43%  Rec=60.09%  F1=59.07%
+  time: 18.0s
+
+Epoch 296/321  LR=0.003273
+    [train] Acc=60.45%  Prec=60.10%  Rec=60.42%  F1=60.15%
+    [val]   Acc=61.68%  Prec=61.29%  Rec=61.68%  F1=61.15%
+  time: 18.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 297/321  LR=0.002501
+    [train] Acc=60.42%  Prec=59.80%  Rec=60.25%  F1=59.92%
+    [val]   Acc=61.00%  Prec=60.69%  Rec=61.00%  F1=60.28%
+  time: 17.9s
+
+Epoch 298/321  LR=0.001728
+    [train] Acc=61.25%  Prec=60.41%  Rec=60.96%  F1=60.46%
+    [val]   Acc=61.22%  Prec=61.09%  Rec=61.22%  F1=61.09%
+  time: 17.8s
+
+Epoch 299/321  LR=0.001031
+    [train] Acc=60.35%  Prec=59.89%  Rec=60.41%  F1=60.04%
+    [val]   Acc=61.45%  Prec=61.23%  Rec=61.45%  F1=61.29%
+  time: 17.9s
+
+Epoch 300/321  LR=0.000478
+    [train] Acc=60.18%  Prec=59.78%  Rec=60.22%  F1=59.89%
+    [val]   Acc=61.22%  Prec=60.80%  Rec=61.22%  F1=60.90%
+  time: 17.9s
+
+Epoch 301/321  LR=0.000123
+    [train] Acc=61.60%  Prec=61.04%  Rec=61.28%  F1=61.01%
+    [val]   Acc=62.36%  Prec=62.12%  Rec=62.36%  F1=61.94%
+  time: 17.8s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 302/321  LR=0.005000
+    [train] Acc=60.79%  Prec=60.37%  Rec=60.84%  F1=60.49%
+    [val]   Acc=61.22%  Prec=60.80%  Rec=61.22%  F1=60.63%
+  time: 18.1s
+
+Epoch 303/321  LR=0.004878
+    [train] Acc=60.45%  Prec=59.98%  Rec=60.52%  F1=60.10%
+    [val]   Acc=60.54%  Prec=60.84%  Rec=60.54%  F1=60.04%
+  time: 17.7s
+
+Epoch 304/321  LR=0.004523
+    [train] Acc=59.77%  Prec=59.26%  Rec=59.77%  F1=59.40%
+    [val]   Acc=61.90%  Prec=61.72%  Rec=61.90%  F1=61.74%
+  time: 18.1s
+
+Epoch 305/321  LR=0.003970
+    [train] Acc=60.91%  Prec=60.38%  Rec=60.69%  F1=60.43%
+    [val]   Acc=61.68%  Prec=61.74%  Rec=61.68%  F1=61.33%
+  time: 17.9s
+
+Epoch 306/321  LR=0.003273
+    [train] Acc=61.16%  Prec=60.63%  Rec=60.94%  F1=60.72%
+    [val]   Acc=62.93%  Prec=63.04%  Rec=62.93%  F1=62.54%
+  time: 17.9s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 307/321  LR=0.002501
+    [train] Acc=62.30%  Prec=62.00%  Rec=62.35%  F1=62.07%
+    [val]   Acc=61.45%  Prec=61.36%  Rec=61.45%  F1=61.18%
+  time: 18.0s
+
+Epoch 308/321  LR=0.001728
+    [train] Acc=61.52%  Prec=60.96%  Rec=61.33%  F1=61.05%
+    [val]   Acc=62.47%  Prec=61.79%  Rec=62.47%  F1=61.76%
+  time: 18.0s
+
+Epoch 309/321  LR=0.001031
+    [train] Acc=64.21%  Prec=63.89%  Rec=64.20%  F1=63.92%
+    [val]   Acc=62.47%  Prec=62.26%  Rec=62.47%  F1=62.12%
+  time: 18.0s
+
+Epoch 310/321  LR=0.000478
+    [train] Acc=62.87%  Prec=62.44%  Rec=62.76%  F1=62.50%
+    [val]   Acc=63.15%  Prec=62.79%  Rec=63.15%  F1=62.83%
+  time: 18.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 311/321  LR=0.000123
+    [train] Acc=63.57%  Prec=63.05%  Rec=63.47%  F1=63.15%
+    [val]   Acc=62.70%  Prec=62.21%  Rec=62.70%  F1=62.37%
+  time: 17.9s
+
+Epoch 312/321  LR=0.005000
+    [train] Acc=61.11%  Prec=60.77%  Rec=61.25%  F1=60.90%
+    [val]   Acc=62.70%  Prec=62.64%  Rec=62.70%  F1=62.45%
+  time: 17.9s
+
+Epoch 313/321  LR=0.004878
+    [train] Acc=62.89%  Prec=62.21%  Rec=62.57%  F1=62.24%
+    [val]   Acc=63.83%  Prec=64.06%  Rec=63.83%  F1=63.67%
+  time: 17.9s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 314/321  LR=0.004523
+    [train] Acc=64.23%  Prec=63.70%  Rec=63.99%  F1=63.77%
+    [val]   Acc=62.47%  Prec=62.29%  Rec=62.47%  F1=61.93%
+  time: 18.0s
+
+Epoch 315/321  LR=0.003970
+    [train] Acc=64.16%  Prec=63.85%  Rec=64.31%  F1=64.00%
+    [val]   Acc=61.90%  Prec=63.54%  Rec=61.90%  F1=62.14%
+  time: 17.8s
+
+Epoch 316/321  LR=0.003273
+    [train] Acc=63.72%  Prec=63.50%  Rec=63.66%  F1=63.52%
+    [val]   Acc=62.13%  Prec=62.27%  Rec=62.13%  F1=61.55%
+  time: 17.9s
+
+Epoch 317/321  LR=0.002501
+    [train] Acc=64.06%  Prec=63.56%  Rec=63.96%  F1=63.65%
+    [val]   Acc=63.61%  Prec=63.63%  Rec=63.61%  F1=63.37%
+  time: 17.9s
+
+Epoch 318/321  LR=0.001728
+    [train] Acc=63.57%  Prec=63.19%  Rec=63.48%  F1=63.27%
+    [val]   Acc=63.04%  Prec=62.50%  Rec=63.04%  F1=62.54%
+  time: 17.9s
+
+Epoch 319/321  LR=0.001031
+    [train] Acc=65.01%  Prec=64.75%  Rec=65.09%  F1=64.82%
+    [val]   Acc=62.02%  Prec=61.72%  Rec=62.02%  F1=61.62%
+  time: 17.9s
+
+Epoch 320/321  LR=0.000478
+    [train] Acc=63.33%  Prec=63.20%  Rec=63.58%  F1=63.31%
+    [val]   Acc=64.85%  Prec=64.61%  Rec=64.85%  F1=64.66%
+  time: 18.0s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 321/321  LR=0.000123
+    [train] Acc=65.60%  Prec=65.28%  Rec=65.57%  F1=65.34%
+    [val]   Acc=64.51%  Prec=64.15%  Rec=64.51%  F1=64.24%
+  time: 17.9s
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --freeze_backbone --epochs 40 --batch_size 32 --lr 0.001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Backbones FROZEN — training attention + head only.
+[EANet] Total params: 27,833,123  Trainable: 2,040,007
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\kdef_best_val_acc.pth (epoch=320)
+
+Epoch 321/360  LR=0.005000
+    [train] Acc=65.01%  Prec=64.51%  Rec=64.90%  F1=64.61%
+    [val]   Acc=61.22%  Prec=62.31%  Rec=61.22%  F1=61.17%
+  time: 19.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 322/360  LR=0.004878
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 222, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 190, in main
+    train_m = train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, use_amp)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 66, in train_one_epoch
+    scaler.step(optimizer)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 452, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 349, in _maybe_opt_step
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\cuda\amp\grad_scaler.py", line 349, in <genexpr>
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --epochs 70 --batch_size 32 --lr 0.001 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\kdef_best_val_acc.pth (epoch=320)
+[EANet] Backbones UNFROZEN — full end-to-end fine-tuning.
+
+Epoch 321/390  LR=0.000100
+    [train] Acc=64.82%  Prec=64.64%  Rec=64.94%  F1=64.71%
+    [val]   Acc=64.29%  Prec=64.20%  Rec=64.29%  F1=64.11%
+  time: 33.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 322/390  LR=0.000098
+    [train] Acc=66.11%  Prec=65.57%  Rec=65.79%  F1=65.59%
+    [val]   Acc=64.17%  Prec=63.62%  Rec=64.17%  F1=63.76%
+  time: 29.8s
+
+Epoch 323/390  LR=0.000091
+    [train] Acc=65.89%  Prec=65.51%  Rec=65.81%  F1=65.60%
+    [val]   Acc=63.83%  Prec=63.39%  Rec=63.83%  F1=63.49%
+  time: 29.5s
+
+Epoch 324/390  LR=0.000080
+    [train] Acc=64.75%  Prec=64.62%  Rec=64.93%  F1=64.70%
+    [val]   Acc=64.97%  Prec=64.55%  Rec=64.97%  F1=64.57%
+  time: 29.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 325/390  LR=0.000066
+    [train] Acc=65.04%  Prec=64.64%  Rec=65.01%  F1=64.73%
+    [val]   Acc=64.29%  Prec=63.98%  Rec=64.29%  F1=64.09%
+  time: 29.2s
+
+Epoch 326/390  LR=0.000051
+    [train] Acc=64.97%  Prec=64.55%  Rec=64.92%  F1=64.63%
+    [val]   Acc=63.83%  Prec=63.62%  Rec=63.83%  F1=63.56%
+  time: 29.5s
+
+Epoch 327/390  LR=0.000035
+    [train] Acc=65.50%  Prec=65.00%  Rec=65.43%  F1=65.13%
+    [val]   Acc=64.06%  Prec=63.68%  Rec=64.06%  F1=63.80%
+  time: 29.0s
+
+Epoch 328/390  LR=0.000021
+    [train] Acc=65.50%  Prec=65.16%  Rec=65.55%  F1=65.29%
+    [val]   Acc=64.29%  Prec=63.86%  Rec=64.29%  F1=63.93%
+  time: 29.0s
+
+Epoch 329/390  LR=0.000010
+    [train] Acc=65.38%  Prec=65.23%  Rec=65.70%  F1=65.36%
+    [val]   Acc=64.97%  Prec=64.83%  Rec=64.97%  F1=64.81%
+  time: 29.3s
+
+Epoch 330/390  LR=0.000003
+    [train] Acc=66.21%  Prec=65.74%  Rec=65.92%  F1=65.80%
+    [val]   Acc=63.27%  Prec=63.33%  Rec=63.27%  F1=63.17%
+  time: 29.3s
+
+Epoch 331/390  LR=0.000100
+    [train] Acc=65.36%  Prec=64.98%  Rec=65.34%  F1=65.06%
+    [val]   Acc=63.27%  Prec=63.01%  Rec=63.27%  F1=63.07%
+  time: 29.4s
+
+Epoch 332/390  LR=0.000098
+    [train] Acc=64.72%  Prec=64.61%  Rec=64.95%  F1=64.74%
+    [val]   Acc=65.08%  Prec=64.86%  Rec=65.08%  F1=64.90%
+  time: 29.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 333/390  LR=0.000091
+    [train] Acc=65.55%  Prec=65.11%  Rec=65.21%  F1=65.09%
+    [val]   Acc=64.51%  Prec=64.07%  Rec=64.51%  F1=64.16%
+  time: 29.4s
+
+Epoch 334/390  LR=0.000080
+    [train] Acc=66.65%  Prec=66.23%  Rec=66.58%  F1=66.27%
+    [val]   Acc=65.08%  Prec=64.91%  Rec=65.08%  F1=64.80%
+  time: 29.3s
+
+Epoch 335/390  LR=0.000066
+    [train] Acc=65.11%  Prec=64.79%  Rec=65.39%  F1=64.96%
+    [val]   Acc=64.40%  Prec=64.33%  Rec=64.40%  F1=64.27%
+  time: 29.2s
+
+Epoch 336/390  LR=0.000051
+    [train] Acc=66.21%  Prec=66.01%  Rec=66.28%  F1=66.09%
+    [val]   Acc=62.70%  Prec=62.55%  Rec=62.70%  F1=62.51%
+  time: 49.1s
+
+Epoch 337/390  LR=0.000035
+    [train] Acc=66.11%  Prec=65.79%  Rec=66.05%  F1=65.88%
+    [val]   Acc=63.95%  Prec=63.55%  Rec=63.95%  F1=63.65%
+  time: 46.7s
+
+Epoch 338/390  LR=0.000021
+    [train] Acc=66.43%  Prec=65.94%  Rec=66.22%  F1=66.03%
+    [val]   Acc=64.74%  Prec=64.38%  Rec=64.74%  F1=64.40%
+  time: 49.3s
+
+Epoch 339/390  LR=0.000010
+    [train] Acc=64.82%  Prec=64.48%  Rec=64.98%  F1=64.61%
+    [val]   Acc=66.21%  Prec=65.91%  Rec=66.21%  F1=65.98%
+  time: 29.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 340/390  LR=0.000003
+    [train] Acc=65.89%  Prec=65.65%  Rec=65.90%  F1=65.72%
+    [val]   Acc=64.63%  Prec=64.31%  Rec=64.63%  F1=64.37%
+  time: 29.4s
+
+Epoch 341/390  LR=0.000100
+    [train] Acc=67.02%  Prec=66.73%  Rec=67.16%  F1=66.84%
+    [val]   Acc=65.19%  Prec=64.90%  Rec=65.19%  F1=64.96%
+  time: 29.4s
+
+Epoch 342/390  LR=0.000098
+    [train] Acc=67.38%  Prec=67.31%  Rec=67.54%  F1=67.38%
+    [val]   Acc=64.29%  Prec=64.00%  Rec=64.29%  F1=64.02%
+  time: 29.4s
+
+Epoch 343/390  LR=0.000091
+    [train] Acc=66.14%  Prec=65.68%  Rec=66.11%  F1=65.82%
+    [val]   Acc=63.83%  Prec=63.92%  Rec=63.83%  F1=63.81%
+  time: 29.6s
+
+Epoch 344/390  LR=0.000080
+    [train] Acc=66.55%  Prec=66.30%  Rec=66.61%  F1=66.40%
+    [val]   Acc=65.42%  Prec=65.01%  Rec=65.42%  F1=65.05%
+  time: 29.2s
+
+Epoch 345/390  LR=0.000066
+    [train] Acc=67.36%  Prec=66.98%  Rec=67.34%  F1=67.08%
+    [val]   Acc=64.85%  Prec=64.38%  Rec=64.85%  F1=64.46%
+  time: 29.2s
+
+Epoch 346/390  LR=0.000051
+    [train] Acc=66.16%  Prec=65.92%  Rec=66.33%  F1=66.07%
+    [val]   Acc=65.42%  Prec=65.20%  Rec=65.42%  F1=65.25%
+  time: 29.3s
+
+Epoch 347/390  LR=0.000035
+    [train] Acc=66.24%  Prec=65.99%  Rec=66.30%  F1=66.10%
+    [val]   Acc=65.76%  Prec=65.46%  Rec=65.76%  F1=65.42%
+  time: 29.1s
+
+Epoch 348/390  LR=0.000021
+    [train] Acc=67.33%  Prec=67.00%  Rec=67.24%  F1=67.08%
+    [val]   Acc=66.33%  Prec=65.93%  Rec=66.33%  F1=65.99%
+  time: 29.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 349/390  LR=0.000010
+    [train] Acc=67.33%  Prec=67.03%  Rec=67.25%  F1=67.11%
+    [val]   Acc=64.51%  Prec=64.51%  Rec=64.51%  F1=64.27%
+  time: 29.6s
+
+Epoch 350/390  LR=0.000003
+    [train] Acc=65.92%  Prec=65.63%  Rec=66.07%  F1=65.72%
+    [val]   Acc=65.65%  Prec=65.32%  Rec=65.65%  F1=65.36%
+  time: 29.4s
+
+Epoch 351/390  LR=0.000100
+    [train] Acc=67.50%  Prec=67.16%  Rec=67.47%  F1=67.26%
+    [val]   Acc=64.63%  Prec=64.35%  Rec=64.63%  F1=64.30%
+  time: 29.4s
+
+Epoch 352/390  LR=0.000098
+    [train] Acc=66.02%  Prec=65.67%  Rec=66.13%  F1=65.81%
+    [val]   Acc=65.76%  Prec=65.52%  Rec=65.76%  F1=65.58%
+  time: 29.7s
+
+Epoch 353/390  LR=0.000091
+    [train] Acc=67.43%  Prec=67.29%  Rec=67.46%  F1=67.32%
+    [val]   Acc=64.74%  Prec=64.46%  Rec=64.74%  F1=64.48%
+  time: 44.5s
+
+Epoch 354/390  LR=0.000080
+    [train] Acc=66.53%  Prec=66.19%  Rec=66.48%  F1=66.28%
+    [val]   Acc=65.87%  Prec=65.55%  Rec=65.87%  F1=65.63%
+  time: 55.6s
+
+Epoch 355/390  LR=0.000066
+Traceback (most recent call last):
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 222, in <module>
+    main()
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 191, in main
+    val_m   = validate(model, val_loader, criterion, device, use_amp)
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\hanee\Project\facial-emotion-recognition\train.py", line 83, in validate
+    for imgs, labels in tqdm(loader, desc="  val  ", leave=False, unit="batch"):
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\hanee\Project\facial-emotion-recognition\data\dataset_loader.py", line 78, in __getitem__
+    img = Image.open(path).convert("RGB")
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\PIL\Image.py", line 922, in convert
+    self.load()
+  File "C:\Users\hanee\miniconda3\envs\eanet\lib\site-packages\PIL\ImageFile.py", line 291, in load
+    n, err_code = decoder.decode(b)
+KeyboardInterrupt
+^C
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --epochs 30 --batch_size 32 --lr 0.005 --num_workers 0
+[Train] device=cuda  AMP=True  dataset=kdef
+[DataLoader] KDEF: train=4,115 val=882 test=883
+[EANet] Total params: 27,833,123  Trainable: 27,833,123
+[Loss] Label Smoothing set to 0.1
+[Resume] Loaded checkpoint from checkpoints\kdef_best_val_acc.pth (epoch=348)
+[EANet] Backbones UNFROZEN — full end-to-end fine-tuning.
+
+Epoch 349/378  LR=0.000500
+    [train] Acc=66.92%  Prec=66.25%  Rec=66.57%  F1=66.35%
+    [val]   Acc=65.19%  Prec=64.97%  Rec=65.19%  F1=64.93%
+  time: 30.8s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 350/378  LR=0.000488
+    [train] Acc=67.50%  Prec=67.13%  Rec=67.36%  F1=67.14%
+    [val]   Acc=67.12%  Prec=66.80%  Rec=67.12%  F1=66.72%
+  time: 34.3s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 351/378  LR=0.000452
+    [train] Acc=66.85%  Prec=66.59%  Rec=66.86%  F1=66.65%
+    [val]   Acc=67.12%  Prec=67.06%  Rec=67.12%  F1=66.88%
+  time: 44.8s
+
+Epoch 352/378  LR=0.000397
+    [train] Acc=67.53%  Prec=67.12%  Rec=67.45%  F1=67.23%
+    [val]   Acc=67.12%  Prec=67.01%  Rec=67.12%  F1=66.80%
+  time: 66.0s
+
+Epoch 353/378  LR=0.000328
+    [train] Acc=68.90%  Prec=68.68%  Rec=69.03%  F1=68.81%
+    [val]   Acc=66.33%  Prec=66.26%  Rec=66.33%  F1=66.25%
+  time: 50.6s
+
+Epoch 354/378  LR=0.000251
+    [train] Acc=68.77%  Prec=68.48%  Rec=68.83%  F1=68.61%
+    [val]   Acc=67.69%  Prec=67.45%  Rec=67.69%  F1=67.47%
+  time: 29.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 355/378  LR=0.000173
+    [train] Acc=69.85%  Prec=69.54%  Rec=69.81%  F1=69.58%
+    [val]   Acc=67.23%  Prec=67.09%  Rec=67.23%  F1=67.01%
+  time: 29.4s
+
+Epoch 356/378  LR=0.000104
+    [train] Acc=69.36%  Prec=69.21%  Rec=69.46%  F1=69.25%
+    [val]   Acc=66.67%  Prec=66.55%  Rec=66.67%  F1=66.47%
+  time: 29.4s
+
+Epoch 357/378  LR=0.000049
+    [train] Acc=68.55%  Prec=68.39%  Rec=68.45%  F1=68.23%
+    [val]   Acc=67.35%  Prec=67.39%  Rec=67.35%  F1=67.21%
+  time: 29.4s
+
+Epoch 358/378  LR=0.000013
+    [train] Acc=68.58%  Prec=68.28%  Rec=68.53%  F1=68.35%
+    [val]   Acc=67.46%  Prec=67.23%  Rec=67.46%  F1=67.22%
+  time: 29.0s
+
+Epoch 359/378  LR=0.000500
+    [train] Acc=68.48%  Prec=68.19%  Rec=68.43%  F1=68.27%
+    [val]   Acc=67.46%  Prec=66.93%  Rec=67.46%  F1=66.94%
+  time: 29.2s
+
+Epoch 360/378  LR=0.000488
+    [train] Acc=70.24%  Prec=70.01%  Rec=70.22%  F1=70.06%
+    [val]   Acc=68.37%  Prec=68.03%  Rec=68.37%  F1=68.05%
+  time: 29.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 361/378  LR=0.000452
+    [train] Acc=70.53%  Prec=70.21%  Rec=70.38%  F1=70.24%
+    [val]   Acc=68.25%  Prec=68.20%  Rec=68.25%  F1=68.10%
+  time: 29.5s
+
+Epoch 362/378  LR=0.000397
+    [train] Acc=69.58%  Prec=69.25%  Rec=69.53%  F1=69.35%
+    [val]   Acc=68.25%  Prec=67.90%  Rec=68.25%  F1=68.02%
+  time: 29.3s
+
+Epoch 363/378  LR=0.000328
+    [train] Acc=69.34%  Prec=69.20%  Rec=69.55%  F1=69.32%
+    [val]   Acc=68.93%  Prec=68.72%  Rec=68.93%  F1=68.68%
+  time: 29.1s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 364/378  LR=0.000251
+    [train] Acc=71.07%  Prec=70.93%  Rec=71.28%  F1=71.02%
+    [val]   Acc=69.16%  Prec=69.09%  Rec=69.16%  F1=69.00%
+  time: 29.3s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 365/378  LR=0.000173
+    [train] Acc=71.75%  Prec=71.51%  Rec=71.80%  F1=71.57%
+    [val]   Acc=68.93%  Prec=68.95%  Rec=68.93%  F1=68.91%
+  time: 29.6s
+
+Epoch 366/378  LR=0.000104
+    [train] Acc=70.04%  Prec=69.71%  Rec=70.08%  F1=69.74%
+    [val]   Acc=69.61%  Prec=69.55%  Rec=69.61%  F1=69.53%
+  time: 29.4s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 367/378  LR=0.000049
+    [train] Acc=70.65%  Prec=70.49%  Rec=70.95%  F1=70.66%
+    [val]   Acc=69.27%  Prec=69.22%  Rec=69.27%  F1=69.20%
+  time: 29.1s
+
+Epoch 368/378  LR=0.000013
+    [train] Acc=71.66%  Prec=71.56%  Rec=71.66%  F1=71.60%
+    [val]   Acc=69.39%  Prec=69.68%  Rec=69.39%  F1=69.46%
+  time: 29.2s
+
+Epoch 369/378  LR=0.000500
+    [train] Acc=71.26%  Prec=70.97%  Rec=71.27%  F1=71.05%
+    [val]   Acc=69.39%  Prec=69.60%  Rec=69.39%  F1=69.45%
+  time: 29.1s
+
+Epoch 370/378  LR=0.000488
+    [train] Acc=71.83%  Prec=71.62%  Rec=71.73%  F1=71.66%
+    [val]   Acc=69.95%  Prec=70.03%  Rec=69.95%  F1=69.93%
+  time: 29.2s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 371/378  LR=0.000452
+    [train] Acc=71.80%  Prec=71.43%  Rec=71.62%  F1=71.49%
+    [val]   Acc=70.52%  Prec=70.96%  Rec=70.52%  F1=70.53%
+  time: 29.3s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 372/378  LR=0.000397
+    [train] Acc=72.12%  Prec=71.88%  Rec=72.02%  F1=71.85%
+    [val]   Acc=71.43%  Prec=71.33%  Rec=71.43%  F1=71.34%
+  time: 29.3s
+  [ckpt] Saved → checkpoints\kdef_best_val_acc.pth
+
+Epoch 373/378  LR=0.000328
+    [train] Acc=71.26%  Prec=70.80%  Rec=71.01%  F1=70.86%
+    [val]   Acc=70.75%  Prec=70.60%  Rec=70.75%  F1=70.62%
+  time: 29.2s
+
+Epoch 374/378  LR=0.000251
+    [train] Acc=73.07%  Prec=73.04%  Rec=73.34%  F1=73.15%
+    [val]   Acc=70.86%  Prec=70.59%  Rec=70.86%  F1=70.60%
+  time: 29.3s
+
+Epoch 375/378  LR=0.000173
+    [train] Acc=71.95%  Prec=71.76%  Rec=72.03%  F1=71.86%
+    [val]   Acc=71.20%  Prec=71.11%  Rec=71.20%  F1=71.10%
+  time: 29.6s
+
+Epoch 376/378  LR=0.000104
+    [train] Acc=73.22%  Prec=73.09%  Rec=73.32%  F1=73.11%
+    [val]   Acc=71.32%  Prec=71.14%  Rec=71.32%  F1=71.12%
+  time: 29.6s
+
+Epoch 377/378  LR=0.000049
+    [train] Acc=72.14%  Prec=72.11%  Rec=72.35%  F1=72.17%
+    [val]   Acc=70.07%  Prec=70.03%  Rec=70.07%  F1=69.92%
+  time: 29.1s
+
+Epoch 378/378  LR=0.000013
+    [train] Acc=72.41%  Prec=72.22%  Rec=72.44%  F1=72.25%
+    [val]   Acc=71.32%  Prec=71.29%  Rec=71.32%  F1=71.27%
+  time: 29.2s
+
+(eanet) C:\Users\hanee\Project\facial-emotion-recognition>python train.py --dataset kdef --data_root data/KDEF_AUG --resume checkpoints/kdef_best_val_acc.pth --epochs 30 --batch_size 32 --lr 0.005 --num_workers 0
